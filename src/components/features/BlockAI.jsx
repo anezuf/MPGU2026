@@ -31,7 +31,7 @@ function BlockAI() {
   return (
     <section id="ai-tools" className="hub-section">
       <h2 className="hub-section__title">
-        <span className="section-number">01 —</span> Нейросети для учителя
+        <span className="block-heading-fill">Нейросети для учителя</span>
       </h2>
       <div className="ai-grid">
         {AI_PROMPTS.map((prompt) => (

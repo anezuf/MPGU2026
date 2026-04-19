@@ -14,7 +14,7 @@ function BlockTemplates() {
   return (
     <section id="templates-visuals" className="hub-section">
       <h2 className="hub-section__title">
-        <span className="section-number">02 —</span> Шаблоны и визуал
+        <span className="block-heading-fill">Шаблоны и визуал</span>
       </h2>
       <div className="ai-grid">
         {TEMPLATES.map((template) => (

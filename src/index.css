@@ -24,6 +24,7 @@
   --text: #1a2e2b;
   --text2: #5a7470;
   --border: #d4ede9;
+  --block-heading-fill: #c5dce8;
 }
 
 *,
@@ -57,12 +58,6 @@ h1 {
 
 h2,
 h3 {
-  font-family: 'Lora', serif;
-  font-weight: 600;
-}
-
-.section-num,
-.section-number {
   font-family: 'Lora', serif;
   font-weight: 600;
 }
@@ -586,41 +581,49 @@ a.btn-pink {
 }
 
 .hub-home {
-  padding: 24px 0;
+  padding: 0;
 }
 
 .hub-home__grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
+  gap: 20px;
+  padding: 40px 48px;
+  box-sizing: border-box;
 }
 
 .hub-home-card {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 10px;
-  min-height: 220px;
+  min-height: 200px;
   border: 1.5px solid var(--border);
   border-radius: 12px;
   background: var(--white);
-  padding: 18px;
-}
-
-.hub-home-card__number {
-  margin: 0;
-  font-size: 28px;
-  font-weight: 600;
-  color: var(--teal);
+  padding: 28px 28px 24px;
 }
 
 .hub-home-card__title {
-  font-size: 30px;
+  margin: 0 0 12px;
+  line-height: 1.2;
+}
+
+.card-title-underline {
+  display: inline;
+  border-bottom: 3px solid #2ABFAA;
+  padding-bottom: 3px;
+  font-family: 'Lora', serif;
+  font-weight: 700;
+  font-size: 22px;
+  color: #1a2e2b;
 }
 
 .hub-home-card__description {
-  margin: 0;
+  margin: 0 0 20px;
   color: var(--text2);
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  line-height: 1.45;
 }
 
 .hub-home-card__action {
@@ -639,18 +642,27 @@ a.btn-pink {
 }
 
 .hub-section__title {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 12px;
-  color: var(--text);
-  font-size: 32px;
-  font-weight: 600;
+  margin: 0 0 14px;
+  line-height: 1.25;
 }
 
-.section-number {
-  color: var(--teal);
-  font-size: 18px;
+.hub-section__title .block-heading-fill {
+  font-size: clamp(15px, 2.2vw, 19px);
+  padding: 5px 14px;
+}
+
+.block-heading-fill {
+  display: inline-block;
+  max-width: 100%;
+  box-sizing: border-box;
+  background: var(--block-heading-fill);
+  color: var(--text);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: background-color 200ms ease-out;
 }
 
 .hub-section__content {

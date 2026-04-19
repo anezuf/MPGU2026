@@ -4,7 +4,7 @@ function BlockInteractive() {
   return (
     <section id="interactive-tools" className="hub-section">
       <h2 className="hub-section__title">
-        <span className="section-number">03 —</span> Инструменты интерактива
+        <span className="block-heading-fill">Инструменты интерактива</span>
       </h2>
       <div className="ai-grid">
         {INTERACTIVE_TOOLS.map((tool) => {

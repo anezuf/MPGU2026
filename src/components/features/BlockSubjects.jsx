@@ -17,7 +17,7 @@ function BlockSubjects() {
   return (
     <section id="subject-resources" className="hub-section">
       <h2 className="hub-section__title">
-        <span className="section-number">04 —</span> Предметные копилки
+        <span className="block-heading-fill">Предметные копилки</span>
       </h2>
       <Tabs tabs={SUBJECT_TABS} activeTab={activeTab} onTabChange={setActiveTab}>
         <div className="ai-grid">
