@@ -130,11 +130,22 @@ button {
 }
 
 .btn-primary {
-  background: var(--teal);
-  color: var(--white);
+  background: var(--teal-bg);
+  border-color: var(--teal);
+  color: var(--teal-dark);
 }
 
 .btn-primary:hover {
+  background: var(--teal-bg);
+}
+
+.landing-hero__cta.btn-primary {
+  background: var(--teal);
+  border-color: var(--teal);
+  color: var(--white);
+}
+
+.landing-hero__cta.btn-primary:hover {
   background: var(--teal-dark);
 }
 
@@ -226,11 +237,7 @@ button {
 
 .landing-hero__stripe {
   min-height: 220px;
-  background: repeating-linear-gradient(
-    45deg,
-    #b8dff8 0 18px,
-    #eaf5ff 18px 36px
-  );
+  background: var(--teal-bg);
 }
 
 .view-controls {
@@ -297,8 +304,9 @@ button {
   margin: 0 auto;
   padding: 14px 16px;
   display: flex;
-  flex-direction: column;
-  gap: 12px;
+  flex-direction: row;
+  gap: 24px;
+  align-items: center;
 }
 
 .hub-nav__title {
@@ -308,29 +316,18 @@ button {
 .hub-nav__anchors {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 24px;
+  align-items: center;
 }
 
 .hub-nav__anchor {
   text-decoration: none;
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 24px;
+  font: 500 14px/1.2 'Nunito', 'Segoe UI', Arial, sans-serif;
+  color: var(--text2);
 }
 
-.hub-nav__anchor:nth-child(odd) {
-  background: var(--teal-bg);
-  border: 1px solid var(--teal);
-  color: var(--teal-dark);
-  border-radius: 999px;
-  padding: 2px 12px;
-}
-
-.hub-nav__anchor:nth-child(even) {
-  background: var(--pink-bg);
-  border: 1px solid var(--pink);
-  color: var(--pink-dark);
-  border-radius: 999px;
-  padding: 2px 12px;
+.hub-nav__anchor:hover {
+  color: var(--teal);
 }
 
 .hub-nav__logout {
@@ -347,40 +344,30 @@ button {
 }
 
 .hub-section {
-  position: relative;
   background: var(--white);
-  border: 1.5px solid var(--border);
-  border-radius: 12px;
-  padding: 16px;
+  border: 0;
+  border-radius: 0;
+  padding: 48px 24px;
 }
 
-.hub-section::before {
-  content: '';
-  display: block;
-  width: 100%;
+.hub-section + .hub-section {
   border-top: 2px dashed var(--pink);
-  margin-bottom: 10px;
-}
-
-.hub-section::after {
-  content: '• • •';
-  display: block;
-  color: var(--pink-dark);
-  text-align: center;
-  margin-top: 10px;
 }
 
 .hub-section__title {
   display: flex;
-  align-items: baseline;
-  gap: 8px;
+  align-items: center;
+  gap: 10px;
   margin-bottom: 12px;
-  font-size: 38px;
+  color: var(--text);
+  font-size: 32px;
+  font-weight: 700;
 }
 
 .section-number {
   color: var(--teal);
   font-weight: 700;
+  font-size: 18px;
 }
 
 .hub-section__content {
@@ -417,7 +404,9 @@ button {
 
 .ai-card__title {
   margin: 0;
-  font-size: 34px;
+  color: var(--text);
+  font-size: 22px;
+  font-weight: 600;
 }
 
 .ai-card__prompt {
@@ -428,12 +417,13 @@ button {
   background: var(--teal-bg);
   padding: 12px;
   white-space: pre-wrap;
-  font: 400 16px/1.4 'Nunito', 'Segoe UI', Arial, sans-serif;
-  color: var(--text);
+  font: 400 14px/1.45 'Nunito', 'Segoe UI', Arial, sans-serif;
+  color: var(--text2);
 }
 
 .ai-card__description {
   margin: 0;
+  font: 400 14px/1.45 'Nunito', 'Segoe UI', Arial, sans-serif;
   color: var(--text2);
 }
 
@@ -484,11 +474,6 @@ button {
 
   .landing-hero__stripe {
     min-height: 100svh;
-  }
-
-  .hub-nav__inner {
-    flex-direction: row;
-    align-items: center;
   }
 
   .hub-nav__anchors {

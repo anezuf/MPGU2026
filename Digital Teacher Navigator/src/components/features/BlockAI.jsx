@@ -41,7 +41,7 @@ function BlockAI() {
             <pre className="ai-card__prompt">{prompt.text}</pre>
             <button
               type="button"
-              className="btn-primary ai-card__action"
+              className="btn-outline-teal ai-card__action"
               onClick={() => handleCopyPrompt(prompt.id, prompt.text)}
             >
               {copiedPromptId === prompt.id ? 'Скопировано ✓' : 'Скопировать'}
@@ -55,7 +55,7 @@ function BlockAI() {
             <h3 className="ai-card__title">{service.title}</h3>
             <p className="ai-card__description">{service.description}</p>
             <a
-              className="btn-primary ai-card__action ai-card__service-link"
+              className="btn-outline-pink ai-card__action ai-card__service-link"
               href={service.url}
               target="_blank"
               rel="noopener"
