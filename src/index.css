@@ -1,72 +1,13 @@
-@font-face {
-  font-family: 'Cormorant Garamond';
-  src: url('./assets/fonts/CormorantGaramond-Light.ttf') format('truetype');
-  font-weight: 300;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Cormorant Garamond';
-  src: url('./assets/fonts/CormorantGaramond-LightItalic.ttf') format('truetype');
-  font-weight: 300;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Cormorant Garamond';
-  src: url('./assets/fonts/CormorantGaramond-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Cormorant Garamond';
-  src: url('./assets/fonts/CormorantGaramond-Italic.ttf') format('truetype');
-  font-weight: 400;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Cormorant Garamond';
-  src: url('./assets/fonts/CormorantGaramond-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Cormorant Garamond';
-  src: url('./assets/fonts/CormorantGaramond-MediumItalic.ttf') format('truetype');
-  font-weight: 500;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Cormorant Garamond';
-  src: url('./assets/fonts/CormorantGaramond-SemiBold.ttf') format('truetype');
-  font-weight: 600;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Cormorant Garamond';
-  src: url('./assets/fonts/CormorantGaramond-SemiBoldItalic.ttf') format('truetype');
-  font-weight: 600;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Cormorant Garamond';
-  src: url('./assets/fonts/CormorantGaramond-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Cormorant Garamond';
-  src: url('./assets/fonts/CormorantGaramond-BoldItalic.ttf') format('truetype');
-  font-weight: 700;
-  font-style: italic;
-}
+@font-face { font-family: 'Cormorant Garamond'; src: url('./assets/fonts/CormorantGaramond-Light.ttf'); font-weight: 300; font-style: normal; }
+@font-face { font-family: 'Cormorant Garamond'; src: url('./assets/fonts/CormorantGaramond-LightItalic.ttf'); font-weight: 300; font-style: italic; }
+@font-face { font-family: 'Cormorant Garamond'; src: url('./assets/fonts/CormorantGaramond-Regular.ttf'); font-weight: 400; font-style: normal; }
+@font-face { font-family: 'Cormorant Garamond'; src: url('./assets/fonts/CormorantGaramond-Italic.ttf'); font-weight: 400; font-style: italic; }
+@font-face { font-family: 'Cormorant Garamond'; src: url('./assets/fonts/CormorantGaramond-Medium.ttf'); font-weight: 500; font-style: normal; }
+@font-face { font-family: 'Cormorant Garamond'; src: url('./assets/fonts/CormorantGaramond-MediumItalic.ttf'); font-weight: 500; font-style: italic; }
+@font-face { font-family: 'Cormorant Garamond'; src: url('./assets/fonts/CormorantGaramond-SemiBold.ttf'); font-weight: 600; font-style: normal; }
+@font-face { font-family: 'Cormorant Garamond'; src: url('./assets/fonts/CormorantGaramond-SemiBoldItalic.ttf'); font-weight: 600; font-style: italic; }
+@font-face { font-family: 'Cormorant Garamond'; src: url('./assets/fonts/CormorantGaramond-Bold.ttf'); font-weight: 700; font-style: normal; }
+@font-face { font-family: 'Cormorant Garamond'; src: url('./assets/fonts/CormorantGaramond-BoldItalic.ttf'); font-weight: 700; font-style: italic; }
 
 :root {
   --teal: #2abfaa;
@@ -93,10 +34,17 @@ html {
 
 body {
   margin: 0;
-  font-family: 'Nunito', 'Segoe UI', Arial, sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-weight: 400;
   color: var(--text);
   background: var(--white);
+}
+
+button,
+.hub-nav,
+label,
+.tabs {
+  font-family: 'Nunito', sans-serif;
 }
 
 #root,
@@ -107,18 +55,24 @@ body {
 
 h1,
 h2,
-h3,
+h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+}
+
+.section-num,
 .section-number,
+.badge,
+.ai-card__badge,
+.pill,
 .pill-teal,
-.pill-pink,
-.ai-card__badge {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+.pill-pink {
+  font-family: 'Cormorant Garamond', serif;
 }
 
 h1,
 h2 {
   margin: 0;
-  font-weight: 700;
 }
 
 button {
@@ -129,7 +83,7 @@ button {
   border: 1.5px solid transparent;
   cursor: pointer;
   padding: 10px 16px;
-  font: 600 16px/1.2 'Nunito', 'Segoe UI', Arial, sans-serif;
+  font: 600 16px/1.2 'Nunito', sans-serif;
   transition: background-color 200ms ease-out, border-color 200ms ease-out, color 200ms ease-out;
 }
 
@@ -196,35 +150,48 @@ button {
 }
 
 .landing-hero {
-  width: min(100%, 1200px);
-  margin: 0 auto;
+  width: 100%;
   min-height: 100svh;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 300px;
+  box-sizing: border-box;
 }
 
 .landing-hero__content {
-  padding: 32px 24px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 14px;
+  padding: 0 80px;
+  box-sizing: border-box;
+  min-height: 100svh;
 }
 
 .landing-hero__title {
-  font-size: clamp(40px, 8vw, 80px);
+  margin: 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  font-size: 80px;
+  line-height: 1.05;
+  max-width: 600px;
+  color: var(--text);
 }
 
 .landing-hero__subtitle {
-  margin: 0;
-  color: var(--text2);
-  max-width: 28ch;
-  font-size: clamp(18px, 3.5vw, 24px);
+  margin: 20px 0 0;
+  max-width: 420px;
+  color: #5a7470;
+  font-family: 'Nunito', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.45;
 }
 
 .landing-hero__arrow {
-  width: min(220px, 65vw);
+  display: block;
+  width: 80px;
   height: auto;
+  margin: 28px 0 0;
+  flex-shrink: 0;
 }
 
 .landing-hero__arrow path {
@@ -235,13 +202,22 @@ button {
 }
 
 .landing-hero__cta {
-  margin-top: 6px;
+  margin-top: 8px;
   width: fit-content;
+  padding: 14px 32px;
+  font-size: 16px;
 }
 
 .landing-hero__stripe {
-  min-height: 220px;
-  background: var(--teal-bg);
+  min-height: 100svh;
+  border-radius: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    #b8dff8 0px,
+    #b8dff8 18px,
+    #eaf5ff 18px,
+    #eaf5ff 36px
+  );
 }
 
 .view-controls {
@@ -257,46 +233,83 @@ button {
   align-items: center;
   justify-content: center;
   padding: 16px;
-  background: var(--teal-bg);
+  background: rgba(0, 0, 0, 0.4);
 }
 
 .modal {
-  width: min(100%, 420px);
-  background: var(--white);
+  width: 100%;
+  max-width: 400px;
+  background: #ffffff;
   border: 1.5px solid var(--border);
   border-radius: 12px;
-  padding: 20px;
+  padding: 40px;
+  box-sizing: border-box;
 }
 
 .modal h2 {
-  margin: 0 0 12px;
+  margin: 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1.2;
+  color: var(--text);
 }
 
 .modal-form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 0;
 }
 
 .modal-form input {
+  box-sizing: border-box;
   width: 100%;
-  border: 1.5px solid var(--border);
+  margin: 16px 0;
+  border: 1.5px solid #d4ede9;
   border-radius: 8px;
   background: var(--white);
   color: var(--text);
-  padding: 10px 12px;
-  font: 500 16px/1.2 'Nunito', 'Segoe UI', Arial, sans-serif;
+  padding: 12px;
+  font: 500 16px/1.2 'Nunito', sans-serif;
 }
 
 .error-text {
-  margin: 0;
-  color: var(--pink-dark);
+  margin: 8px 0 0;
+  color: #c97a8e;
+  font-size: 14px;
+  font-family: 'Nunito', sans-serif;
+}
+
+.modal-form:has(.error-text) .modal-actions {
+  margin-top: 16px;
 }
 
 .modal-actions {
   display: flex;
   justify-content: flex-end;
-  gap: 8px;
+  gap: 12px;
+}
+
+.password-modal__close {
+  background: #ffffff;
+  border-color: var(--pink);
+  color: var(--pink-dark);
+}
+
+.password-modal__close:hover {
+  background: var(--pink-bg);
+}
+
+.password-modal__submit {
+  background: #2abfaa;
+  border-color: #2abfaa;
+  color: #ffffff;
+}
+
+.password-modal__submit:hover {
+  background: var(--teal-dark);
+  border-color: var(--teal-dark);
+  color: #ffffff;
 }
 
 .hub-nav {
@@ -327,7 +340,7 @@ button {
 
 .hub-nav__anchor {
   text-decoration: none;
-  font: 500 14px/1.2 'Nunito', 'Segoe UI', Arial, sans-serif;
+  font: 500 14px/1.2 'Nunito', sans-serif;
   color: var(--text2);
 }
 
@@ -388,16 +401,13 @@ button {
 
 .hub-home-card__number {
   margin: 0;
-  font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 28px;
   font-weight: 700;
   color: var(--teal);
 }
 
 .hub-home-card__title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 30px;
-  font-weight: 700;
 }
 
 .hub-home-card__description {
@@ -472,7 +482,6 @@ button {
   margin: 0;
   color: var(--text);
   font-size: 22px;
-  font-weight: 600;
 }
 
 .ai-card__prompt {
@@ -483,13 +492,13 @@ button {
   background: var(--teal-bg);
   padding: 12px;
   white-space: pre-wrap;
-  font: 400 14px/1.45 'Nunito', 'Segoe UI', Arial, sans-serif;
+  font: 400 14px/1.45 'Nunito', sans-serif;
   color: var(--text2);
 }
 
 .ai-card__description {
   margin: 0;
-  font: 400 14px/1.45 'Nunito', 'Segoe UI', Arial, sans-serif;
+  font: 400 14px/1.45 'Nunito', sans-serif;
   color: var(--text2);
 }
 
@@ -514,7 +523,7 @@ button {
   gap: 4px;
   text-decoration: none;
   color: var(--text2);
-  font: 500 12px/1.2 'Nunito', 'Segoe UI', Arial, sans-serif;
+  font: 500 12px/1.2 'Nunito', sans-serif;
 }
 
 .service-card__instruction-link:hover {
@@ -564,18 +573,6 @@ button {
 }
 
 @media (min-width: 900px) {
-  .landing-hero {
-    grid-template-columns: 1fr 0.82fr;
-  }
-
-  .landing-hero__content {
-    padding: 42px;
-  }
-
-  .landing-hero__stripe {
-    min-height: 100svh;
-  }
-
   .hub-nav__anchors {
     flex: 1;
     justify-content: center;

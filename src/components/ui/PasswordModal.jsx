@@ -41,10 +41,10 @@ function PasswordModal({ isOpen, onClose, onSubmit }) {
           />
           {error && <p className="error-text">{error}</p>}
           <div className="modal-actions">
-            <button type="button" className="btn-outline-pink" onClick={handleClose}>
+            <button type="button" className="btn-outline-pink password-modal__close" onClick={handleClose}>
               Закрыть
             </button>
-            <button type="submit" className="btn-outline-teal">
+            <button type="submit" className="password-modal__submit">
               Войти
             </button>
           </div>

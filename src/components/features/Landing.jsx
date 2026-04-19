@@ -1,8 +1,22 @@
 function Landing({ onOpenPassword }) {
   return (
     <section className="landing-hero">
-      <div className="landing-hero__content">
-        <h1 className="landing-hero__title">Цифровой навигатор педагога</h1>
+      <div
+        className="landing-hero__content"
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          minHeight: '100svh',
+          padding: '0 80px',
+        }}
+      >
+        <h1
+          className="landing-hero__title"
+          style={{ fontSize: '80px', lineHeight: '1.05', maxWidth: '560px' }}
+        >
+          Цифровой навигатор педагога
+        </h1>
         <p className="landing-hero__subtitle">
           Закрытая база знаний для будущих учителей-гуманитариев
         </p>
