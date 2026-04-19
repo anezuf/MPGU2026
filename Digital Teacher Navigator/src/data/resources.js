@@ -44,3 +44,30 @@ export const AI_SERVICES = [
     url: 'https://gigachat.devices.sberbank.ru',
   },
 ]
+
+export const INTERACTIVE_TOOLS = [
+  {
+    id: 'i1',
+    title: 'Quizizz',
+    description: 'Создавай викторины и опросы для класса. Российский аналог Kahoot.',
+    url: 'https://quizizz.com',
+    pdfUrl: null,
+    videoUrl: 'https://rutube.ru/placeholder1',
+  },
+  {
+    id: 'i2',
+    title: 'Mentimeter',
+    description: 'Интерактивные презентации с живым голосованием аудитории.',
+    url: 'https://mentimeter.com',
+    pdfUrl: 'https://disk.yandex.ru/placeholder2',
+    videoUrl: null,
+  },
+  {
+    id: 'i3',
+    title: 'Wordwall',
+    description: 'Игровые задания и упражнения: кроссворды, анаграммы, викторины.',
+    url: 'https://wordwall.net',
+    pdfUrl: null,
+    videoUrl: null,
+  },
+]

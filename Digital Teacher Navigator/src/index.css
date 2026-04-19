@@ -435,6 +435,40 @@ button {
   text-decoration: none;
 }
 
+.service-card__instructions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 2px;
+}
+
+.service-card__instruction-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+  color: var(--text2);
+  font: 500 12px/1.2 'Nunito', 'Segoe UI', Arial, sans-serif;
+}
+
+.service-card__instruction-link:hover {
+  text-decoration: underline;
+}
+
+.service-card__instruction-icon {
+  width: 12px;
+  height: 12px;
+  fill: currentColor;
+}
+
+.service-card__instruction-icon--pdf {
+  color: var(--pink-dark);
+}
+
+.service-card__instruction-icon--video {
+  color: var(--teal-dark);
+}
+
 .tabs {
   display: flex;
   flex-direction: column;
