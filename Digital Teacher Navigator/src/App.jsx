@@ -46,7 +46,7 @@ function App() {
   return (
     <div className="app-shell">
       {view === 'landing' ? (
-        <Landing onEnter={handleOpenModal} />
+        <Landing onOpenPassword={handleOpenModal} />
       ) : (
         <Hub onLogout={handleLogout} />
       )}
