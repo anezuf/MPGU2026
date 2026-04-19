@@ -30,9 +30,19 @@ function HubHome({ onNavigate }) {
     <section className="hub-home" aria-label="Обзор разделов навигатора">
       <div className="hub-home__grid">
         {HOME_BLOCKS.map((block) => (
-          <article key={block.key} className="hub-home-card">
-            <p className="hub-home-card__number">{block.number} —</p>
-            <h2 className="hub-home-card__title">{block.title}</h2>
+          <article
+            key={block.key}
+            className="hub-home-card"
+            style={{
+              border: '2px dashed #F0B4BC',
+              borderRadius: '12px',
+              background: '#fff',
+            }}
+          >
+            <h2 className="hub-home-card__title">
+              <span className="hub-home-card__number">{block.number} —</span>{' '}
+              {block.title}
+            </h2>
             <p className="hub-home-card__description">{block.description}</p>
             <button
               type="button"
