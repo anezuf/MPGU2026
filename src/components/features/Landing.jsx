@@ -17,7 +17,7 @@ function Landing({ onOpenPassword }) {
           <path d="M172 62L189 75L169 84" />
         </svg>
         <button className="btn-primary landing-hero__cta" onClick={onOpenPassword}>
-          Войти в навигатор
+          Получить доступ
         </button>
       </div>
       <div className="landing-hero__stripe" aria-hidden="true" />

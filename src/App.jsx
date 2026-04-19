@@ -7,7 +7,7 @@ import useAuth from './hooks/useAuth'
 function App() {
   const [view, setView] = useState('landing')
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const { checkPassword, login, logout, isAuthed } = useAuth()
+  const { checkPassword, login, logout } = useAuth()
 
   const handleOpenModal = () => {
     setIsModalOpen(true)
@@ -15,16 +15,6 @@ function App() {
 
   const handleCloseModal = () => {
     setIsModalOpen(false)
-  }
-
-  const handleNavigate = (nextView) => {
-    if (nextView === 'hub' && !isAuthed()) {
-      setView('landing')
-      handleOpenModal()
-      return
-    }
-
-    setView(nextView)
   }
 
   const handlePasswordSubmit = (password) => {
@@ -56,15 +46,6 @@ function App() {
         onClose={handleCloseModal}
         onSubmit={handlePasswordSubmit}
       />
-
-      <div className="view-controls">
-        <button className="btn-outline-teal" onClick={() => handleNavigate('landing')}>
-          Landing
-        </button>
-        <button className="btn-primary" onClick={() => handleNavigate('hub')}>
-          Hub
-        </button>
-      </div>
     </div>
   )
 }
