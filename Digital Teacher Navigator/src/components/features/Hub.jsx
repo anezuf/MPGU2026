@@ -1,39 +1,44 @@
+import { useState } from 'react'
 import BlockAI from './BlockAI'
 import BlockInteractive from './BlockInteractive'
 import BlockSubjects from './BlockSubjects'
 import BlockTemplates from './BlockTemplates'
+import HubHome from './HubHome'
+import NavBar from '../ui/NavBar'
 
 function Hub({ onLogout }) {
+  const [activePage, setActivePage] = useState('home')
+
+  function handleNavigate(pageKey) {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+    setActivePage(pageKey)
+  }
+
+  function renderActivePage() {
+    if (activePage === 'home') {
+      return <HubHome onNavigate={handleNavigate} />
+    }
+    if (activePage === 'ai') {
+      return <BlockAI />
+    }
+    if (activePage === 'templates') {
+      return <BlockTemplates />
+    }
+    if (activePage === 'interactive') {
+      return <BlockInteractive />
+    }
+    if (activePage === 'subjects') {
+      return <BlockSubjects />
+    }
+    return <HubHome onNavigate={handleNavigate} />
+  }
+
   return (
     <div className="hub">
-      <header className="hub-nav" data-no-print>
-        <div className="hub-nav__inner">
-          <h1 className="hub-nav__title">Цифровой навигатор педагога</h1>
-          <nav className="hub-nav__anchors" aria-label="Навигация по разделам">
-            <a className="hub-nav__anchor" href="#ai-tools">
-              Нейросети для учителя
-            </a>
-            <a className="hub-nav__anchor" href="#templates-visuals">
-              Шаблоны и визуал
-            </a>
-            <a className="hub-nav__anchor" href="#interactive-tools">
-              Инструменты интерактива
-            </a>
-            <a className="hub-nav__anchor" href="#subject-resources">
-              Предметные копилки
-            </a>
-          </nav>
-          <button className="btn-outline-pink hub-nav__logout" onClick={onLogout}>
-            Logout
-          </button>
-        </div>
-      </header>
+      <NavBar onLogout={onLogout} onNavigate={handleNavigate} activePage={activePage} />
 
       <main className="hub-content">
-        <BlockAI />
-        <BlockTemplates />
-        <BlockInteractive />
-        <BlockSubjects />
+        {renderActivePage()}
       </main>
     </div>
   )
