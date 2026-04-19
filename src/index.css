@@ -1,13 +1,17 @@
-@font-face { font-family: 'Cormorant Garamond'; src: url('./assets/fonts/CormorantGaramond-Light.ttf'); font-weight: 300; font-style: normal; }
-@font-face { font-family: 'Cormorant Garamond'; src: url('./assets/fonts/CormorantGaramond-LightItalic.ttf'); font-weight: 300; font-style: italic; }
-@font-face { font-family: 'Cormorant Garamond'; src: url('./assets/fonts/CormorantGaramond-Regular.ttf'); font-weight: 400; font-style: normal; }
-@font-face { font-family: 'Cormorant Garamond'; src: url('./assets/fonts/CormorantGaramond-Italic.ttf'); font-weight: 400; font-style: italic; }
-@font-face { font-family: 'Cormorant Garamond'; src: url('./assets/fonts/CormorantGaramond-Medium.ttf'); font-weight: 500; font-style: normal; }
-@font-face { font-family: 'Cormorant Garamond'; src: url('./assets/fonts/CormorantGaramond-MediumItalic.ttf'); font-weight: 500; font-style: italic; }
-@font-face { font-family: 'Cormorant Garamond'; src: url('./assets/fonts/CormorantGaramond-SemiBold.ttf'); font-weight: 600; font-style: normal; }
-@font-face { font-family: 'Cormorant Garamond'; src: url('./assets/fonts/CormorantGaramond-SemiBoldItalic.ttf'); font-weight: 600; font-style: italic; }
-@font-face { font-family: 'Cormorant Garamond'; src: url('./assets/fonts/CormorantGaramond-Bold.ttf'); font-weight: 700; font-style: normal; }
-@font-face { font-family: 'Cormorant Garamond'; src: url('./assets/fonts/CormorantGaramond-BoldItalic.ttf'); font-weight: 700; font-style: italic; }
+@font-face { font-family: 'Lora'; src: url('./assets/fonts/Lora-Regular.ttf'); font-weight: 400; font-style: normal; }
+@font-face { font-family: 'Lora'; src: url('./assets/fonts/Lora-Italic.ttf'); font-weight: 400; font-style: italic; }
+@font-face { font-family: 'Lora'; src: url('./assets/fonts/Lora-Medium.ttf'); font-weight: 500; font-style: normal; }
+@font-face { font-family: 'Lora'; src: url('./assets/fonts/Lora-MediumItalic.ttf'); font-weight: 500; font-style: italic; }
+@font-face { font-family: 'Lora'; src: url('./assets/fonts/Lora-SemiBold.ttf'); font-weight: 600; font-style: normal; }
+@font-face { font-family: 'Lora'; src: url('./assets/fonts/Lora-SemiBoldItalic.ttf'); font-weight: 600; font-style: italic; }
+@font-face { font-family: 'Lora'; src: url('./assets/fonts/Lora-Bold.ttf'); font-weight: 700; font-style: normal; }
+@font-face { font-family: 'Lora'; src: url('./assets/fonts/Lora-BoldItalic.ttf'); font-weight: 700; font-style: italic; }
+
+@font-face { font-family: 'Nunito'; src: url('./assets/fonts/Nunito-Light.ttf'); font-weight: 300; font-style: normal; }
+@font-face { font-family: 'Nunito'; src: url('./assets/fonts/Nunito-Regular.ttf'); font-weight: 400; font-style: normal; }
+@font-face { font-family: 'Nunito'; src: url('./assets/fonts/Nunito-Medium.ttf'); font-weight: 500; font-style: normal; }
+@font-face { font-family: 'Nunito'; src: url('./assets/fonts/Nunito-SemiBold.ttf'); font-weight: 600; font-style: normal; }
+@font-face { font-family: 'Nunito'; src: url('./assets/fonts/Nunito-Bold.ttf'); font-weight: 700; font-style: normal; }
 
 :root {
   --teal: #2abfaa;
@@ -40,34 +44,40 @@ body {
   background: var(--white);
 }
 
-button,
-.hub-nav,
-label,
-.tabs {
-  font-family: 'Nunito', sans-serif;
-}
-
 #root,
 .app-shell,
 .hub {
   min-height: 100vh;
 }
 
-h1,
-h2,
-h3 {
-  font-family: 'Cormorant Garamond', serif;
+h1 {
+  font-family: 'Lora', serif;
   font-weight: 700;
 }
 
+h2,
+h3 {
+  font-family: 'Lora', serif;
+  font-weight: 600;
+}
+
 .section-num,
-.section-number,
-.badge,
-.ai-card__badge,
+.section-number {
+  font-family: 'Lora', serif;
+  font-weight: 600;
+}
+
+.card-title {
+  font-family: 'Lora', serif;
+  font-weight: 600;
+}
+
 .pill,
+.badge,
 .pill-teal,
 .pill-pink {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
 }
 
 h1,
@@ -168,8 +178,6 @@ button {
 
 .landing-hero__title {
   margin: 0;
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 700;
   font-size: 80px;
   line-height: 1.05;
   max-width: 600px;
@@ -180,7 +188,6 @@ button {
   margin: 20px 0 0;
   max-width: 420px;
   color: #5a7470;
-  font-family: 'Nunito', sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 1.45;
@@ -248,8 +255,6 @@ button {
 
 .modal h2 {
   margin: 0;
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 700;
   font-size: 28px;
   line-height: 1.2;
   color: var(--text);
@@ -277,7 +282,6 @@ button {
   margin: 8px 0 0;
   color: #c97a8e;
   font-size: 14px;
-  font-family: 'Nunito', sans-serif;
 }
 
 .modal-form:has(.error-text) .modal-actions {
@@ -402,7 +406,7 @@ button {
 .hub-home-card__number {
   margin: 0;
   font-size: 28px;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--teal);
 }
 
@@ -437,12 +441,11 @@ button {
   margin-bottom: 12px;
   color: var(--text);
   font-size: 32px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .section-number {
   color: var(--teal);
-  font-weight: 700;
   font-size: 18px;
 }
 
