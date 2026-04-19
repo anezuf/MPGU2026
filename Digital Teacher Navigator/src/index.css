@@ -284,6 +284,78 @@ button {
   border-radius: 0.5rem;
 }
 
+.ai-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+.ai-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
+  padding: 1rem;
+}
+
+.ai-card:hover {
+  box-shadow: 0 10px 20px var(--shadow-color);
+}
+
+.ai-card__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  padding: 0.2rem 0.55rem;
+  color: var(--muted-text-color);
+  font-size: 0.75rem;
+}
+
+.ai-card__title {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.ai-card__prompt {
+  width: 100%;
+  margin: 0;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  background: rgba(148, 163, 184, 0.08);
+  padding: 0.75rem;
+  white-space: pre-wrap;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.ai-card__description {
+  margin: 0;
+  color: var(--muted-text-color);
+  line-height: 1.45;
+}
+
+.ai-card__action {
+  margin-top: auto;
+  min-height: 2.5rem;
+  padding-inline: 1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 0.625rem;
+}
+
+.ai-card__service-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #ffffff;
+}
+
 .tabs {
   display: flex;
   flex-direction: column;
@@ -327,5 +399,9 @@ button {
   .hub-nav__anchors {
     flex: 1;
     justify-content: center;
+  }
+
+  .ai-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
