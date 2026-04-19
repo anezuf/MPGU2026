@@ -27,7 +27,7 @@ function Hub({ onLogout }) {
               Предметные копилки
             </a>
           </nav>
-          <button className="btn-ghost hub-nav__logout" onClick={onLogout}>
+          <button className="btn-outline-pink hub-nav__logout" onClick={onLogout}>
             Logout
           </button>
         </div>

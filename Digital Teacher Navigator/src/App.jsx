@@ -58,7 +58,7 @@ function App() {
       />
 
       <div className="view-controls">
-        <button className="btn-ghost" onClick={() => handleNavigate('landing')}>
+        <button className="btn-outline-teal" onClick={() => handleNavigate('landing')}>
           Landing
         </button>
         <button className="btn-primary" onClick={() => handleNavigate('hub')}>

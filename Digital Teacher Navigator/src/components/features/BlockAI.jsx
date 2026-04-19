@@ -30,11 +30,13 @@ function BlockAI() {
 
   return (
     <section id="ai-tools" className="hub-section">
-      <h2 className="hub-section__title">Нейросети для учителя</h2>
+      <h2 className="hub-section__title">
+        <span className="section-number">01 —</span> Нейросети для учителя
+      </h2>
       <div className="ai-grid">
         {AI_PROMPTS.map((prompt) => (
           <article key={prompt.id} className="ai-card">
-            <span className="ai-card__badge">Промпт</span>
+            <span className="pill-teal ai-card__badge">Промпт</span>
             <h3 className="ai-card__title">{prompt.title}</h3>
             <pre className="ai-card__prompt">{prompt.text}</pre>
             <button
@@ -49,6 +51,7 @@ function BlockAI() {
 
         {AI_SERVICES.map((service) => (
           <article key={service.id} className="ai-card">
+            <span className="pill-pink ai-card__badge">Сервис</span>
             <h3 className="ai-card__title">{service.title}</h3>
             <p className="ai-card__description">{service.description}</p>
             <a

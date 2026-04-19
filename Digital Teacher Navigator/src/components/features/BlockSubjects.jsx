@@ -10,9 +10,11 @@ const SUBJECT_TABS = [
 function BlockSubjects({ activeTab, onTabChange }) {
   return (
     <section id="subject-resources" className="hub-section">
-      <h2 className="hub-section__title">Предметные копилки</h2>
+      <h2 className="hub-section__title">
+        <span className="section-number">04 —</span> Предметные копилки
+      </h2>
       <Tabs tabs={SUBJECT_TABS} activeTab={activeTab} onTabChange={onTabChange}>
-        <div className="hub-section__content" />
+        <div className="hub-section__content hub-section__content--dashed" />
       </Tabs>
     </section>
   )
