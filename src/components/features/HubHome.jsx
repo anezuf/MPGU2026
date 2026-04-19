@@ -49,7 +49,7 @@ function HubHome({ onNavigate }) {
               className="btn-outline-teal hub-home-card__action"
               onClick={() => onNavigate(block.key)}
             >
-              Перейти →
+              Перейти
             </button>
           </article>
         ))}

@@ -97,36 +97,79 @@ button {
   transition: background-color 200ms ease-out, border-color 200ms ease-out, color 200ms ease-out;
 }
 
-.btn-primary {
-  background: var(--teal-bg);
-  border-color: var(--teal);
-  color: var(--teal-dark);
+.btn-primary,
+.btn-navigate,
+.btn-outline-teal,
+.btn-teal,
+.btn-copy,
+.btn-link,
+.password-modal__submit {
+  background: #ffffff;
+  color: #2abfaa;
+  border: 1.5px solid #2abfaa;
+  border-radius: 8px;
+  padding: 8px 20px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.2;
+  transition: background 200ms ease, color 200ms ease, border-color 200ms ease;
+  cursor: pointer;
+  box-shadow: none;
 }
 
-.btn-primary:hover {
-  background: var(--teal-bg);
-}
-
-.landing-hero__cta.btn-primary {
+.btn-primary:hover,
+.btn-navigate:hover,
+.btn-outline-teal:hover,
+.btn-teal:hover,
+.btn-copy:hover,
+.btn-link:hover,
+.password-modal__submit:hover {
   background: #2abfaa;
-  border: none;
-  color: var(--white);
+  color: #ffffff;
+  border-color: #2abfaa;
+  transform: none;
+  box-shadow: none;
 }
 
-.landing-hero__cta.btn-primary:hover {
-  background: var(--teal-dark);
-}
-
-.btn-outline-teal {
-  background: var(--teal-bg);
-  border-color: var(--teal);
-  color: var(--teal-dark);
-}
-
-.btn-outline-pink {
-  background: var(--pink-bg);
-  border-color: var(--pink);
+.btn-outline-pink,
+.btn-pink {
+  background: #ffffff;
   color: var(--pink-dark);
+  border: 1.5px solid var(--pink);
+  border-radius: 8px;
+  padding: 8px 20px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.2;
+  transition: background 200ms ease, color 200ms ease, border-color 200ms ease;
+  cursor: pointer;
+  box-shadow: none;
+}
+
+.btn-outline-pink:hover,
+.btn-pink:hover {
+  background: var(--pink);
+  color: #ffffff;
+  border-color: var(--pink);
+  transform: none;
+  box-shadow: none;
+}
+
+a.btn-primary,
+a.btn-navigate,
+a.btn-outline-teal,
+a.btn-teal,
+a.btn-copy,
+a.btn-link,
+a.btn-outline-pink,
+a.btn-pink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-sizing: border-box;
 }
 
 .pill-teal,
@@ -171,7 +214,7 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 80px 60px 80px 80px;
+  padding: 0 60px 80px 80px;
   min-height: 100svh;
   background: #ffffff;
   box-sizing: border-box;
@@ -255,8 +298,6 @@ button {
 .landing-hero__cta {
   margin-top: 36px;
   width: fit-content;
-  padding: 14px 36px;
-  font-size: 16px;
 }
 
 .landing-hero__right {
@@ -275,20 +316,57 @@ button {
   box-sizing: border-box;
 }
 
-.landing-hero__deco-circle {
+.landing-hero__right-inner {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  width: 280px;
-  height: 280px;
-  border: 2px dashed #f0b4bc;
-  border-radius: 50%;
+  align-items: center;
+  gap: 16px;
+  padding: 60px 40px;
+  box-sizing: border-box;
+}
+
+.landing-hero__preview-card {
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1.5px dashed #f0b4bc;
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+.landing-hero__preview-card-head {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+
+.landing-hero__preview-num {
+  margin-right: 8px;
   font-family: 'Lora', serif;
-  font-size: 32px;
+  font-size: 12px;
   font-weight: 700;
-  color: #f0b4bc;
-  text-align: center;
-  line-height: 1.25;
+  color: #2abfaa;
+}
+
+.landing-hero__preview-title {
+  font-family: 'Lora', serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a2e2b;
+}
+
+.landing-hero__preview-hint {
+  margin: 0;
+  font-family: 'Nunito', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #5a7470;
+  line-height: 1.45;
 }
 
 .view-controls {
@@ -356,28 +434,6 @@ button {
   display: flex;
   justify-content: flex-end;
   gap: 12px;
-}
-
-.password-modal__close {
-  background: #ffffff;
-  border-color: var(--pink);
-  color: var(--pink-dark);
-}
-
-.password-modal__close:hover {
-  background: var(--pink-bg);
-}
-
-.password-modal__submit {
-  background: #2abfaa;
-  border-color: #2abfaa;
-  color: #ffffff;
-}
-
-.password-modal__submit:hover {
-  background: var(--teal-dark);
-  border-color: var(--teal-dark);
-  color: #ffffff;
 }
 
 .hub-nav {
