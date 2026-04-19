@@ -1,13 +1,9 @@
-import { useState } from 'react'
-
 import BlockAI from './BlockAI'
 import BlockInteractive from './BlockInteractive'
 import BlockSubjects from './BlockSubjects'
 import BlockTemplates from './BlockTemplates'
 
 function Hub({ onLogout }) {
-  const [activeTab, setActiveTab] = useState('social-studies')
-
   return (
     <div className="hub">
       <header className="hub-nav" data-no-print>
@@ -37,7 +33,7 @@ function Hub({ onLogout }) {
         <BlockAI />
         <BlockTemplates />
         <BlockInteractive />
-        <BlockSubjects activeTab={activeTab} onTabChange={setActiveTab} />
+        <BlockSubjects />
       </main>
     </div>
   )

@@ -71,3 +71,49 @@ export const INTERACTIVE_TOOLS = [
     videoUrl: null,
   },
 ]
+
+export const SUBJECTS = {
+  society: [
+    {
+      id: 'soc1',
+      title: 'ВЦИОМ',
+      description: 'Всероссийский центр изучения общественного мнения',
+      url: 'https://wciom.ru',
+      tag: 'Статистика',
+    },
+    {
+      id: 'soc2',
+      title: 'Росстат',
+      description: 'Федеральная служба государственной статистики',
+      url: 'https://rosstat.gov.ru',
+      tag: 'Статистика',
+    },
+  ],
+  orkse: [
+    {
+      id: 'ork1',
+      title: 'Виртуальный тур по храмам России',
+      description: 'Интерактивные 3D-туры по православным храмам',
+      url: 'https://placeholder.ru',
+      tag: 'Музей',
+    },
+  ],
+  history: [
+    {
+      id: 'his1',
+      title: 'Президентская библиотека',
+      description: 'Исторические документы, карты и архивные материалы',
+      url: 'https://prlib.ru',
+      tag: 'Архив',
+    },
+  ],
+  russian: [
+    {
+      id: 'rus1',
+      title: 'Национальный корпус русского языка',
+      description: 'Крупнейший корпус текстов на русском языке',
+      url: 'https://ruscorpora.ru',
+      tag: 'Корпус',
+    },
+  ],
+}
