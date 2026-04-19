@@ -1,5 +1,22 @@
 export const resources = []
 
+export const TEMPLATES = [
+  {
+    id: 't1',
+    title: 'Шаблон урока — Обществознание',
+    description: 'Готовая презентация с структурой урока для 9 класса',
+    type: 'presentation',
+    url: 'https://disk.yandex.ru/placeholder1',
+  },
+  {
+    id: 't2',
+    title: 'Рабочий лист — История',
+    description: 'Лист с заданиями для самостоятельной работы учеников',
+    type: 'worksheet',
+    url: 'https://disk.yandex.ru/placeholder2',
+  },
+]
+
 export const AI_PROMPTS = [
   {
     id: 'p1',
