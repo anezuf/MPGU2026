@@ -436,56 +436,84 @@ a.btn-pink {
   gap: 12px;
 }
 
-.hub-nav {
-  border-bottom: 1.5px solid var(--border);
-}
-
-.hub-nav__inner {
+.navbar {
   width: min(100%, 1100px);
   margin: 0 auto;
-  padding: 14px 16px;
-  display: flex;
-  flex-direction: row;
-  gap: 24px;
-  align-items: center;
+  box-sizing: border-box;
+  padding: 16px 40px 0;
+  border-bottom: 1px solid #d4ede9;
+  background: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-.hub-nav__title {
-  font-size: 40px;
+.navbar-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.navbar-title {
+  margin: 0;
+  min-width: 0;
+  font-family: 'Lora', serif;
+  font-weight: 700;
+  font-size: 22px;
+  color: #1a2e2b;
   cursor: pointer;
 }
 
-.hub-nav__anchors {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
+.navbar .btn-logout {
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
-.hub-nav__anchor {
-  text-decoration: none;
-  font: 500 14px/1.2 'Nunito', sans-serif;
-  color: var(--text2);
+.navbar-links {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 32px;
+  padding-bottom: 12px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
-.hub-nav__anchor:hover {
-  color: var(--teal);
+.navbar-links span {
+  flex-shrink: 0;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #5a7470;
+  cursor: pointer;
+  padding-bottom: 12px;
+  border-bottom: 2px solid transparent;
+  transition: color 200ms ease, border-color 200ms ease;
 }
 
-.hub-nav__anchor-button {
-  border: 0;
-  border-radius: 0;
-  background: transparent;
-  padding: 0;
+.navbar-links span:hover {
+  color: #2abfaa;
 }
 
-.hub-nav__anchor--active {
-  color: var(--teal);
-  border-bottom: 2px solid var(--teal);
+.navbar-links span.active {
+  color: #2abfaa;
+  border-bottom: 2px solid #2abfaa;
 }
 
-.hub-nav__logout {
-  width: fit-content;
+@media (max-width: 640px) {
+  .navbar {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .navbar-links {
+    gap: 20px;
+  }
 }
 
 .hub-content {
@@ -696,11 +724,6 @@ a.btn-pink {
 }
 
 @media (min-width: 900px) {
-  .hub-nav__anchors {
-    flex: 1;
-    justify-content: center;
-  }
-
   .ai-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }

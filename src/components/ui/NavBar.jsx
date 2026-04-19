@@ -1,50 +1,34 @@
 function NavBar({ onLogout, onNavigate, activePage }) {
   function getLinkClassName(pageKey) {
     const isActive = activePage === pageKey
-    return `hub-nav__anchor hub-nav__anchor-button${isActive ? ' hub-nav__anchor--active' : ''}`
+    return isActive ? 'active' : ''
   }
 
   return (
-    <header className="hub-nav" data-no-print>
-      <div className="hub-nav__inner">
-        <h1 className="hub-nav__title" onClick={() => onNavigate('home')}>
+    <nav className="navbar" data-no-print aria-label="Навигация по разделам">
+      <div className="navbar-top">
+        <span className="navbar-title" onClick={() => onNavigate('home')}>
           Цифровой навигатор педагога
-        </h1>
-        <nav className="hub-nav__anchors" aria-label="Навигация по разделам">
-          <button
-            type="button"
-            className={getLinkClassName('ai')}
-            onClick={() => onNavigate('ai')}
-          >
-            Нейросети для учителя
-          </button>
-          <button
-            type="button"
-            className={getLinkClassName('templates')}
-            onClick={() => onNavigate('templates')}
-          >
-            Шаблоны и визуал
-          </button>
-          <button
-            type="button"
-            className={getLinkClassName('interactive')}
-            onClick={() => onNavigate('interactive')}
-          >
-            Инструменты интерактива
-          </button>
-          <button
-            type="button"
-            className={getLinkClassName('subjects')}
-            onClick={() => onNavigate('subjects')}
-          >
-            Предметные копилки
-          </button>
-        </nav>
-        <button className="btn-outline-pink hub-nav__logout" onClick={onLogout}>
-          Logout
+        </span>
+        <button type="button" className="btn-outline-pink btn-logout" onClick={onLogout}>
+          Выйти
         </button>
       </div>
-    </header>
+      <div className="navbar-links">
+        <span className={getLinkClassName('ai')} onClick={() => onNavigate('ai')}>
+          Нейросети для учителя
+        </span>
+        <span className={getLinkClassName('templates')} onClick={() => onNavigate('templates')}>
+          Шаблоны и визуал
+        </span>
+        <span className={getLinkClassName('interactive')} onClick={() => onNavigate('interactive')}>
+          Инструменты интерактива
+        </span>
+        <span className={getLinkClassName('subjects')} onClick={() => onNavigate('subjects')}>
+          Предметные копилки
+        </span>
+      </div>
+    </nav>
   )
 }
 
