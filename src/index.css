@@ -35,6 +35,7 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -42,13 +43,15 @@ body {
   font-family: 'Nunito', sans-serif;
   font-weight: 400;
   color: var(--text);
+  min-width: 320px;
   overflow-x: hidden;
-  background: repeating-linear-gradient(
+  background-color: #fbfdfc;
+  background-image: repeating-linear-gradient(
     to right,
-    #e6faf7 0px,
-    #e6faf7 20px,
-    #ffffff 20px,
-    #ffffff 40px
+    rgba(42, 191, 170, 0.08) 0px,
+    rgba(42, 191, 170, 0.08) 18px,
+    rgba(255, 255, 255, 0) 18px,
+    rgba(255, 255, 255, 0) 40px
   );
 }
 
@@ -103,12 +106,16 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  max-width: 100%;
   border-radius: 8px;
   border: 1.5px solid transparent;
   cursor: pointer;
   padding: 10px 16px;
   font: 600 16px/1.2 'Nunito', sans-serif;
   touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
   transition: background-color 200ms ease-out, border-color 200ms ease-out, color 200ms ease-out;
 }
 
@@ -219,6 +226,10 @@ a.btn-pink {
   justify-content: center;
   text-decoration: none;
   box-sizing: border-box;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  touch-action: manipulation;
 }
 
 .pill-teal,
@@ -271,10 +282,10 @@ a.btn-pink {
   text-align: left;
   box-sizing: border-box;
   padding: clamp(22px, 3.2vw, 36px);
-  border: 1px solid rgba(240, 180, 188, 0.75);
+  border: none;
   border-radius: 18px;
-  background: rgba(255, 255, 255, 0.93);
-  box-shadow: 0 8px 20px rgba(240, 164, 184, 0.14);
+  background: transparent;
+  box-shadow: none;
 }
 
 .landing-hero__badge {
@@ -301,6 +312,7 @@ a.btn-pink {
   font-weight: 700;
   line-height: 1.15;
   color: #000000;
+  text-wrap: balance;
 }
 
 .landing-hero__subtitle {
@@ -312,6 +324,7 @@ a.btn-pink {
   font-size: clamp(19px, 2.4vw, 24px);
   font-weight: 400;
   line-height: 1.55;
+  text-wrap: balance;
 }
 
 .landing-hero__features {
@@ -402,6 +415,8 @@ a.btn-pink {
 .modal {
   width: 100%;
   max-width: 400px;
+  max-height: min(560px, calc(100dvh - 32px));
+  overflow-y: auto;
   background: #ffffff;
   border: 1.5px solid var(--border);
   border-radius: 12px;
@@ -462,7 +477,7 @@ a.btn-pink {
   width: min(100%, 1100px);
   margin: 0 auto;
   box-sizing: border-box;
-  padding: 12px 40px 0;
+  padding: 12px clamp(16px, 4vw, 40px) 0;
 }
 
 .navbar-top {
@@ -488,6 +503,7 @@ a.btn-pink {
   cursor: pointer;
   width: fit-content;
   max-width: 100%;
+  text-wrap: balance;
   transition: color 200ms ease-out;
 }
 
@@ -601,8 +617,8 @@ a.btn-pink {
   display: flex;
   flex-direction: column;
   gap: 14px;
-  background: #ffffff;
-  border: 1.5px solid var(--pink);
+  background: transparent;
+  border: none;
   border-radius: 16px;
 }
 
@@ -616,9 +632,9 @@ a.btn-pink {
 
 .hub-home__grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px;
-  padding: 40px 48px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
+  gap: clamp(16px, 2vw, 20px);
+  padding: clamp(20px, 4vw, 40px) clamp(16px, 5vw, 48px);
   box-sizing: border-box;
 }
 
@@ -706,6 +722,7 @@ a.btn-pink {
   color: #1a2e2b;
   margin: 0 0 6px 0;
   line-height: 1.2;
+  text-wrap: balance;
 }
 
 .section-subtitle {
@@ -713,6 +730,8 @@ a.btn-pink {
   font-size: 15px;
   color: #5a7470;
   margin: 0;
+  line-height: 1.45;
+  text-wrap: balance;
 }
 
 .hub-section__content {
@@ -728,7 +747,7 @@ a.btn-pink {
 
 .ai-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
   gap: 20px;
 }
 
@@ -847,6 +866,10 @@ a.btn-pink {
   gap: 10px;
 }
 
+.tabs__panel {
+  min-width: 0;
+}
+
 .tabs__list {
   display: flex;
   flex-wrap: wrap;
@@ -856,26 +879,61 @@ a.btn-pink {
 }
 
 .tabs__trigger {
-  background: var(--white);
+  background: transparent;
   border: 0;
-  border-bottom: 2px solid var(--white);
+  border-bottom: 2px solid transparent;
   border-radius: 0;
   padding: 8px 12px;
   color: var(--text2);
+  transition: background-color 200ms ease-out, color 200ms ease-out, border-color 200ms ease-out;
+}
+
+.tabs__trigger:hover {
+  background: rgba(230, 250, 247, 0.45);
 }
 
 .tabs__trigger--active {
+  background: rgba(230, 250, 247, 0.6);
   color: var(--teal-dark);
   border-bottom-color: var(--teal);
-}
-
-@media (min-width: 900px) {
-  .ai-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+  border-radius: 10px 10px 0 0;
 }
 
 @media (max-width: 768px) {
+  .navbar-links {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    scroll-snap-type: x proximity;
+    padding-bottom: 10px;
+  }
+
+  .navbar-links::-webkit-scrollbar {
+    display: none;
+  }
+
+  .navbar-tab {
+    flex: 0 0 auto;
+    min-height: 40px;
+    scroll-snap-align: start;
+    white-space: nowrap;
+  }
+
+  .hub-body {
+    padding: 16px 12px 0;
+  }
+
+  .hub-content {
+    min-height: 0;
+    padding: 20px 16px 32px;
+  }
+
+  .hub-section {
+    padding: 36px 16px;
+  }
+
   .hub-home__grid {
     grid-template-columns: 1fr;
     padding: 20px 16px;
@@ -921,12 +979,13 @@ a.btn-pink {
   }
 
   .navbar {
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: 14px;
+    padding-right: 14px;
   }
 
   .navbar-top {
     flex-wrap: wrap;
+    align-items: stretch;
     row-gap: 10px;
     margin-bottom: 12px;
   }
@@ -942,12 +1001,12 @@ a.btn-pink {
   }
 
   .hub-body {
-    padding-left: 8px;
-    padding-right: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 
   .hub-content {
-    padding: 16px 10px 32px;
+    padding: 16px 12px 28px;
     border-radius: 12px;
   }
 
@@ -1023,10 +1082,13 @@ a.btn-pink {
   .pcp-header__left {
     width: 100%;
     min-width: 0;
+    flex-wrap: wrap;
+    row-gap: 8px;
   }
 
   .pcp-header__label {
     min-width: 0;
+    white-space: normal;
     overflow-wrap: anywhere;
   }
 
@@ -1233,6 +1295,8 @@ a.btn-pink {
   padding: 7px 14px 6px;
   line-height: 1;
   text-shadow: 0 1px 2px rgba(6, 74, 65, 0.24);
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 
@@ -1275,6 +1339,7 @@ a.btn-pink {
   font-size: 22px;
   line-height: 1.25;
   color: #1a2e2b;
+  text-wrap: balance;
 }
 
 .pcp-content {
@@ -1311,6 +1376,7 @@ a.btn-pink {
   line-height: 1.5;
   color: var(--text2);
   white-space: pre-wrap;
+  overflow-wrap: anywhere;
   word-break: break-word;
 }
 
@@ -1368,6 +1434,10 @@ a.pcp-btn {
   align-items: center;
   justify-content: center;
   text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  touch-action: manipulation;
 }
 
 .pcp-btn--pink {
@@ -1428,7 +1498,7 @@ a.pcp-btn {
   }
 
   .pcp-btn {
-    width: fit-content;
+    width: 100%;
     font-size: 14px;
   }
 }

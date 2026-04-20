@@ -76,7 +76,7 @@ const HOME_BLOCKS = [
     key: 'ai',
     label: 'Нейросети',
     variant: 'teal',
-    Icon: LightbulbIcon,
+    icon: LightbulbIcon,
     title: 'Нейросети для учителя',
     description: 'Готовые промпты для планирования уроков и российские AI-сервисы для педагога.',
   },
@@ -84,7 +84,7 @@ const HOME_BLOCKS = [
     key: 'templates',
     label: 'Шаблоны',
     variant: 'pink',
-    Icon: DownloadIcon,
+    icon: DownloadIcon,
     title: 'Шаблоны и визуал',
     description: 'Презентации и рабочие листы для скачивания — бери и используй на уроке.',
   },
@@ -92,7 +92,7 @@ const HOME_BLOCKS = [
     key: 'interactive',
     label: 'Интерактив',
     variant: 'teal',
-    Icon: ZapIcon,
+    icon: ZapIcon,
     title: 'Инструменты интерактива',
     description: 'Сервисы для создания квизов, опросов и интерактивных заданий с инструкциями.',
   },
@@ -100,7 +100,7 @@ const HOME_BLOCKS = [
     key: 'subjects',
     label: 'Предметы',
     variant: 'pink',
-    Icon: BookIcon,
+    icon: BookIcon,
     title: 'Предметные копилки',
     description: 'Ссылки на источники по обществознанию, ОРКСЭ, истории и русскому языку.',
   },
@@ -110,7 +110,7 @@ function HubHome({ onNavigate }) {
   return (
     <section className="hub-home" aria-label="Обзор разделов навигатора">
       <div className="hub-home__grid">
-        {HOME_BLOCKS.map(({ key, label, variant, Icon, title, description }) => {
+        {HOME_BLOCKS.map(({ key, label, variant, icon, title, description }) => {
           const isService = variant === 'pink'
           return (
             <article
@@ -120,7 +120,7 @@ function HubHome({ onNavigate }) {
               <div className={isService ? 'pcp-header pcp-header--service' : 'pcp-header'}>
                 <div className="pcp-header__left">
                   <div className="pcp-header__icon">
-                    <Icon />
+                    {icon()}
                   </div>
                   <span className="pcp-header__label">{label}</span>
                 </div>
