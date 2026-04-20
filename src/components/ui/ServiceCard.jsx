@@ -27,9 +27,6 @@ function ServiceCard({ service }) {
           </div>
           <span className="pcp-header__label">Сервис</span>
         </div>
-        <div className="pcp-header__right">
-          <div className="pcp-header__line" />
-        </div>
       </div>
 
       <div className="pcp-body">

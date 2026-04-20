@@ -806,7 +806,7 @@ a.btn-pink {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: linear-gradient(to right, #16a895, #52d4c0);
+  background: #2ABFAA;
   height: 68px;
   padding: 0 22px;
   border-radius: 0 0 16px 16px;
@@ -815,19 +815,34 @@ a.btn-pink {
 }
 
 .pcp-header--service {
-  background: linear-gradient(to right, #c97a8e, #f0b4bc);
+  background: #e8929f;
 }
 
 .pcp-header::after {
   content: '';
   position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 150px;
-  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.22) 1.5px, transparent 1.5px);
-  background-size: 11px 11px;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
+  background-size: 14px 14px;
+  -webkit-mask-image: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0) 75%
+  );
+  mask-image: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0) 75%
+  );
   pointer-events: none;
+  z-index: 0;
+}
+
+.pcp-header > * {
+  position: relative;
+  z-index: 1;
 }
 
 .pcp-header__left {
@@ -860,21 +875,6 @@ a.btn-pink {
   text-transform: uppercase;
 }
 
-.pcp-header__right {
-  display: flex;
-  align-items: center;
-  flex: 1;
-  margin-left: 20px;
-  position: relative;
-  z-index: 1;
-}
-
-.pcp-header__line {
-  flex: 1;
-  max-width: 200px;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.35);
-}
 
 .pcp-body {
   display: flex;
@@ -923,7 +923,7 @@ a.btn-pink {
   color: #2abfaa;
   border: 1.5px solid #2abfaa;
   border-radius: 12px;
-  padding: 9px 20px;
+  padding: 7px 16px;
   font-family: 'Nunito', sans-serif;
   font-weight: 600;
   font-size: 14px;

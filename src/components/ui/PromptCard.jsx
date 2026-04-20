@@ -27,9 +27,6 @@ function PromptCard({ prompt, isCopied, onCopy }) {
           </div>
           <span className="pcp-header__label">Промпт</span>
         </div>
-        <div className="pcp-header__right">
-          <div className="pcp-header__line" />
-        </div>
       </div>
 
       <div className="pcp-body">
