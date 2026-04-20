@@ -21,7 +21,11 @@ const MOBILE_BUTTON_LIKE_SELECTOR = [
 function App() {
   const [view, setView] = useState('landing')
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const { checkPassword, login, logout } = useAuth()
+  const { checkPassword, login, logout, isAuthed } = useAuth()
+
+  useEffect(() => {
+    setView(isAuthed() ? 'hub' : 'landing')
+  }, [isAuthed])
 
   useEffect(() => {
     if (!isMobileTouchDevice()) {

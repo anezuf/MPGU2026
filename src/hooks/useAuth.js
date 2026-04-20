@@ -1,21 +1,23 @@
-import { AUTH_STORAGE_KEY, PASSWORD } from '../constants'
+import { useCallback } from 'react'
+import { AUTH_STORAGE_KEY, HUB_PAGE_STORAGE_KEY, PASSWORD } from '../constants'
 
 function useAuth() {
-  const checkPassword = (inputPassword) => {
+  const checkPassword = useCallback((inputPassword) => {
     return inputPassword === PASSWORD
-  }
+  }, [])
 
-  const login = () => {
+  const login = useCallback(() => {
     sessionStorage.setItem(AUTH_STORAGE_KEY, 'true')
-  }
+  }, [])
 
-  const logout = () => {
+  const logout = useCallback(() => {
     sessionStorage.removeItem(AUTH_STORAGE_KEY)
-  }
+    sessionStorage.removeItem(HUB_PAGE_STORAGE_KEY)
+  }, [])
 
-  const isAuthed = () => {
+  const isAuthed = useCallback(() => {
     return sessionStorage.getItem(AUTH_STORAGE_KEY) === 'true'
-  }
+  }, [])
 
   return {
     checkPassword,
