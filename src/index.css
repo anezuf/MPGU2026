@@ -530,7 +530,7 @@ a.btn-pink {
 
 @media (min-width: 641px) {
   .navbar-actions {
-    margin-right: clamp(120px, 14vw, 190px);
+    margin-right: clamp(200px, 24vw, 320px);
   }
 }
 
@@ -1348,10 +1348,10 @@ a.btn-pink {
 .pcp-card {
   /* One source of truth so the teal header fills the card’s rounded top (no white wedges on iOS) */
   --pcp-radius: 20px;
-  --pcp-inner-r: calc(var(--pcp-radius) - 1.5px);
-  --pcp-overlap-y: 12px;
+  --pcp-inner-r: calc(var(--pcp-radius) - 1px);
+  --pcp-stroke: #abe8df;
   background: #ffffff;
-  border: 1.5px solid #abe8df;
+  border: 1px solid var(--pcp-stroke);
   border-radius: var(--pcp-radius);
   box-shadow: 0 2px 16px rgba(42, 191, 170, 0.10), 0 1px 4px rgba(0, 0, 0, 0.05);
   overflow: hidden;
@@ -1359,10 +1359,17 @@ a.btn-pink {
   min-width: 0;
   display: flex;
   flex-direction: column;
+  position: relative;
+  background-clip: padding-box;
+  contain: paint;
+}
+
+.pcp-card::before {
+  content: none;
 }
 
 .pcp-card--service {
-  border-color: #f0b4bc;
+  --pcp-stroke: #f0b4bc;
   box-shadow: 0 4px 24px rgba(240, 180, 188, 0.18), 0 1px 4px rgba(0, 0, 0, 0.05);
 }
 
@@ -1378,7 +1385,8 @@ a.btn-pink {
   border-radius: var(--pcp-inner-r) var(--pcp-inner-r) 0 0;
   position: relative;
   overflow: hidden;
-  transform: translateZ(0);
+  transform: none;
+  z-index: 1;
 }
 
 .pcp-header--service {
@@ -1414,20 +1422,20 @@ a.btn-pink {
 
 .pcp-header__curve {
   position: absolute;
-  left: -1px;
-  bottom: -2px;
-  width: calc(100% + 2px);
-  height: 44px;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 42px;
   display: block;
   pointer-events: none;
-  z-index: 1;
-  transform: translateZ(0);
-  backface-visibility: hidden;
+  z-index: 2;
+  transform: none;
+  backface-visibility: visible;
 }
 
 .pcp-header__curve path {
   fill: #ffffff;
-  shape-rendering: geometricPrecision;
+  shape-rendering: auto;
 }
 
 .pcp-header__left {
@@ -1476,26 +1484,16 @@ a.btn-pink {
   gap: 14px;
   background: #ffffff;
   border-radius: 0 0 var(--pcp-inner-r) var(--pcp-inner-r);
-  margin-top: calc(-1 * var(--pcp-overlap-y));
+  margin-top: -1px;
   padding: 28px 22px 22px;
   position: relative;
-  z-index: 2;
+  z-index: 1;
   box-shadow: none;
   flex: 1;
 }
 
 .pcp-body::before {
-  content: '';
-  position: absolute;
-  top: calc(-1 * var(--pcp-overlap-y));
-  left: 50%;
-  width: calc(100% + 96px);
-  height: 46px;
-  transform: translateX(-50%);
-  background: #ffffff;
-  border-radius: 50%;
-  z-index: 0;
-  backface-visibility: hidden;
+  content: none;
 }
 
 .pcp-body > * {
@@ -1630,20 +1628,17 @@ a.pcp-btn {
 @media (max-width: 600px) {
   .pcp-card {
     --pcp-radius: 16px;
-    --pcp-overlap-y: 8px;
     border-radius: var(--pcp-radius);
   }
 
   .pcp-body {
-    margin-top: calc(-1 * var(--pcp-overlap-y));
+    margin-top: -1px;
     padding: 20px 16px 18px;
     gap: 12px;
   }
 
   .pcp-body::before {
-    top: calc(-1 * var(--pcp-overlap-y));
-    width: calc(100% + 80px);
-    height: 30px;
+    content: none;
   }
 
   .pcp-header {
@@ -1651,9 +1646,9 @@ a.pcp-btn {
   }
 
   .pcp-header__curve {
-    left: -1px;
-    width: calc(100% + 2px);
-    height: 32px;
+    left: 0;
+    width: 100%;
+    height: 30px;
   }
 
   .pcp-header__icon {
@@ -1691,12 +1686,11 @@ a.pcp-btn {
   }
 
   .pcp-body::before {
-    height: 24px;
-    width: calc(100% + 72px);
+    content: none;
   }
 
   .pcp-header__curve {
-    height: 26px;
+    height: 24px;
   }
 
   .pcp-content {
