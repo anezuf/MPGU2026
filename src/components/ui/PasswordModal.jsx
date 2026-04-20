@@ -1,8 +1,37 @@
-import { useState } from 'react'
+import { useLayoutEffect, useRef, useState } from 'react'
+import { isMobileTouchDevice } from '../../utils/isMobileTouchDevice'
 
 function PasswordModal({ isOpen, onClose, onSubmit }) {
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
+  const inputRef = useRef(null)
+
+  useLayoutEffect(() => {
+    if (!isOpen) {
+      return undefined
+    }
+
+    const viewportMeta = document.querySelector('meta[name="viewport"]')
+    const shouldLockViewport = viewportMeta && isMobileTouchDevice()
+    const previousViewport = shouldLockViewport
+      ? viewportMeta.getAttribute('content') ?? ''
+      : null
+
+    if (shouldLockViewport) {
+      viewportMeta.setAttribute(
+        'content',
+        'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no',
+      )
+    }
+
+    inputRef.current?.focus()
+
+    return () => {
+      if (shouldLockViewport && previousViewport !== null) {
+        viewportMeta.setAttribute('content', previousViewport)
+      }
+    }
+  }, [isOpen])
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -33,11 +62,11 @@ function PasswordModal({ isOpen, onClose, onSubmit }) {
         <h2 id="password-modal-title">Введите пароль</h2>
         <form onSubmit={handleSubmit} className="modal-form">
           <input
+            ref={inputRef}
             type="password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
             placeholder="Пароль"
-            autoFocus
           />
           {error && <p className="error-text">{error}</p>}
           <div className="modal-actions">

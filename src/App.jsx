@@ -1,13 +1,53 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Landing from './components/features/Landing'
 import Hub from './components/features/Hub'
 import PasswordModal from './components/ui/PasswordModal'
 import useAuth from './hooks/useAuth'
+import { isMobileTouchDevice } from './utils/isMobileTouchDevice'
+
+const MOBILE_BUTTON_LIKE_SELECTOR = [
+  'button',
+  'a.btn-primary',
+  'a.btn-navigate',
+  'a.btn-outline-teal',
+  'a.btn-teal',
+  'a.btn-copy',
+  'a.btn-link',
+  'a.btn-outline-pink',
+  'a.btn-pink',
+  'a.pcp-btn',
+].join(', ')
 
 function App() {
   const [view, setView] = useState('landing')
   const [isModalOpen, setIsModalOpen] = useState(false)
   const { checkPassword, login, logout } = useAuth()
+
+  useEffect(() => {
+    if (!isMobileTouchDevice()) {
+      return undefined
+    }
+
+    const handleContextMenu = (event) => {
+      if (!(event.target instanceof Element)) {
+        return
+      }
+
+      const interactiveTarget = event.target.closest(MOBILE_BUTTON_LIKE_SELECTOR)
+
+      if (!interactiveTarget) {
+        return
+      }
+
+      event.preventDefault()
+    }
+
+    document.addEventListener('contextmenu', handleContextMenu)
+
+    return () => {
+      document.removeEventListener('contextmenu', handleContextMenu)
+    }
+  }, [])
 
   const handleOpenModal = () => {
     setIsModalOpen(true)
