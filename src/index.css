@@ -42,6 +42,7 @@ body {
   font-family: 'Nunito', sans-serif;
   font-weight: 400;
   color: var(--text);
+  overflow-x: hidden;
   background: repeating-linear-gradient(
     to right,
     #fdf0f3 0px,
@@ -100,6 +101,7 @@ button {
   cursor: pointer;
   padding: 10px 16px;
   font: 600 16px/1.2 'Nunito', sans-serif;
+  touch-action: manipulation;
   transition: background-color 200ms ease-out, border-color 200ms ease-out, color 200ms ease-out;
 }
 
@@ -380,16 +382,19 @@ a.btn-pink {
   gap: 12px;
 }
 
+.navbar-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #ffffff;
+  border-bottom: 1px solid #d4ede9;
+}
+
 .navbar {
   width: min(100%, 1100px);
   margin: 0 auto;
   box-sizing: border-box;
   padding: 12px 40px 0;
-  border-bottom: 1px solid #d4ede9;
-  background: #ffffff;
-  position: sticky;
-  top: 0;
-  z-index: 100;
 }
 
 .navbar-top {
@@ -507,11 +512,6 @@ a.btn-pink {
 }
 
 @media (max-width: 640px) {
-  .navbar {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-
   .navbar-links {
     column-gap: 8px;
     row-gap: 6px;
@@ -633,7 +633,7 @@ a.btn-pink {
 
 .section-title {
   font-family: 'Lora', serif;
-  font-size: 32px;
+  font-size: clamp(22px, 5vw, 32px);
   font-weight: 700;
   color: #1a2e2b;
   margin: 0 0 6px 0;
@@ -810,6 +810,88 @@ a.btn-pink {
 @media (max-width: 768px) {
   .hub-home__grid {
     grid-template-columns: 1fr;
+    padding: 20px 16px;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .navbar {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .hub-body {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .hub-content {
+    padding: 16px 10px 32px;
+    border-radius: 12px;
+  }
+
+  .hub-section {
+    padding: 28px 12px;
+  }
+
+  .hub-section + .hub-section {
+    border-top-width: 1px;
+  }
+
+  .section-header {
+    margin-bottom: 20px;
+  }
+
+  .hub-section-anchor {
+    scroll-margin-top: 160px;
+  }
+
+  .modal {
+    padding: 28px 20px;
+  }
+
+  .modal h2 {
+    font-size: 22px;
+  }
+
+  .tabs__list {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 10px;
+  }
+
+  .tabs__list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tabs__trigger {
+    white-space: nowrap;
+    flex-shrink: 0;
+    font-size: 13px;
+    padding: 7px 10px;
+  }
+
+  .card-title-underline {
+    font-size: 19px;
+  }
+
+  .hub-home-card {
+    padding: 20px 20px 18px;
+    min-height: unset;
+  }
+}
+
+@media (max-width: 400px) {
+  .navbar-title {
+    font-size: 17px;
+  }
+
+  .btn-logout {
+    padding: 7px 12px;
+    font-size: 13px;
   }
 }
 
