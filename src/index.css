@@ -112,6 +112,8 @@ button {
 .btn-copy,
 .btn-link,
 .password-modal__submit {
+  position: relative;
+  overflow: hidden;
   background: #ffffff;
   color: #2abfaa;
   border: 1.5px solid #2abfaa;
@@ -123,7 +125,7 @@ button {
   line-height: 1.2;
   transition: background 200ms ease, color 200ms ease, border-color 200ms ease;
   cursor: pointer;
-  box-shadow: none;
+  animation: btn-glow-teal 2s ease-in-out infinite;
 }
 
 .btn-primary:hover,
@@ -137,11 +139,46 @@ button {
   color: #ffffff;
   border-color: #2abfaa;
   transform: none;
-  box-shadow: none;
+}
+
+.btn-primary::before,
+.btn-navigate::before,
+.btn-outline-teal::before,
+.btn-teal::before,
+.btn-copy::before,
+.btn-link::before,
+.password-modal__submit::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  left: 0;
+  width: 40%;
+  height: 140%;
+  background: linear-gradient(
+    105deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.38) 50%,
+    transparent 80%
+  );
+  transform: translateX(-200%) skewX(-15deg);
+  pointer-events: none;
+  animation: btn-shine-idle 5s ease-in-out infinite;
+}
+
+.btn-primary:hover::before,
+.btn-navigate:hover::before,
+.btn-outline-teal:hover::before,
+.btn-teal:hover::before,
+.btn-copy:hover::before,
+.btn-link:hover::before,
+.password-modal__submit:hover::before {
+  animation: btn-shine 0.6s ease-in-out forwards;
 }
 
 .btn-outline-pink,
 .btn-pink {
+  position: relative;
+  overflow: hidden;
   background: #ffffff;
   color: var(--pink-dark);
   border: 1.5px solid var(--pink);
@@ -153,7 +190,7 @@ button {
   line-height: 1.2;
   transition: background 200ms ease, color 200ms ease, border-color 200ms ease;
   cursor: pointer;
-  box-shadow: none;
+  animation: btn-glow-pink 2s ease-in-out infinite;
 }
 
 .btn-outline-pink:hover,
@@ -162,7 +199,30 @@ button {
   color: #ffffff;
   border-color: var(--pink);
   transform: none;
-  box-shadow: none;
+}
+
+.btn-outline-pink::before,
+.btn-pink::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  left: 0;
+  width: 40%;
+  height: 140%;
+  background: linear-gradient(
+    105deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.38) 50%,
+    transparent 80%
+  );
+  transform: translateX(-200%) skewX(-15deg);
+  pointer-events: none;
+  animation: btn-shine-idle 5s ease-in-out infinite;
+}
+
+.btn-outline-pink:hover::before,
+.btn-pink:hover::before {
+  animation: btn-shine 0.6s ease-in-out forwards;
 }
 
 a.btn-primary,
@@ -1061,6 +1121,8 @@ a.btn-pink {
 }
 
 .pcp-btn {
+  position: relative;
+  overflow: hidden;
   background: #ffffff;
   color: #2abfaa;
   border: 1.5px solid #2abfaa;
@@ -1073,12 +1135,39 @@ a.btn-pink {
   width: fit-content;
   margin-top: auto;
   transition: background 200ms ease-out, color 200ms ease-out;
+  animation: btn-glow-teal 2s ease-in-out infinite;
 }
 
 .pcp-btn:hover {
   background: #2abfaa;
   color: #ffffff;
   border-color: #2abfaa;
+}
+
+.pcp-btn::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  left: 0;
+  width: 40%;
+  height: 140%;
+  background: linear-gradient(
+    105deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.38) 50%,
+    transparent 80%
+  );
+  transform: translateX(-200%) skewX(-15deg);
+  pointer-events: none;
+  animation: btn-shine-idle 5s ease-in-out infinite;
+}
+
+.pcp-btn:hover::before {
+  animation: btn-shine 0.6s ease-in-out forwards;
+}
+
+.pcp-btn--pink {
+  animation: btn-glow-pink 2s ease-in-out infinite;
 }
 
 a.pcp-btn {
@@ -1099,6 +1188,10 @@ a.pcp-btn {
   border-color: #f0b4bc;
 }
 
+.pcp-btn--pink:hover::before {
+  animation: btn-shine 0.6s ease-in-out forwards;
+}
+
 @media (max-width: 600px) {
   .pcp-body {
     padding: 16px 16px 18px;
@@ -1112,4 +1205,27 @@ a.pcp-btn {
   .pcp-content {
     padding: 14px 14px;
   }
+}
+
+/* Button animation keyframes */
+@keyframes btn-glow-teal {
+  0%, 100% { box-shadow: 0 0 6px 2px rgba(42, 191, 170, 0.12); }
+  50%       { box-shadow: 0 0 14px 5px rgba(42, 191, 170, 0.30); }
+}
+
+@keyframes btn-glow-pink {
+  0%, 100% { box-shadow: 0 0 6px 2px rgba(240, 164, 184, 0.12); }
+  50%       { box-shadow: 0 0 14px 5px rgba(240, 164, 184, 0.30); }
+}
+
+@keyframes btn-shine-idle {
+  0%        { transform: translateX(-200%) skewX(-15deg); opacity: 0; }
+  8%        { opacity: 1; }
+  22%       { opacity: 0; transform: translateX(260%) skewX(-15deg); }
+  100%      { transform: translateX(260%) skewX(-15deg); opacity: 0; }
+}
+
+@keyframes btn-shine {
+  from { transform: translateX(-150%) skewX(-15deg); }
+  to   { transform: translateX(220%) skewX(-15deg); }
 }
