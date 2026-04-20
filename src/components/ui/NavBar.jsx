@@ -29,11 +29,18 @@ function NavBar({ onLogout, onNavigate, activePage }) {
     onLogout()
   }
 
+  function handleHomeClick() {
+    setIsDropdownOpen(false)
+    onNavigate('home')
+  }
+
   return (
     <div className="navbar-wrapper" data-no-print>
       <nav className="navbar" aria-label="Навигация по разделам">
         <div className="header-bar">
-          <span className="header-title">Навигатор педагога</span>
+          <button type="button" className="header-title-btn" onClick={handleHomeClick}>
+            Навигатор педагога
+          </button>
           <div className="avatar-wrapper" ref={avatarWrapperRef}>
             <button
               type="button"
@@ -59,7 +66,7 @@ function NavBar({ onLogout, onNavigate, activePage }) {
           </div>
         </div>
         <div className="navbar-top">
-          <button type="button" className="navbar-title" onClick={() => onNavigate('home')}>
+          <button type="button" className="navbar-title" onClick={handleHomeClick}>
             Цифровой навигатор педагога
           </button>
           <button type="button" className="btn-outline-pink btn-logout" onClick={onLogout}>
