@@ -1,12 +1,14 @@
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
 import { AI_PROMPTS, AI_SERVICES } from '../../data/resources'
+import PromptCard from '../ui/PromptCard'
+import ServiceCard from '../ui/ServiceCard'
 
 function BlockAI() {
   const [copiedPromptId, setCopiedPromptId] = useState(null)
   const copyResetTimerRef = useRef(null)
 
-  const handleCopyPrompt = async (promptId, promptText) => {
+  const handleCopyPrompt = useCallback(async (promptId, promptText) => {
     await navigator.clipboard.writeText(promptText)
     setCopiedPromptId(promptId)
 
@@ -17,7 +19,7 @@ function BlockAI() {
     copyResetTimerRef.current = setTimeout(() => {
       setCopiedPromptId(null)
     }, 2000)
-  }
+  }, [])
 
   useEffect(
     () => () => {
@@ -35,34 +37,16 @@ function BlockAI() {
       </h2>
       <div className="ai-grid">
         {AI_PROMPTS.map((prompt) => (
-          <article key={prompt.id} className="ai-card">
-            <span className="pill-teal ai-card__badge">Промпт</span>
-            <h3 className="ai-card__title">{prompt.title}</h3>
-            <pre className="ai-card__prompt">{prompt.text}</pre>
-            <button
-              type="button"
-              className="btn-outline-teal ai-card__action"
-              onClick={() => handleCopyPrompt(prompt.id, prompt.text)}
-            >
-              {copiedPromptId === prompt.id ? 'Скопировано ✓' : 'Скопировать'}
-            </button>
-          </article>
+          <PromptCard
+            key={prompt.id}
+            prompt={prompt}
+            isCopied={copiedPromptId === prompt.id}
+            onCopy={handleCopyPrompt}
+          />
         ))}
 
         {AI_SERVICES.map((service) => (
-          <article key={service.id} className="ai-card">
-            <span className="pill-pink ai-card__badge">Сервис</span>
-            <h3 className="ai-card__title">{service.title}</h3>
-            <p className="ai-card__description">{service.description}</p>
-            <a
-              className="btn-outline-pink ai-card__action ai-card__service-link"
-              href={service.url}
-              target="_blank"
-              rel="noopener"
-            >
-              Открыть сервис
-            </a>
-          </article>
+          <ServiceCard key={service.id} service={service} />
         ))}
       </div>
     </section>
