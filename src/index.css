@@ -368,11 +368,19 @@ a.btn-pink {
   animation: btn-glow-pink 2s ease-in-out infinite;
 }
 
-.landing-hero__cta:hover {
-  background: linear-gradient(145deg, #fde8ee 0%, #fbd1dc 100%);
-  color: #a0526a;
-  border-color: rgba(240, 164, 184, 1);
-  animation: btn-shake-horizontal 380ms ease-in-out infinite, btn-glow-pink-hover 2s ease-in-out infinite;
+@media (hover: none) and (pointer: coarse) {
+  .landing-hero__cta {
+    animation: btn-shake-horizontal 380ms ease-in-out infinite, btn-glow-pink-hover 2s ease-in-out infinite;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .landing-hero__cta:hover {
+    background: linear-gradient(145deg, #fde8ee 0%, #fbd1dc 100%);
+    color: #a0526a;
+    border-color: rgba(240, 164, 184, 1);
+    animation: btn-shake-horizontal 380ms ease-in-out infinite, btn-glow-pink-hover 2s ease-in-out infinite;
+  }
 }
 
 .view-controls {
