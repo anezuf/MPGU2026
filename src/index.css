@@ -45,14 +45,7 @@ body {
   color: var(--text);
   min-width: 320px;
   overflow-x: hidden;
-  background-color: #fbfdfc;
-  background-image: repeating-linear-gradient(
-    to right,
-    rgba(42, 191, 170, 0.08) 0px,
-    rgba(42, 191, 170, 0.08) 18px,
-    rgba(255, 255, 255, 0) 18px,
-    rgba(255, 255, 255, 0) 40px
-  );
+  background: #f5faf9;
 }
 
 img,
@@ -271,6 +264,14 @@ a.btn-pink {
   justify-content: center;
   padding: 40px 24px 80px;
   box-sizing: border-box;
+  background-color: #fbfdfc;
+  background-image: repeating-linear-gradient(
+    to right,
+    rgba(42, 191, 170, 0.08) 0px,
+    rgba(42, 191, 170, 0.08) 18px,
+    rgba(255, 255, 255, 0) 18px,
+    rgba(255, 255, 255, 0) 40px
+  );
 }
 
 .landing-hero__inner {
@@ -523,6 +524,10 @@ a.btn-pink {
   justify-content: center;
   flex-shrink: 0;
   align-self: center;
+}
+
+.header-bar {
+  display: none;
 }
 
 .hub-body {
@@ -942,6 +947,88 @@ a.btn-pink {
 }
 
 @media (max-width: 640px) {
+  .header-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px 8px;
+  }
+
+  .header-title {
+    font-family: 'Lora', serif;
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 1.25;
+    color: #1a2e2b;
+  }
+
+  .avatar-wrapper {
+    position: relative;
+  }
+
+  .avatar-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #e8f9f5;
+    border: 1.5px solid rgba(72, 187, 162, 0.4);
+    color: #38a891;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+    padding: 0;
+  }
+
+  .avatar-dropdown {
+    display: none;
+    position: absolute;
+    top: 42px;
+    right: 0;
+    background: #fff;
+    border: 0.5px solid rgba(0, 0, 0, 0.1);
+    border-radius: 14px;
+    padding: 14px 16px;
+    min-width: 180px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .avatar-dropdown.open {
+    display: flex;
+  }
+
+  .author-label {
+    font-size: 11px;
+    color: #aaa;
+    letter-spacing: 0.04em;
+  }
+
+  .author-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a1a1a;
+  }
+
+  .dropdown-divider {
+    border: none;
+    border-top: 0.5px solid #eee;
+    margin: 8px 0;
+  }
+
+  .logout-btn {
+    background: none;
+    border: 1px solid rgba(220, 100, 120, 0.4);
+    border-radius: 20px;
+    color: #c05070;
+    font-size: 13px;
+    padding: 7px 0;
+    width: 100%;
+    cursor: pointer;
+  }
+
   .landing-hero {
     min-height: 100dvh;
     padding: 20px 14px 36px;
@@ -981,13 +1068,11 @@ a.btn-pink {
   .navbar {
     padding-left: 14px;
     padding-right: 14px;
+    padding-top: 0;
   }
 
   .navbar-top {
-    flex-wrap: wrap;
-    align-items: stretch;
-    row-gap: 10px;
-    margin-bottom: 12px;
+    display: none;
   }
 
   .navbar-title {
