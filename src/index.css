@@ -290,9 +290,14 @@ a.btn-pink {
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
-  max-width: min(100%, 720px);
+  max-width: min(100%, 760px);
   text-align: left;
   box-sizing: border-box;
+  padding: clamp(22px, 3.2vw, 36px);
+  border: 1px solid rgba(240, 180, 188, 0.75);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.93);
+  box-shadow: 0 8px 20px rgba(240, 164, 184, 0.14);
 }
 
 .landing-hero__badge {
@@ -375,11 +380,14 @@ a.btn-pink {
 }
 
 .landing-hero__cta {
-  margin-top: 0;
+  margin-top: 2px;
   width: fit-content;
   background: linear-gradient(145deg, #ffffff 0%, #fdf5f7 100%);
   color: var(--pink-dark);
   border-color: rgba(240, 164, 184, 0.6);
+  padding: 12px 26px;
+  font-size: 17px;
+  border-radius: 16px;
   animation: btn-glow-pink 2s ease-in-out infinite;
 }
 
