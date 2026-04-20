@@ -45,8 +45,8 @@ body {
   overflow-x: hidden;
   background: repeating-linear-gradient(
     to right,
-    #fdf0f3 0px,
-    #fdf0f3 20px,
+    #e6faf7 0px,
+    #e6faf7 20px,
     #ffffff 20px,
     #ffffff 40px
   );
@@ -377,6 +377,17 @@ a.btn-pink {
 .landing-hero__cta {
   margin-top: 0;
   width: fit-content;
+  background: linear-gradient(145deg, #ffffff 0%, #fdf5f7 100%);
+  color: var(--pink-dark);
+  border-color: rgba(240, 164, 184, 0.6);
+  animation: btn-glow-pink 2s ease-in-out infinite;
+}
+
+.landing-hero__cta:hover {
+  background: linear-gradient(145deg, #fde8ee 0%, #fbd1dc 100%);
+  color: #a0526a;
+  border-color: rgba(240, 164, 184, 1);
+  animation: btn-shake-horizontal 380ms ease-in-out infinite, btn-glow-pink-hover 2s ease-in-out infinite;
 }
 
 .view-controls {
@@ -1290,4 +1301,12 @@ a.pcp-btn {
 @keyframes btn-shine {
   from { transform: translateX(-150%) skewX(-15deg); }
   to   { transform: translateX(220%) skewX(-15deg); }
+}
+
+@keyframes btn-shake-horizontal {
+  0%, 100% { transform: translateX(0) rotate(0deg); }
+  20% { transform: translateX(-1px) rotate(-0.4deg); }
+  40% { transform: translateX(1px) rotate(0.4deg); }
+  60% { transform: translateX(-1px) rotate(0.3deg); }
+  80% { transform: translateX(1px) rotate(-0.3deg); }
 }
