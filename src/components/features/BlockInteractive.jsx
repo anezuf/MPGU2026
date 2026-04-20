@@ -39,6 +39,9 @@ function BlockInteractive() {
                   </div>
                   <span className="pcp-header__label">Сервис</span>
                 </div>
+                <svg className="pcp-header__curve" viewBox="0 0 1000 64" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M-2 30 C 220 4 780 4 1002 30 L1002 66 L-2 66 Z" />
+                </svg>
               </div>
               <div className="pcp-body">
                 <h3 className="pcp-title">{tool.title}</h3>
