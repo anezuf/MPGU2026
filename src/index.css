@@ -1006,7 +1006,10 @@ a.btn-pink {
 
   .pcp-header {
     padding: 12px 14px 28px;
-    border-radius: 14px;
+  }
+
+  .pcp-body::before {
+    top: -10px;
   }
 
   .pcp-header__left {
@@ -1022,7 +1025,6 @@ a.btn-pink {
   .pcp-body {
     margin-top: -10px;
     padding: 16px 14px 16px;
-    border-radius: 0 0 14px 14px;
   }
 
   .pcp-title {
@@ -1121,12 +1123,16 @@ a.btn-pink {
 /* PromptCardPreview */
 
 .pcp-card {
+  /* One source of truth so the teal header fills the card’s rounded top (no white wedges on iOS) */
+  --pcp-radius: 20px;
+  --pcp-inner-r: calc(var(--pcp-radius) - 1.5px);
   background: #ffffff;
   border: 1.5px solid #abe8df;
-  border-radius: 20px;
+  border-radius: var(--pcp-radius);
   box-shadow: 0 2px 16px rgba(42, 191, 170, 0.10), 0 1px 4px rgba(0, 0, 0, 0.05);
   overflow: hidden;
   width: 100%;
+  min-width: 0;
   display: flex;
   flex-direction: column;
 }
@@ -1140,11 +1146,17 @@ a.btn-pink {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
   background: linear-gradient(135deg, #1fbca4 0%, #25c8b0 55%, #30d2bb 100%);
   padding: 14px 18px 36px;
-  border-radius: 16px;
+  /* Top corners only; match card inner curve (card border 1.5px) */
+  border-radius: var(--pcp-inner-r) var(--pcp-inner-r) 0 0;
   position: relative;
   overflow: hidden;
+  /* Reduce iOS subpixel gaps between rounded header and card clip */
+  transform: translateZ(0);
 }
 
 .pcp-header--service {
@@ -1221,7 +1233,7 @@ a.btn-pink {
   flex-direction: column;
   gap: 14px;
   background: #ffffff;
-  border-radius: 0 0 16px 16px;
+  border-radius: 0 0 var(--pcp-inner-r) var(--pcp-inner-r);
   margin-top: -12px;
   padding: 28px 22px 22px;
   position: relative;
@@ -1235,7 +1247,7 @@ a.btn-pink {
   position: absolute;
   top: -12px;
   left: 50%;
-  width: 122%;
+  width: min(142%, calc(100% + 40px));
   height: 42px;
   transform: translateX(-50%);
   background: #ffffff;
@@ -1362,25 +1374,24 @@ a.pcp-btn {
 
 @media (max-width: 600px) {
   .pcp-card {
-    border-radius: 16px;
+    --pcp-radius: 16px;
+    border-radius: var(--pcp-radius);
   }
 
   .pcp-body {
     margin-top: -8px;
     padding: 20px 16px 18px;
     gap: 12px;
-    border-radius: 0 0 16px 16px;
   }
 
   .pcp-body::before {
     top: -8px;
-    width: 112%;
-    height: 24px;
+    width: min(168%, calc(100% + 56px));
+    height: 28px;
   }
 
   .pcp-header {
     padding: 12px 16px 24px;
-    border-radius: 16px;
   }
 
   .pcp-header__icon {
@@ -1418,7 +1429,8 @@ a.pcp-btn {
   }
 
   .pcp-body::before {
-    height: 20px;
+    height: 22px;
+    width: min(180%, calc(100% + 64px));
   }
 
   .pcp-content {
