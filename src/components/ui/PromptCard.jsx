@@ -31,7 +31,7 @@ function PromptCard({ prompt, isCopied, onCopy }) {
 
       <div className="pcp-body">
         <h3 className="pcp-title">{prompt.title}</h3>
-        <div className="pcp-content">
+        <div className={`pcp-content${isCopied ? ' pcp-content--copied' : ''}`}>
           <pre className="pcp-content__text">{prompt.text}</pre>
         </div>
         <button
@@ -39,7 +39,7 @@ function PromptCard({ prompt, isCopied, onCopy }) {
           className="pcp-btn"
           onClick={() => onCopy(prompt.id, prompt.text)}
         >
-          {isCopied ? 'Скопировано ✓' : 'Скопировать'}
+          {isCopied ? 'Скопировано' : 'Скопировать'}
         </button>
       </div>
     </article>

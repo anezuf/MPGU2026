@@ -1099,10 +1099,27 @@ a.btn-pink {
   background: #edf9f7;
   border-radius: 12px;
   padding: 16px 18px;
+  position: relative;
+  overflow: hidden;
 }
 
 .pcp-content--service {
   background: #fdf0f3;
+}
+
+.pcp-content--copied::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    rgba(255, 255, 255, 0) 25%,
+    rgba(255, 255, 255, 0.55) 50%,
+    rgba(255, 255, 255, 0) 75%
+  );
+  transform: translateX(-130%);
+  animation: pcp-copy-shine 900ms ease-out;
+  pointer-events: none;
 }
 
 .pcp-content__text {
@@ -1289,4 +1306,18 @@ a.pcp-btn {
   40% { transform: translateX(1px) rotate(0.4deg); }
   60% { transform: translateX(-1px) rotate(0.3deg); }
   80% { transform: translateX(1px) rotate(-0.3deg); }
+}
+
+@keyframes pcp-copy-shine {
+  from {
+    transform: translateX(-130%);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  to {
+    transform: translateX(130%);
+    opacity: 0;
+  }
 }
