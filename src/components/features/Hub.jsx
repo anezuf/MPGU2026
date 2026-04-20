@@ -36,10 +36,11 @@ function Hub({ onLogout }) {
   return (
     <div className="hub">
       <NavBar onLogout={onLogout} onNavigate={handleNavigate} activePage={activePage} />
-
-      <main className="hub-content">
-        {renderActivePage()}
-      </main>
+      <div className="hub-body">
+        <main className="hub-content">
+          {renderActivePage()}
+        </main>
+      </div>
     </div>
   )
 }

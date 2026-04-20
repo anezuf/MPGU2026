@@ -42,13 +42,24 @@ body {
   font-family: 'Nunito', sans-serif;
   font-weight: 400;
   color: var(--text);
-  background: var(--white);
+  background: repeating-linear-gradient(
+    to right,
+    #fdf0f3 0px,
+    #fdf0f3 20px,
+    #ffffff 20px,
+    #ffffff 40px
+  );
 }
 
 #root,
-.app-shell,
+.app-shell {
+  min-height: 100vh;
+}
+
 .hub {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 h1 {
@@ -206,13 +217,6 @@ a.btn-pink {
   justify-content: center;
   padding: 40px 24px 80px;
   box-sizing: border-box;
-  background: repeating-linear-gradient(
-    to right,
-    #fdf0f3 0px,
-    #fdf0f3 20px,
-    #ffffff 20px,
-    #ffffff 40px
-  );
 }
 
 .landing-hero__inner {
@@ -432,6 +436,16 @@ a.btn-pink {
   align-self: center;
 }
 
+.hub-body {
+  display: flex;
+  flex-direction: column;
+  width: min(100%, 1100px);
+  margin: 0 auto;
+  padding: 24px 16px 0;
+  box-sizing: border-box;
+  flex: 1;
+}
+
 .navbar-links {
   display: flex;
   flex-wrap: wrap;
@@ -513,12 +527,15 @@ a.btn-pink {
 }
 
 .hub-content {
-  width: min(100%, 1100px);
-  margin: 0 auto;
-  padding: 14px 16px 24px;
+  flex: 1;
+  min-height: calc(100vh - 120px);
+  padding: 24px 16px 40px;
   display: flex;
   flex-direction: column;
   gap: 14px;
+  background: #ffffff;
+  border: 1.5px solid var(--pink);
+  border-radius: 16px;
 }
 
 .hub-section-anchor {
@@ -576,7 +593,7 @@ a.btn-pink {
 }
 
 .hub-section {
-  background: var(--white);
+  background: transparent;
   border: 0;
   border-radius: 0;
   padding: 48px 24px;
