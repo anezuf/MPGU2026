@@ -1349,6 +1349,7 @@ a.btn-pink {
   /* One source of truth so the teal header fills the card’s rounded top (no white wedges on iOS) */
   --pcp-radius: 20px;
   --pcp-inner-r: calc(var(--pcp-radius) - 1.5px);
+  --pcp-overlap-y: 12px;
   background: #ffffff;
   border: 1.5px solid #abe8df;
   border-radius: var(--pcp-radius);
@@ -1373,12 +1374,10 @@ a.btn-pink {
   min-width: 0;
   box-sizing: border-box;
   background: linear-gradient(135deg, #1fbca4 0%, #25c8b0 55%, #30d2bb 100%);
-  padding: 14px 18px 36px;
-  /* Top corners only; match card inner curve (card border 1.5px) */
+  padding: 14px 18px 52px;
   border-radius: var(--pcp-inner-r) var(--pcp-inner-r) 0 0;
   position: relative;
   overflow: hidden;
-  /* Reduce iOS subpixel gaps between rounded header and card clip */
   transform: translateZ(0);
 }
 
@@ -1411,6 +1410,24 @@ a.btn-pink {
 .pcp-header > * {
   position: relative;
   z-index: 1;
+}
+
+.pcp-header__curve {
+  position: absolute;
+  left: -1px;
+  bottom: -2px;
+  width: calc(100% + 2px);
+  height: 44px;
+  display: block;
+  pointer-events: none;
+  z-index: 1;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.pcp-header__curve path {
+  fill: #ffffff;
+  shape-rendering: geometricPrecision;
 }
 
 .pcp-header__left {
@@ -1459,25 +1476,26 @@ a.btn-pink {
   gap: 14px;
   background: #ffffff;
   border-radius: 0 0 var(--pcp-inner-r) var(--pcp-inner-r);
-  margin-top: -12px;
+  margin-top: calc(-1 * var(--pcp-overlap-y));
   padding: 28px 22px 22px;
   position: relative;
   z-index: 2;
-  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.06);
+  box-shadow: none;
   flex: 1;
 }
 
 .pcp-body::before {
   content: '';
   position: absolute;
-  top: -12px;
+  top: calc(-1 * var(--pcp-overlap-y));
   left: 50%;
-  width: min(142%, calc(100% + 40px));
-  height: 42px;
+  width: calc(100% + 96px);
+  height: 46px;
   transform: translateX(-50%);
   background: #ffffff;
   border-radius: 50%;
   z-index: 0;
+  backface-visibility: hidden;
 }
 
 .pcp-body > * {
@@ -1612,23 +1630,30 @@ a.pcp-btn {
 @media (max-width: 600px) {
   .pcp-card {
     --pcp-radius: 16px;
+    --pcp-overlap-y: 8px;
     border-radius: var(--pcp-radius);
   }
 
   .pcp-body {
-    margin-top: -8px;
+    margin-top: calc(-1 * var(--pcp-overlap-y));
     padding: 20px 16px 18px;
     gap: 12px;
   }
 
   .pcp-body::before {
-    top: -8px;
-    width: min(168%, calc(100% + 56px));
-    height: 28px;
+    top: calc(-1 * var(--pcp-overlap-y));
+    width: calc(100% + 80px);
+    height: 30px;
   }
 
   .pcp-header {
-    padding: 12px 16px 24px;
+    padding: 12px 16px 36px;
+  }
+
+  .pcp-header__curve {
+    left: -1px;
+    width: calc(100% + 2px);
+    height: 32px;
   }
 
   .pcp-header__icon {
@@ -1658,7 +1683,7 @@ a.pcp-btn {
 
 @media (max-width: 400px) {
   .pcp-header {
-    padding: 10px 12px 20px;
+    padding: 10px 12px 32px;
   }
 
   .pcp-body {
@@ -1666,8 +1691,12 @@ a.pcp-btn {
   }
 
   .pcp-body::before {
-    height: 22px;
-    width: min(180%, calc(100% + 64px));
+    height: 24px;
+    width: calc(100% + 72px);
+  }
+
+  .pcp-header__curve {
+    height: 26px;
   }
 
   .pcp-content {
