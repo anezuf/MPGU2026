@@ -114,7 +114,7 @@ button {
 .password-modal__submit {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(145deg, #ffffff 0%, #f0faf8 100%);
+  background: #ffffff;
   color: #38a891;
   border: 1.5px solid rgba(72, 187, 162, 0.6);
   border-radius: 14px;
@@ -124,9 +124,9 @@ button {
   font-size: 14px;
   line-height: 1.2;
   letter-spacing: 0.02em;
-  transition: background 300ms ease, color 200ms ease, border-color 200ms ease, transform 200ms ease;
+  transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease;
   cursor: pointer;
-  animation: btn-glow-teal 2s ease-in-out infinite;
+  animation: none;
 }
 
 .btn-primary:hover,
@@ -136,11 +136,10 @@ button {
 .btn-copy:hover,
 .btn-link:hover,
 .password-modal__submit:hover {
-  background: linear-gradient(145deg, #e8f9f5 0%, #d1f2eb 100%);
-  color: #2a7d6e;
+  background: #48bba2;
+  color: #ffffff;
   border-color: rgba(72, 187, 162, 1);
-  transform: translateY(-1px);
-  animation: btn-glow-teal-hover 2s ease-in-out infinite;
+  animation: none;
 }
 
 .btn-primary::before,
@@ -150,21 +149,7 @@ button {
 .btn-copy::before,
 .btn-link::before,
 .password-modal__submit::before {
-  content: '';
-  position: absolute;
-  top: -20%;
-  left: 0;
-  width: 40%;
-  height: 140%;
-  background: linear-gradient(
-    105deg,
-    transparent 20%,
-    rgba(255, 255, 255, 0.38) 50%,
-    transparent 80%
-  );
-  transform: translateX(-200%) skewX(-15deg);
-  pointer-events: none;
-  animation: btn-shine-idle 5s ease-in-out infinite;
+  content: none;
 }
 
 .btn-primary:hover::before,
@@ -174,14 +159,14 @@ button {
 .btn-copy:hover::before,
 .btn-link:hover::before,
 .password-modal__submit:hover::before {
-  animation: btn-shine 0.6s ease-in-out forwards;
+  animation: none;
 }
 
 .btn-outline-pink,
 .btn-pink {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(145deg, #ffffff 0%, #fdf5f7 100%);
+  background: #ffffff;
   color: var(--pink-dark);
   border: 1.5px solid rgba(240, 164, 184, 0.6);
   border-radius: 14px;
@@ -191,42 +176,27 @@ button {
   font-size: 14px;
   line-height: 1.2;
   letter-spacing: 0.02em;
-  transition: background 300ms ease, color 200ms ease, border-color 200ms ease, transform 200ms ease;
+  transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease;
   cursor: pointer;
-  animation: btn-glow-pink 2s ease-in-out infinite;
+  animation: none;
 }
 
 .btn-outline-pink:hover,
 .btn-pink:hover {
-  background: linear-gradient(145deg, #fde8ee 0%, #fbd1dc 100%);
-  color: #a0526a;
+  background: #f0a4b8;
+  color: #ffffff;
   border-color: rgba(240, 164, 184, 1);
-  transform: translateY(-1px);
-  animation: btn-glow-pink-hover 2s ease-in-out infinite;
+  animation: none;
 }
 
 .btn-outline-pink::before,
 .btn-pink::before {
-  content: '';
-  position: absolute;
-  top: -20%;
-  left: 0;
-  width: 40%;
-  height: 140%;
-  background: linear-gradient(
-    105deg,
-    transparent 20%,
-    rgba(255, 255, 255, 0.38) 50%,
-    transparent 80%
-  );
-  transform: translateX(-200%) skewX(-15deg);
-  pointer-events: none;
-  animation: btn-shine-idle 5s ease-in-out infinite;
+  content: none;
 }
 
 .btn-outline-pink:hover::before,
 .btn-pink:hover::before {
-  animation: btn-shine 0.6s ease-in-out forwards;
+  animation: none;
 }
 
 a.btn-primary,
@@ -1008,7 +978,7 @@ a.btn-pink {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #2ABFAA;
+  background: linear-gradient(135deg, #1fbca4 0%, #25c8b0 55%, #30d2bb 100%);
   padding: 14px 18px 36px;
   border-radius: 16px;
   position: relative;
@@ -1058,22 +1028,29 @@ a.btn-pink {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   background: rgba(255, 255, 255, 0.22);
   border: 1.5px solid rgba(255, 255, 255, 0.38);
   border-radius: 50%;
   color: #ffffff;
   flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(7, 111, 97, 0.2);
 }
 
 .pcp-header__label {
   font-family: 'Nunito', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
+  font-size: clamp(15px, 1.1vw, 17px);
+  font-weight: 800;
+  letter-spacing: 0.1em;
   color: #ffffff;
   text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  border-radius: 999px;
+  padding: 7px 14px 6px;
+  line-height: 1;
+  text-shadow: 0 1px 2px rgba(6, 74, 65, 0.24);
 }
 
 
@@ -1146,7 +1123,7 @@ a.btn-pink {
 .pcp-btn {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(145deg, #ffffff 0%, #f0faf8 100%);
+  background: #ffffff;
   color: #38a891;
   border: 1.5px solid rgba(72, 187, 162, 0.6);
   border-radius: 14px;
@@ -1158,42 +1135,27 @@ a.btn-pink {
   letter-spacing: 0.02em;
   width: fit-content;
   margin-top: auto;
-  transition: background 300ms ease, color 200ms ease, border-color 200ms ease, transform 200ms ease;
-  animation: btn-glow-teal 2s ease-in-out infinite;
+  transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease;
+  animation: none;
 }
 
 .pcp-btn:hover {
-  background: linear-gradient(145deg, #e8f9f5 0%, #d1f2eb 100%);
-  color: #2a7d6e;
+  background: #48bba2;
+  color: #ffffff;
   border-color: rgba(72, 187, 162, 1);
-  transform: translateY(-1px);
-  animation: btn-glow-teal-hover 2s ease-in-out infinite;
+  animation: none;
 }
 
 .pcp-btn::before {
-  content: '';
-  position: absolute;
-  top: -20%;
-  left: 0;
-  width: 40%;
-  height: 140%;
-  background: linear-gradient(
-    105deg,
-    transparent 20%,
-    rgba(255, 255, 255, 0.38) 50%,
-    transparent 80%
-  );
-  transform: translateX(-200%) skewX(-15deg);
-  pointer-events: none;
-  animation: btn-shine-idle 5s ease-in-out infinite;
+  content: none;
 }
 
 .pcp-btn:hover::before {
-  animation: btn-shine 0.6s ease-in-out forwards;
+  animation: none;
 }
 
 .pcp-btn--pink {
-  animation: btn-glow-pink 2s ease-in-out infinite;
+  animation: none;
 }
 
 a.pcp-btn {
@@ -1209,14 +1171,14 @@ a.pcp-btn {
 }
 
 .pcp-btn--pink:hover {
-  background: linear-gradient(145deg, #fde8ee 0%, #fbd1dc 100%);
-  color: #a0526a;
+  background: #f0a4b8;
+  color: #ffffff;
   border-color: rgba(240, 164, 184, 1);
-  animation: btn-glow-pink-hover 2s ease-in-out infinite;
+  animation: none;
 }
 
 .pcp-btn--pink:hover::before {
-  animation: btn-shine 0.6s ease-in-out forwards;
+  animation: none;
 }
 
 @media (max-width: 600px) {
@@ -1227,6 +1189,16 @@ a.pcp-btn {
 
   .pcp-header {
     padding: 12px 16px 30px;
+  }
+
+  .pcp-header__icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .pcp-header__label {
+    font-size: 14px;
+    padding: 6px 12px 5px;
   }
 
   .pcp-content {
