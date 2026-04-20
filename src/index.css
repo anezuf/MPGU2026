@@ -52,6 +52,13 @@ body {
   );
 }
 
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+}
+
 #root,
 .app-shell {
   min-height: 100vh;
@@ -869,9 +876,61 @@ a.btn-pink {
 }
 
 @media (max-width: 640px) {
+  .landing-hero {
+    min-height: 100dvh;
+    padding: 20px 14px 36px;
+  }
+
+  .landing-hero__inner {
+    align-items: stretch;
+    padding: 18px 14px;
+    border-radius: 14px;
+  }
+
+  .landing-hero__badge {
+    margin-bottom: 16px;
+    padding: 6px 14px;
+    font-size: 13px;
+  }
+
+  .landing-hero__title {
+    margin-bottom: 14px;
+    font-size: clamp(30px, 8.8vw, 40px);
+    line-height: 1.2;
+  }
+
+  .landing-hero__subtitle {
+    margin-bottom: 20px;
+    font-size: clamp(16px, 4.6vw, 19px);
+    line-height: 1.45;
+  }
+
+  .landing-hero__cta {
+    width: 100%;
+    padding: 11px 14px;
+    font-size: 15px;
+    border-radius: 12px;
+  }
+
   .navbar {
     padding-left: 16px;
     padding-right: 16px;
+  }
+
+  .navbar-top {
+    flex-wrap: wrap;
+    row-gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .navbar-title {
+    width: 100%;
+    font-size: 19px;
+    line-height: 1.25;
+  }
+
+  .navbar .btn-logout {
+    width: 100%;
   }
 
   .hub-body {
@@ -902,6 +961,15 @@ a.btn-pink {
 
   .modal {
     padding: 28px 20px;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .modal-actions button {
+    width: 100%;
   }
 
   .modal h2 {
@@ -935,9 +1003,78 @@ a.btn-pink {
     padding: 20px 20px 18px;
     min-height: unset;
   }
+
+  .pcp-header {
+    padding: 12px 14px 28px;
+    border-radius: 14px;
+  }
+
+  .pcp-header__left {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .pcp-header__label {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .pcp-body {
+    margin-top: -10px;
+    padding: 16px 14px 16px;
+    border-radius: 0 0 14px 14px;
+  }
+
+  .pcp-title {
+    font-size: 18px;
+    line-height: 1.3;
+  }
+
+  .pcp-content {
+    padding: 12px 12px;
+  }
+
+  .pcp-content__text {
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  .pcp-btn {
+    width: 100%;
+    min-height: 40px;
+    padding: 9px 12px;
+    font-size: 13px;
+  }
+
+  .service-card__instructions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .service-card__instruction-link {
+    font-size: 13px;
+  }
 }
 
 @media (max-width: 400px) {
+  .landing-hero {
+    padding: 14px 10px 24px;
+  }
+
+  .landing-hero__inner {
+    padding: 14px 10px;
+    border-radius: 12px;
+  }
+
+  .landing-hero__title {
+    font-size: clamp(26px, 10vw, 32px);
+  }
+
+  .landing-hero__subtitle {
+    font-size: 15px;
+  }
+
   .navbar-title {
     font-size: 17px;
   }
@@ -945,6 +1082,31 @@ a.btn-pink {
   .btn-logout {
     padding: 7px 12px;
     font-size: 13px;
+  }
+
+  .hub-content {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .hub-section {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .pcp-header__icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .pcp-header__label {
+    font-size: 12px;
+    padding: 6px 10px 5px;
+    letter-spacing: 0.08em;
+  }
+
+  .pcp-btn {
+    border-radius: 12px;
   }
 }
 
@@ -1199,13 +1361,26 @@ a.pcp-btn {
 }
 
 @media (max-width: 600px) {
+  .pcp-card {
+    border-radius: 16px;
+  }
+
   .pcp-body {
-    padding: 16px 16px 18px;
+    margin-top: -8px;
+    padding: 20px 16px 18px;
     gap: 12px;
+    border-radius: 0 0 16px 16px;
+  }
+
+  .pcp-body::before {
+    top: -8px;
+    width: 112%;
+    height: 24px;
   }
 
   .pcp-header {
-    padding: 12px 16px 30px;
+    padding: 12px 16px 24px;
+    border-radius: 16px;
   }
 
   .pcp-header__icon {
@@ -1218,8 +1393,45 @@ a.pcp-btn {
     padding: 6px 12px 5px;
   }
 
+  .pcp-title {
+    font-size: 20px;
+    line-height: 1.25;
+  }
+
   .pcp-content {
     padding: 14px 14px;
+  }
+
+  .pcp-btn {
+    width: fit-content;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 400px) {
+  .pcp-header {
+    padding: 10px 12px 20px;
+  }
+
+  .pcp-body {
+    padding: 18px 12px 14px;
+  }
+
+  .pcp-body::before {
+    height: 20px;
+  }
+
+  .pcp-content {
+    padding: 12px;
+  }
+
+  .pcp-title {
+    font-size: 18px;
+  }
+
+  .pcp-btn {
+    padding: 8px 14px;
+    font-size: 13px;
   }
 }
 
