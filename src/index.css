@@ -519,6 +519,19 @@ a.btn-pink {
   justify-content: space-between;
   gap: 16px;
   margin-bottom: 10px;
+  padding: 0 16px;
+}
+
+.navbar-actions {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+@media (min-width: 641px) {
+  .navbar-actions {
+    margin-right: clamp(120px, 14vw, 190px);
+  }
 }
 
 .navbar-title {
@@ -550,16 +563,75 @@ a.btn-pink {
   border-radius: 4px;
 }
 
-.navbar .btn-logout {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  align-self: center;
-}
-
 .header-bar {
   display: none;
+}
+
+.avatar-wrapper {
+  position: relative;
+}
+
+.avatar-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #e8f9f5;
+  border: 1.5px solid rgba(72, 187, 162, 0.4);
+  color: #38a891;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  padding: 0;
+}
+
+.avatar-dropdown {
+  display: none;
+  position: absolute;
+  top: 44px;
+  right: 0;
+  background: #fff;
+  border: 0.5px solid rgba(0, 0, 0, 0.1);
+  border-radius: 14px;
+  padding: 14px 16px;
+  min-width: 190px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.avatar-dropdown.open {
+  display: flex;
+}
+
+.author-label {
+  font-size: 11px;
+  color: #aaa;
+  letter-spacing: 0.04em;
+}
+
+.author-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.dropdown-divider {
+  border: none;
+  border-top: 0.5px solid #eee;
+  margin: 8px 0;
+}
+
+.logout-btn {
+  background: none;
+  border: 1px solid rgba(220, 100, 120, 0.4);
+  border-radius: 20px;
+  color: #c05070;
+  font-size: 13px;
+  padding: 7px 0;
+  width: 100%;
+  cursor: pointer;
 }
 
 .hub-body {
@@ -1014,71 +1086,15 @@ a.btn-pink {
     border-radius: 4px;
   }
 
-  .avatar-wrapper {
-    position: relative;
-  }
-
   .avatar-btn {
     width: 34px;
     height: 34px;
-    border-radius: 50%;
-    background: #e8f9f5;
-    border: 1.5px solid rgba(72, 187, 162, 0.4);
-    color: #38a891;
     font-size: 11px;
-    font-weight: 600;
-    cursor: pointer;
-    letter-spacing: 0.02em;
-    padding: 0;
   }
 
   .avatar-dropdown {
-    display: none;
-    position: absolute;
     top: 42px;
-    right: 0;
-    background: #fff;
-    border: 0.5px solid rgba(0, 0, 0, 0.1);
-    border-radius: 14px;
-    padding: 14px 16px;
     min-width: 180px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-    z-index: 100;
-    flex-direction: column;
-    gap: 4px;
-  }
-
-  .avatar-dropdown.open {
-    display: flex;
-  }
-
-  .author-label {
-    font-size: 11px;
-    color: #aaa;
-    letter-spacing: 0.04em;
-  }
-
-  .author-name {
-    font-size: 14px;
-    font-weight: 600;
-    color: #1a1a1a;
-  }
-
-  .dropdown-divider {
-    border: none;
-    border-top: 0.5px solid #eee;
-    margin: 8px 0;
-  }
-
-  .logout-btn {
-    background: none;
-    border: 1px solid rgba(220, 100, 120, 0.4);
-    border-radius: 20px;
-    color: #c05070;
-    font-size: 13px;
-    padding: 7px 0;
-    width: 100%;
-    cursor: pointer;
   }
 
   .landing-hero {

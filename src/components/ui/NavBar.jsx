@@ -3,11 +3,14 @@ import { HUB_NAV_ITEMS } from '../../data/navHub'
 
 function NavBar({ onLogout, onNavigate, activePage }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
-  const avatarWrapperRef = useRef(null)
+  const mobileAvatarWrapperRef = useRef(null)
+  const desktopAvatarWrapperRef = useRef(null)
 
   useEffect(() => {
     function handleDocumentClick(event) {
-      if (!avatarWrapperRef.current?.contains(event.target)) {
+      const isMobileAvatarClick = mobileAvatarWrapperRef.current?.contains(event.target)
+      const isDesktopAvatarClick = desktopAvatarWrapperRef.current?.contains(event.target)
+      if (!isMobileAvatarClick && !isDesktopAvatarClick) {
         setIsDropdownOpen(false)
       }
     }
@@ -41,20 +44,19 @@ function NavBar({ onLogout, onNavigate, activePage }) {
           <button type="button" className="header-title-btn" onClick={handleHomeClick}>
             Навигатор педагога
           </button>
-          <div className="avatar-wrapper" ref={avatarWrapperRef}>
+          <div className="avatar-wrapper" ref={mobileAvatarWrapperRef}>
             <button
               type="button"
               className="avatar-btn"
-              id="avatarBtn"
               aria-expanded={isDropdownOpen}
-              aria-controls="avatarDropdown"
+              aria-haspopup="menu"
               onClick={handleAvatarClick}
             >
               ТП
             </button>
             <div
               className={`avatar-dropdown${isDropdownOpen ? ' open' : ''}`}
-              id="avatarDropdown"
+              role="menu"
             >
               <span className="author-label">Автор</span>
               <span className="author-name">Трофимова Полина</span>
@@ -69,9 +71,27 @@ function NavBar({ onLogout, onNavigate, activePage }) {
           <button type="button" className="navbar-title" onClick={handleHomeClick}>
             Цифровой навигатор педагога
           </button>
-          <button type="button" className="btn-outline-pink btn-logout" onClick={onLogout}>
-            Выйти
-          </button>
+          <div className="navbar-actions">
+            <div className="avatar-wrapper" ref={desktopAvatarWrapperRef}>
+              <button
+                type="button"
+                className="avatar-btn"
+                aria-expanded={isDropdownOpen}
+                aria-haspopup="menu"
+                onClick={handleAvatarClick}
+              >
+                ТП
+              </button>
+              <div className={`avatar-dropdown${isDropdownOpen ? ' open' : ''}`} role="menu">
+                <span className="author-label">Автор</span>
+                <span className="author-name">Трофимова Полина</span>
+                <hr className="dropdown-divider" />
+                <button type="button" className="logout-btn" onClick={handleLogoutClick}>
+                  Выйти
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
         <div className="navbar-links" aria-label="Разделы хаба">
           {HUB_NAV_ITEMS.map(({ page, label }) => {
