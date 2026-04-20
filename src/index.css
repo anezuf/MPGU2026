@@ -228,16 +228,16 @@ a.btn-pink {
 .landing-hero__badge {
   display: inline-block;
   width: fit-content;
-  margin-bottom: 24px;
-  padding: 4px 16px;
+  margin-bottom: 28px;
+  padding: 7px 22px;
   background: rgba(253, 240, 243, 0.92);
   border: 1.5px solid #f0b4bc;
-  border-radius: 20px;
+  border-radius: 24px;
   color: #c97a8e;
   font-family: 'Nunito', sans-serif;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 600;
-  line-height: 1.3;
+  line-height: 1.35;
 }
 
 .landing-hero__title {
@@ -608,6 +608,26 @@ a.btn-pink {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   transition: background-color 200ms ease-out;
+}
+
+.section-header {
+  margin-bottom: 28px;
+}
+
+.section-title {
+  font-family: 'Lora', serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #1a2e2b;
+  margin: 0 0 6px 0;
+  line-height: 1.2;
+}
+
+.section-subtitle {
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  color: #5a7470;
+  margin: 0;
 }
 
 .hub-section__content {

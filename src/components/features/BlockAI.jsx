@@ -32,9 +32,10 @@ function BlockAI() {
 
   return (
     <section id="ai-tools" className="hub-section">
-      <h2 className="hub-section__title">
-        <span className="block-heading-fill">Нейросети для учителя</span>
-      </h2>
+      <div className="section-header">
+        <h2 className="section-title">Нейросети для учителя</h2>
+        <p className="section-subtitle">Готовые промпты и российские AI-сервисы для педагога</p>
+      </div>
       <div className="ai-grid">
         {AI_PROMPTS.map((prompt) => (
           <PromptCard
