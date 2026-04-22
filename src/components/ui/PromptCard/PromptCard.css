@@ -1,0 +1,131 @@
+.prompt-card {
+  height: 100%;
+}
+
+.prompt-card__body {
+  gap: 16px;
+}
+
+.prompt-card__section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.prompt-card__section-label {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(26, 46, 43, 0.56);
+}
+
+.prompt-card__fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.prompt-card__field {
+  display: grid;
+  gap: 6px;
+}
+
+.prompt-card__field-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #2a4a45;
+}
+
+.prompt-card__field input {
+  width: 100%;
+  min-width: 0;
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  background: #ffffff;
+  padding: 11px 14px;
+  font: 500 15px/1.3 'Nunito', sans-serif;
+  color: #1a2e2b;
+  transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+.prompt-card__field input::placeholder {
+  color: rgba(26, 46, 43, 0.42);
+}
+
+.prompt-card__field input:focus {
+  outline: none;
+  border-color: rgba(42, 191, 170, 0.7);
+  box-shadow: 0 0 0 3px rgba(42, 191, 170, 0.12);
+}
+
+.prompt-card__divider {
+  border-top: 1px solid rgba(212, 237, 233, 0.95);
+}
+
+.prompt-card__preview {
+  min-height: 168px;
+  background: #edf9f7;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+  font-size: 15px;
+  line-height: 1.75;
+  color: #324944;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.prompt-placeholder {
+  background: #d4f5eb;
+  color: #0a5c42;
+  border-radius: 3px;
+  padding: 1px 3px;
+  font-style: normal;
+}
+
+.prompt-placeholder--filled {
+  background: #1a2e2a;
+  color: #2dd4a0;
+  border-radius: 3px;
+  padding: 1px 3px;
+  font-style: normal;
+}
+
+.prompt-card__actions {
+  display: flex;
+  gap: 10px;
+}
+
+.prompt-card__copy {
+  flex: 1;
+  width: auto;
+}
+
+.prompt-card__reset {
+  width: auto;
+  color: var(--text2);
+  border-color: rgba(90, 116, 112, 0.28);
+}
+
+.prompt-card__reset:hover {
+  background: rgba(230, 250, 247, 0.72);
+  color: #2a4a45;
+  border-color: rgba(42, 191, 170, 0.45);
+}
+
+@media (max-width: 480px) {
+  .prompt-card__fields {
+    grid-template-columns: 1fr;
+  }
+
+  .prompt-card__actions {
+    flex-direction: column;
+  }
+
+  .prompt-card__copy,
+  .prompt-card__reset {
+    width: 100%;
+  }
+}
