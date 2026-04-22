@@ -1,19 +1,21 @@
 import { useEffect, useRef, useState } from 'react'
 import BlockAI from './BlockAI'
+import AIRecommendationsPage from './AIRecommendationsPage/AIRecommendationsPage'
 import AboutPage from './AboutPage/AboutPage'
 import BlockInteractive from './BlockInteractive'
 import BlockSubjects from './BlockSubjects'
 import BlockTemplates from './BlockTemplates'
 import FeedbackForm from './FeedbackForm/FeedbackForm'
-import HubHome from './HubHome'
 import Sidebar from '../ui/Sidebar/Sidebar'
 import { HUB_NAV_ITEMS } from '../../data/navHub'
 import { HUB_PAGE_STORAGE_KEY } from '../../constants'
+import OverviewPage from '../../pages/OverviewPage/OverviewPage'
 
 const HUB_PAGES = new Set([
   'home',
   'feedback',
   'about',
+  'ai-guide',
   ...HUB_NAV_ITEMS.map(({ page }) => page),
 ])
 
@@ -25,6 +27,7 @@ function getInitialHubPage() {
 function Hub({ onLogout }) {
   const [activePage, setActivePage] = useState(getInitialHubPage)
   const hubMainRef = useRef(null)
+  const sidebarActivePage = activePage === 'ai-guide' ? 'ai' : activePage
 
   useEffect(() => {
     sessionStorage.setItem(HUB_PAGE_STORAGE_KEY, activePage)
@@ -37,10 +40,13 @@ function Hub({ onLogout }) {
 
   function renderActivePage() {
     if (activePage === 'home') {
-      return <HubHome onNavigate={handleNavigate} />
+      return <OverviewPage onNavigate={handleNavigate} />
     }
     if (activePage === 'ai') {
-      return <BlockAI />
+      return <BlockAI onNavigate={handleNavigate} />
+    }
+    if (activePage === 'ai-guide') {
+      return <AIRecommendationsPage onNavigate={handleNavigate} />
     }
     if (activePage === 'templates') {
       return <BlockTemplates />
@@ -57,7 +63,7 @@ function Hub({ onLogout }) {
     if (activePage === 'about') {
       return <AboutPage />
     }
-    return <HubHome onNavigate={handleNavigate} />
+    return <OverviewPage onNavigate={handleNavigate} />
   }
 
   return (
@@ -65,7 +71,7 @@ function Hub({ onLogout }) {
       <Sidebar
         onLogout={onLogout}
         onNavigate={handleNavigate}
-        activePage={activePage}
+        activePage={sidebarActivePage}
       />
       <main className="hub-main" ref={hubMainRef}>
         {renderActivePage()}

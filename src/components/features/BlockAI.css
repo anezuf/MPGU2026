@@ -1,0 +1,48 @@
+.block-ai__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.block-ai__intro {
+  min-width: 0;
+}
+
+.block-ai__guide-button {
+  flex-shrink: 0;
+  align-self: flex-start;
+  min-height: 44px;
+  padding: 10px 18px;
+  border: 1.5px solid rgba(72, 187, 162, 0.58);
+  border-radius: 14px;
+  background: #ffffff;
+  color: #2fa58f;
+  font: 800 13px/1 'Nunito', sans-serif;
+  letter-spacing: 0.04em;
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease, color 180ms ease,
+    border-color 180ms ease;
+}
+
+.block-ai__guide-button:hover {
+  background: #48bba2;
+  color: #ffffff;
+  border-color: rgba(72, 187, 162, 1);
+  box-shadow: 0 10px 24px rgba(42, 191, 170, 0.22);
+}
+
+.block-ai__guide-button:active {
+  transform: scale(0.98);
+}
+
+@media (max-width: 768px) {
+  .block-ai__header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .block-ai__guide-button {
+    width: 100%;
+    justify-content: center;
+  }
+}

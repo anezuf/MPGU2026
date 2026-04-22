@@ -23,7 +23,11 @@
   --white: #ffffff;
   --text: #1a2e2b;
   --text2: #5a7470;
+  --color-background-primary: #ffffff;
   --color-background-secondary: #f7f3ea;
+  --color-border-secondary: rgba(42, 191, 170, 0.42);
+  --color-border-tertiary: rgba(212, 237, 233, 0.95);
+  --color-text-secondary: #5a7470;
   --border: #d4ede9;
   --block-heading-fill: #c5dce8;
 }

@@ -2,8 +2,54 @@
   height: 100%;
 }
 
+.prompt-card--collapsed {
+  height: auto;
+}
+
 .prompt-card__body {
   gap: 16px;
+}
+
+.prompt-card--collapsed .prompt-card__body {
+  gap: 0;
+}
+
+.prompt-card__title {
+  padding-right: 52px;
+}
+
+.prompt-card__toggle {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+  flex-shrink: 0;
+  transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+
+.prompt-card__toggle:hover {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.46);
+}
+
+.prompt-card__toggle:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.72);
+  outline-offset: 2px;
+}
+
+.prompt-card__toggle[aria-expanded='true'] svg {
+  transform: rotate(180deg);
+}
+
+.prompt-card__toggle svg {
+  transition: transform 180ms ease;
 }
 
 .prompt-card__section {
@@ -116,6 +162,15 @@
 }
 
 @media (max-width: 480px) {
+  .prompt-card__toggle {
+    width: 34px;
+    height: 34px;
+  }
+
+  .prompt-card__title {
+    padding-right: 42px;
+  }
+
   .prompt-card__fields {
     grid-template-columns: 1fr;
   }
