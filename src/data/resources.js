@@ -73,7 +73,7 @@ export const AI_PROMPTS = [
 export const AI_SERVICES = [
   {
     id: 's1',
-    title: 'YandexGPT',
+    title: 'Алиса AI',
     description: 'Нейросеть от Яндекса для генерации текстов и ответов на вопросы',
     url: 'https://300.ya.ru',
   },
