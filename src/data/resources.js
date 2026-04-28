@@ -6,14 +6,14 @@ export const TEMPLATES = [
     title: 'Шаблон урока — Обществознание',
     description: 'Готовая презентация с структурой урока для 9 класса',
     type: 'presentation',
-    url: 'https://disk.yandex.ru/placeholder1',
+    url: '/files/templates/lesson-template.pptx',
   },
   {
     id: 't2',
-    title: 'Рабочий лист — История',
-    description: 'Лист с заданиями для самостоятельной работы учеников',
-    type: 'worksheet',
-    url: 'https://disk.yandex.ru/placeholder2',
+    title: 'Шаблон презентации — ВКР',
+    description: 'Готовая презентация для оформления выпускной квалификационной работы',
+    type: 'presentation',
+    url: '/files/templates/vkr-presentation.pptx',
   },
 ]
 
