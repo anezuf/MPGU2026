@@ -32,9 +32,9 @@ function ZapIcon() {
 
 const SUBJECT_LABELS = ['Обществознание', 'История', 'ОРКСЭ', 'Русский язык']
 const FEATURED_STATS = [
-  { value: '4', label: 'предмета' },
-  { value: '40+', label: 'источников' },
-  { value: '100%', label: 'проверено' },
+  'Количество предмета',
+  'Количество источников',
+  'Количество проверено',
 ]
 const AI_PILL_LABELS = [
   'Поурочный план',
@@ -76,9 +76,8 @@ function OverviewPage({ onNavigate }) {
 
           <div className="overview-bento__stats">
             {FEATURED_STATS.map((stat) => (
-              <div key={stat.label} className="overview-bento__stat-chip">
-                <span className="overview-bento__stat-value">{stat.value}</span>
-                <span className="overview-bento__stat-label">{stat.label}</span>
+              <div key={stat} className="overview-bento__stat-chip">
+                <span className="overview-bento__stat-label">{stat}</span>
               </div>
             ))}
           </div>
