@@ -3,15 +3,15 @@ export const resources = []
 export const TEMPLATES = [
   {
     id: 't1',
-    title: 'Шаблон урока — Обществознание',
-    description: 'Готовая презентация с структурой урока для 9 класса',
+    title: 'Шаблон презентации',
+    description: 'Дизайн в бирюзовых, розовых оттенках для Ваших работ',
     type: 'presentation',
     url: '/files/templates/lesson-template.pptx',
   },
   {
     id: 't2',
-    title: 'Шаблон презентации — ВКР',
-    description: 'Готовая презентация для оформления выпускной квалификационной работы',
+    title: 'Шаблон презентации',
+    description: 'Дизайн в оттенках хаки, горчичный для Ваших работ',
     type: 'presentation',
     url: '/files/templates/vkr-presentation.pptx',
   },

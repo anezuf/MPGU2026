@@ -1,5 +1,6 @@
 .overview-page {
   padding: 26px 8px 18px;
+  container-type: inline-size;
 }
 
 .overview-bento {
@@ -328,6 +329,55 @@
 }
 
 @media (max-width: 767px) {
+  .overview-page {
+    padding: 18px 0 8px;
+  }
+
+  .overview-bento {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+  }
+
+  .overview-bento__cell--featured,
+  .overview-bento__cell--ai,
+  .overview-bento__cell--templates,
+  .overview-bento__cell--interactive {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .overview-bento__cell--featured {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 20px;
+  }
+
+  .overview-bento__featured-title {
+    font-size: 24px;
+  }
+
+  .overview-bento__featured-description,
+  .overview-bento__description {
+    font-size: 13px;
+  }
+
+  .overview-bento__stats {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .overview-bento__stat-chip {
+    min-width: 112px;
+    flex: 1 1 112px;
+  }
+
+  .overview-bento__pill-list--stack {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+@container (max-width: 860px) {
   .overview-page {
     padding: 18px 0 8px;
   }
