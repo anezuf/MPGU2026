@@ -63,14 +63,6 @@ function BookOpenIcon() {
   )
 }
 
-function MessageSquareIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M7 18.5c-2.8 0-5-2.2-5-5v-5C2 5.7 4.2 3.5 7 3.5h10c2.8 0 5 2.2 5 5v5c0 2.8-2.2 5-5 5H9l-5 3v-3H7Z" />
-    </svg>
-  )
-}
-
 function InfoIcon() {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -111,7 +103,6 @@ const PRIMARY_NAV_ITEMS = [
 ]
 
 const SECONDARY_NAV_ITEMS = [
-  { page: 'feedback', label: 'Обратная связь', icon: MessageSquareIcon },
   { page: 'about', label: 'О проекте', icon: InfoIcon },
 ]
 

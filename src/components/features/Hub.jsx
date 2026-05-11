@@ -5,7 +5,6 @@ import AboutPage from './AboutPage/AboutPage'
 import BlockInteractive from './BlockInteractive'
 import BlockSubjects from './BlockSubjects'
 import BlockTemplates from './BlockTemplates'
-import FeedbackForm from './FeedbackForm/FeedbackForm'
 import Sidebar from '../ui/Sidebar/Sidebar'
 import { HUB_NAV_ITEMS } from '../../data/navHub'
 import { HUB_PAGE_STORAGE_KEY } from '../../constants'
@@ -13,7 +12,6 @@ import OverviewPage from '../../pages/OverviewPage/OverviewPage'
 
 const HUB_PAGES = new Set([
   'home',
-  'feedback',
   'about',
   'ai-guide',
   ...HUB_NAV_ITEMS.map(({ page }) => page),
@@ -56,9 +54,6 @@ function Hub({ onLogout }) {
     }
     if (activePage === 'subjects') {
       return <BlockSubjects />
-    }
-    if (activePage === 'feedback') {
-      return <FeedbackForm />
     }
     if (activePage === 'about') {
       return <AboutPage />
