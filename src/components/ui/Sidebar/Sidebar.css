@@ -44,6 +44,8 @@
 }
 
 .sidebar__logo {
+  display: flex;
+  align-items: center;
   width: 100%;
   justify-content: flex-start;
   gap: 14px;
@@ -56,11 +58,6 @@
   text-align: left;
 }
 
-.sidebar__logo:hover {
-  background: rgba(255, 255, 255, 0.03);
-}
-
-.sidebar__logo:focus-visible,
 .sidebar__nav-item:focus-visible,
 .sidebar__logout:focus-visible {
   outline: 2px solid #2dd4a0;

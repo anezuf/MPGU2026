@@ -261,7 +261,7 @@ a.btn-pink {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 40px 24px 80px;
+  padding: 56px 56px 88px;
   box-sizing: border-box;
   background-color: #fbfdfc;
   background-image: repeating-linear-gradient(
@@ -276,12 +276,12 @@ a.btn-pink {
 .landing-hero__inner {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   width: 100%;
-  max-width: min(100%, 760px);
-  text-align: left;
+  max-width: 1360px;
+  text-align: center;
   box-sizing: border-box;
-  padding: clamp(22px, 3.2vw, 36px);
+  padding: 32px 24px;
   border: none;
   border-radius: 18px;
   background: transparent;
@@ -291,37 +291,41 @@ a.btn-pink {
 .landing-hero__badge {
   display: inline-block;
   width: fit-content;
-  margin-bottom: 28px;
-  padding: 7px 22px;
+  margin-bottom: 30px;
+  padding: 8px 26px;
   background: rgba(253, 240, 243, 0.92);
   border: 1.5px solid #f0b4bc;
   border-radius: 24px;
   color: #c97a8e;
   font-family: 'Nunito', sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
   line-height: 1.35;
 }
 
 .landing-hero__title {
   margin: 0;
-  max-width: 100%;
-  margin-bottom: 20px;
+  max-width: 1320px;
+  margin-bottom: 26px;
   font-family: 'Lora', serif;
-  font-size: clamp(44px, 4.5vw, 68px);
+  font-size: 78px;
   font-weight: 700;
-  line-height: 1.15;
+  line-height: 1.08;
   color: #000000;
   text-wrap: balance;
 }
 
+.landing-hero__title span {
+  display: block;
+}
+
 .landing-hero__subtitle {
   margin: 0;
-  max-width: 100%;
-  margin-bottom: 28px;
+  max-width: 880px;
+  margin-bottom: 32px;
   color: #000000;
   font-family: 'Nunito', sans-serif;
-  font-size: clamp(19px, 2.4vw, 24px);
+  font-size: 24px;
   font-weight: 400;
   line-height: 1.55;
   text-wrap: balance;
@@ -375,8 +379,8 @@ a.btn-pink {
   background: linear-gradient(145deg, #ffffff 0%, #eefbf8 100%);
   color: var(--teal-dark);
   border-color: rgba(72, 187, 162, 0.7);
-  padding: 12px 26px;
-  font-size: 17px;
+  padding: 14px 30px;
+  font-size: 18px;
   border-radius: 16px;
   animation: btn-glow-teal 2s ease-in-out infinite;
 }
@@ -774,6 +778,51 @@ a.btn-pink {
   border-radius: 10px 10px 0 0;
 }
 
+@media (max-width: 1360px) {
+  .landing-hero {
+    padding: 48px 40px 76px;
+  }
+
+  .landing-hero__inner {
+    max-width: 1120px;
+  }
+
+  .landing-hero__title {
+    max-width: 1120px;
+    font-size: 68px;
+  }
+
+  .landing-hero__subtitle {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 900px) {
+  .landing-hero {
+    padding: 36px 24px 56px;
+  }
+
+  .landing-hero__inner {
+    max-width: 760px;
+    padding: 24px 12px;
+  }
+
+  .landing-hero__badge {
+    margin-bottom: 24px;
+  }
+
+  .landing-hero__title {
+    max-width: 760px;
+    font-size: 54px;
+    line-height: 1.12;
+  }
+
+  .landing-hero__subtitle {
+    max-width: 680px;
+    font-size: 20px;
+  }
+}
+
 @media (max-width: 768px) {
   .hub-section {
     padding: 36px 16px;
@@ -789,35 +838,35 @@ a.btn-pink {
 @media (max-width: 640px) {
   .landing-hero {
     min-height: 100dvh;
-    padding: 20px 14px 36px;
+    padding: 28px 16px 40px;
   }
 
   .landing-hero__inner {
-    align-items: stretch;
-    padding: 18px 14px;
+    align-items: center;
+    padding: 12px 0;
     border-radius: 14px;
   }
 
   .landing-hero__badge {
-    margin-bottom: 16px;
+    margin-bottom: 18px;
     padding: 6px 14px;
     font-size: 13px;
   }
 
   .landing-hero__title {
-    margin-bottom: 14px;
-    font-size: clamp(30px, 8.8vw, 40px);
-    line-height: 1.2;
+    margin-bottom: 16px;
+    font-size: 38px;
+    line-height: 1.14;
   }
 
   .landing-hero__subtitle {
     margin-bottom: 20px;
-    font-size: clamp(16px, 4.6vw, 19px);
+    font-size: 17px;
     line-height: 1.45;
   }
 
   .landing-hero__cta {
-    width: 100%;
+    width: min(100%, 280px);
     padding: 11px 14px;
     font-size: 15px;
     border-radius: 12px;
@@ -944,16 +993,16 @@ a.btn-pink {
 
 @media (max-width: 400px) {
   .landing-hero {
-    padding: 14px 10px 24px;
+    padding: 20px 12px 28px;
   }
 
   .landing-hero__inner {
-    padding: 14px 10px;
+    padding: 10px 0;
     border-radius: 12px;
   }
 
   .landing-hero__title {
-    font-size: clamp(26px, 10vw, 32px);
+    font-size: 31px;
   }
 
   .landing-hero__subtitle {

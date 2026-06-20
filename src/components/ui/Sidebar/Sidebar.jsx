@@ -135,7 +135,7 @@ function SidebarNavItem({ activePage, item, onNavigate }) {
 function Sidebar({ activePage, onNavigate, onLogout }) {
   return (
     <aside className="sidebar" aria-label="Навигация по хабу" data-no-print>
-      <button type="button" className="sidebar__logo" onClick={() => onNavigate('home')}>
+      <div className="sidebar__logo">
         <span className="sidebar__logo-icon">
           <CompassIcon />
         </span>
@@ -143,7 +143,7 @@ function Sidebar({ activePage, onNavigate, onLogout }) {
           <span className="sidebar__logo-title">Цифровой навигатор</span>
           <span className="sidebar__logo-subtitle">педагога</span>
         </span>
-      </button>
+      </div>
 
       <div className="sidebar__nav">
         <p className="sidebar__section-label">Главное</p>
