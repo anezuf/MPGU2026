@@ -1,4 +1,15 @@
+import { HUB_NAV_ITEMS } from '../../data/navHub'
 import './OverviewPage.css'
+
+function MonitorIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="4" y="5" width="16" height="11" rx="1.8" />
+      <path d="M8 20h8" />
+      <path d="M12 16v4" />
+    </svg>
+  )
+}
 
 function BrainIcon() {
   return (
@@ -12,128 +23,206 @@ function BrainIcon() {
   )
 }
 
-function DownloadIcon() {
+function CursorIcon() {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-      <polyline points="7 10 12 15 17 10" />
-      <line x1="12" y1="15" x2="12" y2="3" />
+      <path d="m5 3 11 11" />
+      <path d="m5 3 4 14 3.5-5.5L18 8 5 3Z" />
+      <path d="m13 13 4 8" />
+      <path d="m16 14.5 3-1.5" />
     </svg>
   )
 }
 
-function ZapIcon() {
+function LayersIcon() {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+      <path d="m12 3 8 4.5-8 4.5L4 7.5 12 3Z" />
+      <path d="m4 12 8 4.5 8-4.5" />
+      <path d="m4 16.5 8 4.5 8-4.5" />
     </svg>
   )
 }
 
-const SUBJECT_LABELS = ['Обществознание', 'История', 'ОРКСЭ', 'Русский язык']
-const FEATURED_STATS = [
-  'Количество предмета',
-  'Количество источников',
-  'Количество проверено',
-]
-const AI_PILL_LABELS = [
-  'Поурочный план',
-  'Мотивационный крючок',
-  'Адаптация текста',
-  'Дебаты',
+function BookOpenIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M2.5 6.5A2.5 2.5 0 0 1 5 4h5.5A3.5 3.5 0 0 1 14 7.5V20a3.5 3.5 0 0 0-3.5-3.5H5A2.5 2.5 0 0 0 2.5 19V6.5Z" />
+      <path d="M21.5 6.5A2.5 2.5 0 0 0 19 4h-5.5A3.5 3.5 0 0 0 10 7.5V20a3.5 3.5 0 0 1 3.5-3.5H19a2.5 2.5 0 0 1 2.5 2.5V6.5Z" />
+    </svg>
+  )
+}
+
+function CapIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M3 8.5 12 4l9 4.5-9 4.5L3 8.5Z" />
+      <path d="M7 11v4.2c0 1.4 2.2 2.8 5 2.8s5-1.4 5-2.8V11" />
+      <path d="M21 9v5" />
+    </svg>
+  )
+}
+
+function HelpIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="9" />
+      <path d="M9.8 9.4a2.4 2.4 0 1 1 3.6 2.1c-.9.5-1.4 1.1-1.4 2" />
+      <path d="M12 17h.01" />
+    </svg>
+  )
+}
+
+function UsersIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M16 19c0-2.2-1.8-4-4-4s-4 1.8-4 4" />
+      <circle cx="12" cy="9" r="3" />
+      <path d="M4 18c0-1.6 1.1-3 2.6-3.4" />
+      <path d="M20 18c0-1.6-1.1-3-2.6-3.4" />
+      <path d="M6.5 11.5a2.2 2.2 0 1 1 1.1-4.1" />
+      <path d="M17.5 11.5a2.2 2.2 0 1 0-1.1-4.1" />
+    </svg>
+  )
+}
+
+const ICONS_BY_PAGE = {
+  ai: BrainIcon,
+  templates: LayersIcon,
+  interactive: CursorIcon,
+  subjects: BookOpenIcon,
+}
+
+const SECTION_META = {
+  ai: { label: 'Нейросети', variant: 'teal' },
+  templates: { label: 'Шаблоны', variant: 'pink' },
+  interactive: { label: 'Интерактив', variant: 'teal' },
+  subjects: { label: 'Предметы', variant: 'pink' },
+}
+
+const CARD_COPY = {
+  ai: 'Промпты, примеры запросов и рекомендации по использованию нейросетей для подготовки к урокам и заданиям.',
+  templates: 'Готовые шаблоны уроков, презентаций, рабочих листов и заданий, которые можно адаптировать под свою цель и класс.',
+  interactive: 'Сервисы для квизов, опросов, визуализации и заданий, которые помогают сделать урок более вовлекающим.',
+  subjects: 'Проверенные сайты, базы данных, цифровые коллекции и справочные материалы по предметным темам.',
+}
+
+const GUIDE_STEPS = [
+  'Определите тему урока или учебную задачу.',
+  'Выберите нужный раздел в левой панели.',
+  'Подберите цифровой инструмент, шаблон или ресурс.',
+  'Адаптируйте материал под класс и цель урока.',
+  'Проверьте достоверность информации.',
+  'Оцените, как ресурс помогает ученикам разобраться в теме.',
 ]
 
 function OverviewPage({ onNavigate }) {
   return (
     <section className="overview-page" aria-label="Обзор разделов навигатора">
-      <div className="overview-bento">
-        <article className="overview-bento__cell overview-bento__cell--featured">
-          <div className="overview-bento__featured-content">
-            <span className="overview-bento__badge overview-bento__badge--featured">Предметные копилки</span>
-            <h2 className="overview-bento__featured-title">Предметные копилки</h2>
-            <p className="overview-bento__featured-description">
-              Проверенные ресурсы, готовые рабочие листы, презентации и задания для уроков по обществознанию,
-              ОРКСЭ, истории, русскому языку и литературе. Всё собрано по предметам — выбирайте нужную вкладку и
-              пользуйтесь.
-            </p>
-
-            <div className="overview-bento__subjects">
-              {SUBJECT_LABELS.map((subject) => (
-                <span key={subject} className="overview-bento__subject-pill">
-                  {subject}
-                </span>
-              ))}
-            </div>
-
-            <button
-              type="button"
-              className="overview-bento__featured-cta"
-              onClick={() => onNavigate('subjects')}
-            >
-              Открыть раздел
+      <header className="overview-hero">
+        <div className="overview-hero__content">
+          <h1 className="overview-hero__title">
+            Цифровой навигатор будущего учителя обществознания
+          </h1>
+          <p className="overview-hero__text">
+            Помогаем будущим педагогам уверенно ориентироваться в цифровых инструментах,
+            подбирать надежные ресурсы по обществознанию, использовать нейросети,
+            создавать учебные материалы и проектировать современные задания для учеников.
+          </p>
+          <div className="overview-hero__actions">
+            <button type="button" className="overview-button overview-button--primary" onClick={() => onNavigate('ai')}>
+              Начать работу
+            </button>
+            <button type="button" className="overview-button overview-button--secondary" onClick={() => onNavigate('about')}>
+              О проекте
             </button>
           </div>
+        </div>
 
-          <div className="overview-bento__stats">
-            {FEATURED_STATS.map((stat) => (
-              <div key={stat} className="overview-bento__stat-chip">
-                <span className="overview-bento__stat-label">{stat}</span>
-              </div>
-            ))}
+        <aside className="overview-hero-card" aria-label="Методическая поддержка">
+          <div className="overview-icon-bubble overview-icon-bubble--large">
+            <CapIcon />
           </div>
-        </article>
+          <div>
+            <h2 className="overview-hero-card__title">Методическая поддержка цифровой компетентности</h2>
+            <p className="overview-hero-card__text">
+              Сайт создан как средство методической поддержки развития цифровых компетенций будущих учителей обществознания.
+            </p>
+          </div>
+        </aside>
+      </header>
 
-        <article className="overview-bento__cell overview-bento__cell--ai">
-          <div className="overview-bento__icon-wrap overview-bento__icon-wrap--ai">
-            <BrainIcon />
-          </div>
-          <span className="overview-bento__badge overview-bento__badge--ai">Нейросети</span>
-          <h3 className="overview-bento__title">Нейросети для учителя</h3>
-          <p className="overview-bento__description">
-            Готовые промпты для российских нейросетей, которые помогут быстро подготовить план урока, сценарий или
-            идеи для занятий. Смотрите примеры, копируйте запросы и пробуйте сами.
-          </p>
-          <div className="overview-bento__pill-list overview-bento__pill-list--stack">
-            {AI_PILL_LABELS.map((item) => (
-              <span key={item} className="overview-bento__mini-pill overview-bento__mini-pill--ai">
-                {item}
+      <div className="overview-content-grid">
+        <div className="overview-card-grid" aria-label="Разделы навигатора">
+          {HUB_NAV_ITEMS.map((item) => {
+            const Icon = ICONS_BY_PAGE[item.page] || MonitorIcon
+            const meta = SECTION_META[item.page] || { label: 'Раздел', variant: 'teal' }
+            const isPink = meta.variant === 'pink'
+
+            return (
+              <article
+                key={item.page}
+                className={`overview-section-card pcp-card${isPink ? ' pcp-card--service' : ''}`}
+              >
+                <div className={`pcp-header overview-section-card__header${isPink ? ' pcp-header--service' : ''}`}>
+                  <div className="pcp-header__left">
+                    <div className="pcp-header__icon">
+                      <Icon />
+                    </div>
+                    <span className="pcp-header__label">{meta.label}</span>
+                  </div>
+                  <svg className="pcp-header__curve" viewBox="0 0 1000 64" preserveAspectRatio="none" aria-hidden="true">
+                    <path d="M-2 30 C 220 4 780 4 1002 30 L1002 66 L-2 66 Z" />
+                  </svg>
+                </div>
+                <div className="pcp-body overview-section-card__body">
+                  <h2 className="pcp-title overview-section-card__title">{item.label}</h2>
+                  <div className={`pcp-content${isPink ? ' pcp-content--service' : ''}`}>
+                    <p className="pcp-content__text overview-section-card__text">{CARD_COPY[item.page]}</p>
+                  </div>
+                  <button
+                    type="button"
+                    className={`pcp-btn overview-section-card__button${isPink ? ' pcp-btn--pink' : ''}`}
+                    onClick={() => onNavigate(item.page)}
+                  >
+                    Открыть
+                  </button>
+                </div>
+              </article>
+            )
+          })}
+        </div>
+
+        <aside className="overview-side" aria-label="Подсказки по работе с сайтом">
+          <article className="overview-guide-card">
+            <div className="overview-guide-card__heading">
+              <span className="overview-guide-card__mark">
+                <HelpIcon />
               </span>
-            ))}
-          </div>
-          <button type="button" className="overview-bento__link" onClick={() => onNavigate('ai')}>
-            Открыть
-          </button>
-        </article>
+              <h2>Как пользоваться сайтом</h2>
+            </div>
+            <ol className="overview-guide-list">
+              {GUIDE_STEPS.map((step, index) => (
+                <li key={step} className="overview-guide-list__item">
+                  <span className="overview-guide-list__number">{index + 1}</span>
+                  <span>{step}</span>
+                </li>
+              ))}
+            </ol>
+          </article>
 
-        <article className="overview-bento__cell overview-bento__cell--templates">
-          <div className="overview-bento__icon-wrap overview-bento__icon-wrap--templates">
-            <DownloadIcon />
-          </div>
-          <span className="overview-bento__badge overview-bento__badge--templates">Шаблоны</span>
-          <h3 className="overview-bento__title">Шаблоны и визуал</h3>
-          <p className="overview-bento__description">
-            Красивые презентации и удобные рабочие листы, которые уже готовы к уроку. Скачивайте, вдохновляйтесь и
-            создавайте свои материалы на основе готовых дизайнов.
-          </p>
-          <button type="button" className="overview-bento__link" onClick={() => onNavigate('templates')}>
-            Открыть
-          </button>
-        </article>
-
-        <article className="overview-bento__cell overview-bento__cell--interactive">
-          <div className="overview-bento__icon-wrap overview-bento__icon-wrap--interactive">
-            <ZapIcon />
-          </div>
-          <span className="overview-bento__badge overview-bento__badge--interactive">Интерактив</span>
-          <h3 className="overview-bento__title">Инструменты интерактива</h3>
-          <p className="overview-bento__description">
-            Короткие видеоинструкции по созданию квизов, викторин и игр, а также ссылки на проверенные российские
-            сервисы для вовлечения учеников на уроке.
-          </p>
-          <button type="button" className="overview-bento__link" onClick={() => onNavigate('interactive')}>
-            Открыть
-          </button>
-        </article>
+          <article className="overview-note-card">
+            <div className="overview-icon-bubble">
+              <UsersIcon />
+            </div>
+            <div>
+              <h2>Универсальный характер</h2>
+              <p>
+                Логика работы с ресурсами полезна не только для обществознания, но и для истории и других социально-гуманитарных дисциплин.
+              </p>
+            </div>
+          </article>
+        </aside>
       </div>
     </section>
   )
