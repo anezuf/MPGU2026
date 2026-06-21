@@ -37,12 +37,43 @@ function SubjectsInfoPanel() {
 
 function SubjectsPage() {
   const [activeType, setActiveType] = useState('all')
+  const [searchQuery, setSearchQuery] = useState('')
 
-  const filteredMaterials = useMemo(() => getMaterialsBySidebarType(activeType), [activeType])
+  const filteredMaterials = useMemo(() => {
+    const materials = getMaterialsBySidebarType(activeType)
+    const normalizedQuery = searchQuery.trim().toLocaleLowerCase('ru-RU')
+
+    if (!normalizedQuery) {
+      return materials
+    }
+
+    return materials.filter((material) => {
+      const searchableText = [
+        material.title,
+        material.description,
+        material.typeLabel,
+        material.grades,
+        material.tag,
+      ]
+        .filter(Boolean)
+        .join(' ')
+        .toLocaleLowerCase('ru-RU')
+
+      return searchableText.includes(normalizedQuery)
+    })
+  }, [activeType, searchQuery])
 
   const handleTypeSelect = useCallback((typeId) => {
     setActiveType(typeId)
   }, [])
+
+  const handleSearchChange = useCallback((event) => {
+    setSearchQuery(event.target.value)
+  }, [])
+
+  const emptyMessage = searchQuery.trim()
+    ? 'По выбранным фильтрам ничего не найдено.'
+    : 'Материалы этого типа появятся позже.'
 
   return (
     <section className="subjects-page" aria-label="Предметная копилка">
@@ -52,6 +83,15 @@ function SubjectsPage() {
         <button type="button" className="subp-subject-tab subp-subject-tab--active" role="tab" aria-selected="true">
           Обществознание
         </button>
+      </div>
+
+      <div className="filter-bar">
+        <input
+          type="text"
+          placeholder="Поиск материалов..."
+          value={searchQuery}
+          onChange={handleSearchChange}
+        />
       </div>
 
       <div className="subp-layout">
@@ -94,7 +134,7 @@ function SubjectsPage() {
               <MaterialCard key={material.id} material={material} />
             ))
           ) : (
-            <p className="subp-grid__empty">Материалы этого типа появятся позже.</p>
+            <p className="subp-grid__empty">{emptyMessage}</p>
           )}
         </div>
       </div>

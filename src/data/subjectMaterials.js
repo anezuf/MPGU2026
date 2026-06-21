@@ -92,6 +92,17 @@ export const SOCIETY_MATERIALS = [
     url: 'https://disk.yandex.ru/i/00qii4YBwoekuQ',
   },
   {
+    id: 'sm33',
+    type: 'matching',
+    typeLabel: 'ЗАДАНИЕ НА СООТВЕТСТВИЕ',
+    variant: 'teal',
+    title: 'Типы общества',
+    description: 'Задание для закрепления темы «Типы общества»: традиционное, индустриальное и постиндустриальное общество. Материал помогает повторить ключевые признаки, примеры и понятия, связанные с развитием общества.',
+    grades: '9 класс',
+    hasFgos: true,
+    url: 'https://disk.yandex.ru/i/N5HQCtVtymXzjw',
+  },
+  {
     id: 'sm12',
     type: 'infographic',
     typeLabel: 'ИНФОГРАФИКА',

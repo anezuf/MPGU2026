@@ -51,12 +51,6 @@ function ToolsPage() {
     <section className="subjects-page" aria-label="Цифровые инструменты для уроков">
       <ToolsPageHeader />
 
-      <div className="subp-subject-tabs" role="tablist" aria-label="Направления">
-        <button type="button" className="subp-subject-tab subp-subject-tab--active" role="tab" aria-selected="true">
-          Обществознание
-        </button>
-      </div>
-
       <div className="subp-layout">
         <aside className="subp-sidebar" aria-label="Типы инструментов">
           <p className="subp-sidebar__label">ТИПЫ ИНСТРУМЕНТОВ</p>
