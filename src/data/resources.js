@@ -127,57 +127,6 @@ export const AI_SERVICES = [
   },
 ]
 
-export const DIGITAL_LESSON_TOOLS = [
-  {
-    id: 'd1',
-    title: 'Российская электронная школа',
-    description: 'Материалы для объяснения нового содержания: видеоуроки, тренировочные задания и проверочные работы.',
-    url: 'https://resh.edu.ru',
-    logoUrl: '/logos/resh.png',
-    tag: 'Объяснение',
-  },
-  {
-    id: 'd2',
-    title: 'ЯКласс',
-    description: 'Платформа для подбора заданий, самостоятельной работы, тренировки навыков и быстрой проверки результатов.',
-    url: 'https://www.yaklass.ru',
-    logoUrl: '/logos/yaklass.png',
-    tag: 'Задания',
-  },
-  {
-    id: 'd3',
-    title: 'Учи.ру',
-    description: 'Интерактивные упражнения и сценарии для закрепления материала с учетом возраста обучающихся.',
-    url: 'https://uchi.ru',
-    logoUrl: '/logos/uchi.png',
-    tag: 'Практика',
-  },
-  {
-    id: 'd4',
-    title: 'Online Test Pad',
-    description: 'Конструктор тестов, опросов, анкет и кроссвордов для входной, текущей и итоговой проверки понимания темы.',
-    url: 'https://onlinetestpad.com',
-    logoUrl: '/logos/online-test-pad.png',
-    tag: 'Тестирование',
-  },
-  {
-    id: 'd5',
-    title: 'Яндекс Формы',
-    description: 'Инструмент для сбора ответов, обратной связи, мини-опросов и рефлексии после урока.',
-    url: 'https://forms.yandex.ru',
-    logoUrl: '/logos/yandex-forms.png',
-    tag: 'Опросы',
-  },
-  {
-    id: 'd6',
-    title: 'Datawrapper',
-    description: 'Сервис для создания понятных графиков, карт и таблиц при работе с социальной и статистической информацией.',
-    url: 'https://www.datawrapper.de',
-    logoUrl: '/logos/datawrapper.png',
-    tag: 'Визуализация',
-  },
-]
-
 export const INTERACTIVE_TOOLS = [
   {
     id: 'i1',
@@ -201,18 +150,6 @@ export const INTERACTIVE_TOOLS = [
     price: 'Бесплатно',
     url: 'https://onlinetestpad.com/',
     logoUrl: '/logos/online-test-pad.png',
-    categories: ['Тесты и опросы'],
-  },
-  {
-    id: 'i3',
-    title: 'Classtime',
-    emoji: '📊',
-    iconBg: '#E8EAFB',
-    tags: ['Тесты', 'Оценивание'],
-    description: 'Сервис для интерактивных уроков и формирующего оценивания: создавайте вопросы, проводите сессии и быстро видите результаты учеников.',
-    price: 'Бесплатно / платно',
-    url: 'https://www.classtime.com/ru.html',
-    logoUrl: '/logos/classtime.png',
     categories: ['Тесты и опросы'],
   },
   {

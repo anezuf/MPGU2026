@@ -2,8 +2,8 @@ import { useMemo, useState } from 'react'
 import { INTERACTIVE_TOOLS } from '../../data/resources'
 
 const CATEGORIES = [
-  { label: 'Все инструменты', value: '', count: 13, icon: '✨', note: 'полный каталог' },
-  { label: 'Тесты и опросы', value: 'Тесты и опросы', count: 3, icon: '📝', note: 'проверка и фидбек' },
+  { label: 'Все инструменты', value: '', count: 12, icon: '✨', note: 'полный каталог' },
+  { label: 'Тесты и опросы', value: 'Тесты и опросы', count: 2, icon: '📝', note: 'проверка и фидбек' },
   { label: 'Квизы и игры', value: 'Квизы и игры', count: 3, icon: '🎮', note: 'соревнования' },
   { label: 'Упражнения и тренажеры', value: 'Упражнения и тренажеры', count: 3, icon: '🧩', note: 'закрепление' },
   { label: 'Доски и вебинары', value: 'Доски и вебинары', count: 2, icon: '🖊️', note: 'онлайн-занятия' },

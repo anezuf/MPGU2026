@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import AIToolsPage from './AIToolsPage/AIToolsPage'
 import AIRecommendationsPage from './AIRecommendationsPage/AIRecommendationsPage'
 import AboutPage from './AboutPage/AboutPage'
-import BlockDigitalTools from './BlockDigitalTools'
+import ToolsPage from './ToolsPage/ToolsPage'
 import BlockInteractive from './BlockInteractive'
 import SubjectsPage from './SubjectsPage/SubjectsPage'
 import BlockTemplates from './BlockTemplates'
@@ -45,7 +45,7 @@ function Hub({ onLogout }) {
       return <OverviewPage onNavigate={handleNavigate} />
     }
     if (activePage === 'tools') {
-      return <BlockDigitalTools />
+      return <ToolsPage />
     }
     if (activePage === 'ai') {
       return <AIToolsPage />
