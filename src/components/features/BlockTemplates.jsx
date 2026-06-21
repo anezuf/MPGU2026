@@ -33,8 +33,8 @@ function BlockTemplates() {
   return (
     <section id="templates-visuals" className="hub-section">
       <div className="section-header">
-        <h2 className="section-title">Шаблоны и визуал</h2>
-        <p className="section-subtitle">Готовые презентации и рабочие листы для скачивания</p>
+        <h2 className="hub-page-title">Шаблоны и визуал</h2>
+        <p className="hub-page-subtitle">Готовые презентации и рабочие листы для скачивания</p>
       </div>
       <div className="ai-grid">
         {TEMPLATES.map((template) => {

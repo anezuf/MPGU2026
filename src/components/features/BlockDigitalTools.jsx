@@ -23,8 +23,8 @@ function BlockDigitalTools() {
   return (
     <section id="digital-lesson-tools" className="hub-section">
       <div className="section-header">
-        <h2 className="section-title">Цифровые инструменты для уроков</h2>
-        <p className="section-subtitle">
+        <h2 className="hub-page-title">Цифровые инструменты для уроков</h2>
+        <p className="hub-page-subtitle">
           Сервисы для объяснения нового материала, создания заданий, опросов, тестирования и визуализации информации.
         </p>
       </div>

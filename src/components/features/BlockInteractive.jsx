@@ -68,9 +68,8 @@ function BlockInteractive() {
     <section id="interactive-tools" className="page-wrapper">
       <header className="catalog-header">
         <div className="catalog-header__content">
-          <p className="breadcrumb">ИНСТРУМЕНТЫ ИНТЕРАКТИВА</p>
-          <h1>Цифровые инструменты для уроков</h1>
-          <p className="subtitle">
+          <h1 className="hub-page-title">Цифровые инструменты для уроков</h1>
+          <p className="hub-page-subtitle">
             Подборка проверенных сервисов и платформ для создания интерактивных
             заданий, тестов, квизов, опросов и презентаций. Инструменты помогут
             сделать уроки более вовлекающими и продуктивными.

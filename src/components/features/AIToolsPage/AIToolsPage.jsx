@@ -19,9 +19,8 @@ function AIPageHeader() {
   return (
     <div className="aitp-header">
       <div className="aitp-header__left">
-        <p className="aitp-breadcrumb">НЕЙРОСЕТИ</p>
-        <h1 className="aitp-title">Нейросети для учителя</h1>
-        <p className="aitp-subtitle">
+        <h1 className="hub-page-title">Нейросети для учителя</h1>
+        <p className="hub-page-subtitle">
           Подборка ИИ-инструментов для подготовки уроков, создания материалов,
           генерации изображений и работы с текстом. Все сервисы проверены
           и адаптированы для использования в образовании.

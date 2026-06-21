@@ -11,9 +11,8 @@ function SubjectsPageHeader() {
   return (
     <header className="subp-header">
       <div className="subp-header__left">
-        <p className="subp-breadcrumb">ПРЕДМЕТНЫЕ КОПИЛКИ</p>
-        <h1 className="subp-title">Предметные копилки</h1>
-        <p className="subp-subtitle">
+        <h1 className="hub-page-title">Предметные копилки</h1>
+        <p className="hub-page-subtitle">
           Подборка учебных материалов по обществознанию: рабочие листы, презентации,
           квизы, видеоуроки и методические рекомендации для уроков в школе.
         </p>

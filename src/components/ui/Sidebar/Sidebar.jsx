@@ -42,7 +42,7 @@ const TOP_NAV_ITEMS = [
   { page: 'subjects', label: 'Материалы' },
   { page: 'templates', label: 'Шаблоны' },
   { page: 'interactive', label: 'Интерактив' },
-  { page: 'tips', label: 'Методическая копилка' },
+  { page: 'tips', label: 'Рекомендации' },
 ]
 
 function SidebarNavItem({ activePage, item, onNavigate }) {

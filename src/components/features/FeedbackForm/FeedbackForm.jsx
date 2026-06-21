@@ -54,8 +54,7 @@ function FeedbackForm() {
   return (
     <section className="feedback-page" aria-label="Обратная связь">
       <article className="feedback-page__card">
-        <span className="feedback-page__eyebrow">Обратная связь</span>
-        <h2 className="feedback-page__title">Поделитесь идеей или замечанием</h2>
+        <h2 className="hub-page-title">Поделитесь идеей или замечанием</h2>
         <p className="feedback-page__description">
           Сообщение сохранится локально в браузере и поможет собирать предложения по
           развитию проекта.

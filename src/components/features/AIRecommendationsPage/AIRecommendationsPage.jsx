@@ -69,8 +69,7 @@ function AIRecommendationsPage({ onNavigate }) {
       <article className="ai-guide-page__card">
         <div className="ai-guide-page__header">
           <div className="ai-guide-page__intro">
-            <span className="ai-guide-page__eyebrow">Лайфхаки и рекомендации</span>
-            <h2 className="ai-guide-page__title">Практическая методическая поддержка</h2>
+            <h2 className="hub-page-title">Практическая методическая поддержка</h2>
             <p className="ai-guide-page__description">
               Советы по выбору цифровых инструментов, проверке источников, безопасной работе с сервисами,
               созданию промптов, организации обсуждения, рефлексии и оценивания.

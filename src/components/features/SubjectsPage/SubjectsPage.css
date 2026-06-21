@@ -18,32 +18,6 @@
   min-width: 0;
 }
 
-.subp-breadcrumb {
-  margin: 0 0 6px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #1d9e75;
-}
-
-.subp-title {
-  margin: 0 0 8px;
-  font-family: 'Lora', serif;
-  font-size: 32px;
-  font-weight: 700;
-  line-height: 1.15;
-  color: #1a2e2a;
-}
-
-.subp-subtitle {
-  max-width: 560px;
-  margin: 0;
-  font-size: 14px;
-  line-height: 1.6;
-  color: #6b7280;
-}
-
 .subp-tip-card {
   display: flex;
   flex-shrink: 0;
@@ -448,10 +422,6 @@
 }
 
 @media (max-width: 560px) {
-  .subp-title {
-    font-size: 26px;
-  }
-
   .subp-grid {
     grid-template-columns: 1fr;
   }

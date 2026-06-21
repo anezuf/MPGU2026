@@ -594,22 +594,25 @@ a.btn-pink {
   margin-bottom: 28px;
 }
 
+.hub-page-title,
 .section-title {
+  margin: 0 0 8px;
   font-family: 'Lora', serif;
-  font-size: clamp(22px, 5vw, 32px);
+  font-size: 32px;
   font-weight: 700;
-  color: #1a2e2b;
-  margin: 0 0 6px 0;
-  line-height: 1.2;
+  line-height: 1.15;
+  color: #1a2e2a;
   text-wrap: balance;
 }
 
+.hub-page-subtitle,
 .section-subtitle {
-  font-family: 'Nunito', sans-serif;
-  font-size: 15px;
-  color: #5a7470;
   margin: 0;
-  line-height: 1.45;
+  max-width: 560px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #6b7280;
   text-wrap: balance;
 }
 
@@ -761,30 +764,13 @@ a.btn-pink {
   min-width: 0;
 }
 
-.breadcrumb {
-  margin: 0 0 8px;
-  font-size: 11px;
-  font-weight: 600;
-  color: #1D9E75;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.catalog-header h1 {
-  margin: 0 0 8px;
-  font-family: 'Nunito', sans-serif;
-  font-size: 32px;
-  font-weight: 700;
-  color: #1a2e2a;
-  line-height: 1.2;
-}
-
 .subtitle {
   margin: 0;
   max-width: 560px;
+  font-family: 'Nunito', sans-serif;
   font-size: 14px;
+  line-height: 1.6;
   color: #6b7280;
-  line-height: 1.55;
 }
 
 .tip-card {
@@ -1228,7 +1214,9 @@ a.btn-pink {
     padding: 1.5rem 1rem 2rem;
   }
 
-  .catalog-header h1 {
+  .hub-page-title,
+  .section-title,
+  .catalog-header .hub-page-title {
     font-size: 26px;
   }
 
