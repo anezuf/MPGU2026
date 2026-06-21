@@ -41,100 +41,159 @@
 /* ── LAYOUT ── */
 .subp-layout {
   display: grid;
-  grid-template-columns: 260px minmax(0, 1fr);
+  grid-template-columns: 280px minmax(0, 1fr);
   gap: 1.5rem;
   align-items: start;
   margin-bottom: 1.75rem;
 }
 
-/* ── SIDEBAR ── */
+.subp-sidebar {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 16px;
+  border: 1px solid rgba(184, 232, 212, 0.72);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 12px 32px rgba(17, 24, 39, 0.05);
+}
+
 .subp-sidebar__label {
-  margin: 0 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 14px;
   font-size: 11px;
   font-weight: 700;
+  color: #7d8ea0;
   letter-spacing: 0.08em;
-  color: #9ca3af;
+  text-transform: uppercase;
+}
+
+.subp-sidebar__label::before {
+  content: '';
+  flex-shrink: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: #1D9E75;
+  box-shadow: 0 0 0 4px rgba(29, 158, 117, 0.1);
 }
 
 .subp-sidebar__list {
   margin: 0;
   padding: 0;
   list-style: none;
-}
-
-.subp-sidebar__item {
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.subp-sidebar__list li {
+  margin: 0;
+  padding: 0;
+}
+
+.subp-sidebar__chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   width: 100%;
-  min-height: 36px;
-  padding: 6px 8px;
-  border: none;
-  border-radius: 8px;
-  background: transparent;
+  min-height: 58px;
+  padding: 9px 10px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.66);
+  color: #374151;
+  font-family: inherit;
   text-align: left;
-  transition: background-color 180ms ease;
+  cursor: pointer;
+  transition: background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
 }
 
-.subp-sidebar__item:hover {
-  background: #f0faf5;
+.subp-sidebar__chip:hover {
+  border-color: #b8e8d4;
+  background: #ffffff;
+  box-shadow: 0 8px 18px rgba(29, 158, 117, 0.08);
 }
 
-.subp-sidebar__item--active {
-  background: #e6faf7;
+.subp-sidebar__chip:focus-visible {
+  outline: 2px solid rgba(29, 158, 117, 0.3);
+  outline-offset: 2px;
 }
 
-.subp-sidebar__all-label {
-  font: 600 13px/1.3 'Nunito', sans-serif;
-  color: #4b5563;
+.subp-sidebar__chip--active {
+  border-color: rgba(29, 158, 117, 0.42);
+  background: #e6f8f0;
+  box-shadow: 0 12px 28px rgba(29, 158, 117, 0.14);
 }
 
-.subp-sidebar__item--active .subp-sidebar__all-label {
-  color: #1a9485;
-}
-
-.subp-sidebar__badge {
+.subp-sidebar__chip-icon {
   display: inline-flex;
   align-items: center;
-  justify-content: flex-start;
-  padding: 4px 8px;
-  border-radius: 6px;
-  font-size: 9px;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: #f0faf5;
+  font-size: 17px;
+  line-height: 1;
+  box-shadow: inset 0 0 0 1px rgba(29, 158, 117, 0.1);
+}
+
+.subp-sidebar__chip--active .subp-sidebar__chip-icon {
+  background: #1D9E75;
+  box-shadow: 0 8px 18px rgba(29, 158, 117, 0.22);
+}
+
+.subp-sidebar__chip-copy {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+  gap: 2px;
+}
+
+.subp-sidebar__chip-name {
+  color: #1f2937;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.subp-sidebar__chip--active .subp-sidebar__chip-name {
+  color: #1D9E75;
+}
+
+.subp-sidebar__chip-note {
+  color: #9ca3af;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.subp-sidebar__chip--active .subp-sidebar__chip-note {
+  color: #5d746b;
+}
+
+.subp-sidebar__chip-count {
+  flex-shrink: 0;
+  margin-left: auto;
+  border-radius: 999px;
+  background: #eef2f7;
+  padding: 3px 8px;
+  font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.04em;
-  line-height: 1.35;
-  text-align: left;
+  color: #8a94a6;
+  line-height: 1;
 }
 
-.subp-sidebar__badge--teal {
-  background: #e6faf7;
-  color: #1a9485;
+.subp-sidebar__chip--active .subp-sidebar__chip-count {
+  background: #dff5eb;
+  color: #0f6e56;
 }
-
-.subp-sidebar__badge--pink {
-  background: #fdf0f3;
-  color: #c97a8e;
-}
-
-.subp-sidebar__badge--purple {
-  background: #f3f0fa;
-  color: #7c5cbf;
-}
-
-.subp-sidebar__item--active .subp-sidebar__badge--teal {
-  background: #d0f5ee;
-  color: #157a6e;
-}
-
-.subp-sidebar__item--active .subp-sidebar__badge--pink {
-  background: #fae0e8;
-  color: #b5687c;
-}
-
-.subp-sidebar__item--active .subp-sidebar__badge--purple {
-  background: #e8e0f5;
-  color: #6a4dad;
-}
-
 
 .subp-sidebar__highlight {
   margin-top: 1.25rem;

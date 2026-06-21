@@ -1,7 +1,7 @@
 import { useCallback, useMemo, useState } from 'react'
 import {
+  getMaterialsBySidebarType,
   MATERIAL_SIDEBAR_ITEMS,
-  SOCIETY_MATERIALS,
   SUBJECTS_INFO_BLOCKS,
 } from '../../../data/subjectMaterials'
 import MaterialCard from './MaterialCard'
@@ -38,10 +38,7 @@ function SubjectsInfoPanel() {
 function SubjectsPage() {
   const [activeType, setActiveType] = useState('all')
 
-  const filteredMaterials = useMemo(() => {
-    if (activeType === 'all') return SOCIETY_MATERIALS
-    return SOCIETY_MATERIALS.filter((item) => item.typeLabel === activeType)
-  }, [activeType])
+  const filteredMaterials = useMemo(() => getMaterialsBySidebarType(activeType), [activeType])
 
   const handleTypeSelect = useCallback((typeId) => {
     setActiveType(typeId)
@@ -65,17 +62,16 @@ function SubjectsPage() {
               <li key={item.id}>
                 <button
                   type="button"
-                  className={`subp-sidebar__item${activeType === item.id ? ' subp-sidebar__item--active' : ''}`}
+                  className={`subp-sidebar__chip${activeType === item.id ? ' subp-sidebar__chip--active' : ''}`}
                   onClick={() => handleTypeSelect(item.id)}
                   aria-current={activeType === item.id ? 'true' : undefined}
                 >
-                  {item.variant ? (
-                    <span className={`subp-sidebar__badge subp-sidebar__badge--${item.variant}`}>
-                      {item.label}
-                    </span>
-                  ) : (
-                    <span className="subp-sidebar__all-label">{item.label}</span>
-                  )}
+                  <span className="subp-sidebar__chip-icon" aria-hidden="true">{item.icon}</span>
+                  <span className="subp-sidebar__chip-copy">
+                    <span className="subp-sidebar__chip-name">{item.title}</span>
+                    <span className="subp-sidebar__chip-note">{item.note}</span>
+                  </span>
+                  <span className="subp-sidebar__chip-count">{item.count}</span>
                 </button>
               </li>
             ))}

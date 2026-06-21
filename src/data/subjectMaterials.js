@@ -1,18 +1,42 @@
 const TYPE_SIDEBAR_CONFIG = [
-  { typeLabel: 'ПРЕЗЕНТАЦИЯ', variant: 'pink' },
-  { typeLabel: 'ПРЕЗЕНТАЦИЯ + ТЕКСТ К ПРЕЗЕНТАЦИИ', variant: 'pink' },
-  { typeLabel: 'ПРЕЗЕНТАЦИЯ + РАБОЧИЙ ЛИСТ', variant: 'pink' },
-  { typeLabel: 'РАБОЧИЙ ЛИСТ', variant: 'teal' },
-  { typeLabel: 'ЗАДАНИЕ НА СООТВЕТСТВИЕ', variant: 'teal' },
-  { typeLabel: 'КВИЗ', variant: 'purple' },
-  { typeLabel: 'КВИЗ / ТЕСТ В ФОРМАТЕ ЕГЭ', variant: 'purple' },
-  { typeLabel: 'ИНФОГРАФИКА', variant: 'purple' },
-  { typeLabel: 'ПАМЯТКА', variant: 'teal' },
-  { typeLabel: 'КОНСПЕКТ', variant: 'purple' },
-  { typeLabel: 'МЕТОДИЧЕСКАЯ РЕКОМЕНДАЦИЯ', variant: 'purple' },
+  {
+    id: 'presentation',
+    title: 'Презентации',
+    note: 'слайды, схемы и комплекты',
+    icon: '🖥️',
+    match: (material) => material.typeLabel.includes('ПРЕЗЕНТАЦИЯ'),
+  },
+  { id: 'РАБОЧИЙ ЛИСТ', title: 'Рабочие листы', note: 'задания и закрепление', icon: '📄' },
+  { id: 'ЗАДАНИЕ НА СООТВЕТСТВИЕ', title: 'Задания на соответствие', note: 'сопоставление понятий', icon: '🔗' },
+  {
+    id: 'quiz',
+    title: 'Квизы',
+    note: 'командные игры и тесты ЕГЭ',
+    icon: '❓',
+    match: (material) => material.typeLabel.includes('КВИЗ'),
+  },
+  { id: 'ИНФОГРАФИКА', title: 'Инфографики', note: 'наглядные схемы', icon: '📊' },
+  { id: 'ПАМЯТКА', title: 'Памятки', note: 'краткие обзоры', icon: '📝' },
+  { id: 'КОНСПЕКТ', title: 'Конспекты', note: 'теория и определения', icon: '📑' },
+  { id: 'МЕТОДИЧЕСКАЯ РЕКОМЕНДАЦИЯ', title: 'Методические рекомендации', note: 'алгоритмы и советы', icon: '📖' },
 ]
 
-export const SOCIETY_MATERIALS = [  {
+function materialMatchesSidebarItem(material, item) {
+  if (item.match) return item.match(material)
+  return material.typeLabel === item.id
+}
+
+export function getMaterialsBySidebarType(sidebarId) {
+  if (sidebarId === 'all') return SOCIETY_MATERIALS
+
+  const config = TYPE_SIDEBAR_CONFIG.find((item) => item.id === sidebarId)
+  if (!config) return []
+
+  return SOCIETY_MATERIALS.filter((material) => materialMatchesSidebarItem(material, config))
+}
+
+export const SOCIETY_MATERIALS = [
+  {
     id: 'sm7',
     type: 'presentation',
     typeLabel: 'ПРЕЗЕНТАЦИЯ',
@@ -32,7 +56,7 @@ export const SOCIETY_MATERIALS = [  {
     description: 'Презентация с теоретическим материалом, схемами и заданиями по теме деятельности: потребности, структура деятельности, мотивы, цели, средства, результат, виды и основные формы деятельности человека. Материал подходит для объяснения новой темы и подготовки к заданиям по блоку «Человек и общество».',
     grades: '10 класс',
     hasFgos: true,
-    url: null,
+    url: 'https://disk.yandex.ru/d/tbefxxdhDDLSUA',
   },
   {
     id: 'sm9',
@@ -43,7 +67,7 @@ export const SOCIETY_MATERIALS = [  {
     description: 'Памятка с кратким обзором современных научно-технологических достижений: нейросети для прогнозирования речи, ледостойкой платформы «Северный полюс» и инновационного ядерного реактора. Материал можно использовать для обсуждения роли науки, технологий и российских исследований в развитии общества.',
     grades: '8–10 классы',
     hasFgos: true,
-    url: null,
+    url: 'https://disk.yandex.ru/d/KWPJipqso0awSw',
   },
   {
     id: 'sm10',
@@ -54,7 +78,7 @@ export const SOCIETY_MATERIALS = [  {
     description: 'Конспект по теме духовной культуры с краткими схемами, определениями и примерами. Материал охватывает типы и виды культуры, формы духовной культуры, науку, образование, религию, мораль, гуманизм, патриотизм и гражданственность.',
     grades: '9 класс',
     hasFgos: true,
-    url: null,
+    url: 'https://disk.yandex.ru/d/9ZWpEJkEW-a7zA',
   },
   {
     id: 'sm11',
@@ -65,7 +89,7 @@ export const SOCIETY_MATERIALS = [  {
     description: 'Задание на сопоставление понятий и определений по теме духовных и нравственных ценностей. Материал помогает закрепить понятия «семья», «милосердие», «традиции», «вера», «добро и зло», «православная культура» и развивает умение работать с обществоведческими терминами.',
     grades: '5–6 классы',
     hasFgos: true,
-    url: null,
+    url: 'https://disk.yandex.ru/i/00qii4YBwoekuQ',
   },
   {
     id: 'sm12',
@@ -77,7 +101,7 @@ export const SOCIETY_MATERIALS = [  {
     grades: '11 класс',
     hasFgos: false,
     tag: 'ЕГЭ',
-    url: null,
+    url: 'https://disk.yandex.ru/i/0HIQjdjCga3jbQ',
   },
   {
     id: 'sm13',
@@ -88,7 +112,7 @@ export const SOCIETY_MATERIALS = [  {
     description: 'Краткая инфографика по организационно-правовым формам предприятий: показывает различия между публичным и непубличным акционерным обществом, полным товариществом и товариществом на вере. Материал помогает быстро повторить признаки форм бизнеса: состав участников, ответственность, управление и источники капитала.',
     grades: '10–11 классы',
     hasFgos: true,
-    url: null,
+    url: 'https://disk.yandex.ru/i/yZ76AV9GtcWCXg',
   },
   {
     id: 'sm14',
@@ -99,7 +123,7 @@ export const SOCIETY_MATERIALS = [  {
     description: 'Учебная инфографика по обществознанию и финансовой грамотности: объясняет понятие инфляции, причины роста цен, виды инфляции, ее последствия для семьи и экономики, а также способы защиты личного бюджета. Материал подходит для наглядного объяснения темы и закрепления базовых экономических понятий.',
     grades: '8–9 классы',
     hasFgos: true,
-    url: null,
+    url: 'https://disk.yandex.ru/i/yI52l7Spg8WZmg',
   },
   {
     id: 'sm15',
@@ -110,7 +134,7 @@ export const SOCIETY_MATERIALS = [  {
     description: 'Краткая схема по обществознанию и экономике, которая помогает различать основные формы предприятий: ИП, ООО, АО, товарищество, производственный кооператив и унитарное предприятие. В инфографике отражены ключевые признаки форм бизнеса: собственники, ответственность, капитал и управление.',
     grades: '10–11 классы',
     hasFgos: true,
-    url: null,
+    url: 'https://disk.yandex.ru/i/hdkySTBWkCoAqQ',
   },
   {
     id: 'sm16',
@@ -121,7 +145,7 @@ export const SOCIETY_MATERIALS = [  {
     description: 'Методическая рекомендация с пошаговым алгоритмом организации учебной дискуссии: выбор темы, постановка проблемного вопроса, распределение ролей, правила общения, критерии оценивания и рефлексия. Материал помогает провести дискуссию содержательно, управляемо и безопасно для всех участников.',
     grades: '5–11 классы',
     hasFgos: true,
-    url: null,
+    url: 'https://disk.yandex.ru/i/nMFGQHk7KhCZCg',
   },
   {
     id: 'sm17',
@@ -133,7 +157,7 @@ export const SOCIETY_MATERIALS = [  {
     grades: '10 класс',
     hasFgos: false,
     tag: 'ФГОС / ЕГЭ',
-    url: null,
+    url: 'https://disk.yandex.ru/i/YMWxClv5dRBxRQ',
   },
   {
     id: 'sm18',
@@ -145,7 +169,7 @@ export const SOCIETY_MATERIALS = [  {
     grades: '11 класс',
     hasFgos: false,
     tag: 'ЕГЭ',
-    url: null,
+    url: 'https://disk.yandex.ru/d/UiCa_pMDRAFa_g',
   },
   {
     id: 'sm19',
@@ -156,7 +180,7 @@ export const SOCIETY_MATERIALS = [  {
     description: 'Рабочий лист с заданиями на анализ произведений искусства, функций искусства, художественных стилей и культурных традиций. Подходит для закрепления темы духовной культуры.',
     grades: '7–8 классы',
     hasFgos: true,
-    url: null,
+    url: 'https://disk.yandex.ru/i/hzhA1U8lAw6vNg',
   },
   {
     id: 'sm20',
@@ -167,7 +191,7 @@ export const SOCIETY_MATERIALS = [  {
     description: 'Комплект материалов о МСП: презентация и подробный текст к слайдам о роли малого и среднего бизнеса, самозанятости, грантах, налоговых режимах и мерах господдержки.',
     grades: '10 класс',
     hasFgos: true,
-    url: null,
+    url: 'https://disk.yandex.ru/d/3ZDQGgg0K96_3A',
   },
   {
     id: 'sm21',
@@ -179,7 +203,7 @@ export const SOCIETY_MATERIALS = [  {
     grades: '11 класс',
     hasFgos: false,
     tag: 'ЕГЭ',
-    url: null,
+    url: 'https://disk.yandex.ru/d/oknumJq-chkPjA',
   },
   {
     id: 'sm22',
@@ -190,7 +214,7 @@ export const SOCIETY_MATERIALS = [  {
     description: 'Презентация о науке как системе знаний и особой сфере деятельности, ее структуре, роли в обществе и нравственной ответственности ученых. Есть вопросы для обсуждения и групповые задания.',
     grades: '8 класс',
     hasFgos: true,
-    url: null,
+    url: 'https://disk.yandex.ru/d/qd4iwBDaFqU3Nw',
   },
   {
     id: 'sm23',
@@ -201,7 +225,7 @@ export const SOCIETY_MATERIALS = [  {
     description: 'Комплект материалов о правах ребенка: презентация с теорией и рабочий лист с заданиями на выбор, классификацию имущественных прав и памятку действий при нарушении прав.',
     grades: '7 класс',
     hasFgos: true,
-    url: null,
+    url: 'https://disk.yandex.ru/d/3ehr_Oye9rzn6A',
   },
   {
     id: 'sm24',
@@ -212,7 +236,7 @@ export const SOCIETY_MATERIALS = [  {
     description: 'Презентация с вопросами и заданиями для повторения темы: культура, наука, образование, религия, мораль, патриотизм и гражданственность. Подходит для устной проверки или работы в группах.',
     grades: '9 класс',
     hasFgos: true,
-    url: null,
+    url: 'https://disk.yandex.ru/d/LprM6nwJ3umHtg',
   },
   {
     id: 'sm25',
@@ -223,7 +247,7 @@ export const SOCIETY_MATERIALS = [  {
     description: 'Презентация с заданиями для повторения тем: общество, природа, сферы общества, человек как биосоциальное существо, деятельность, окружение, конфликты и способности.',
     grades: '9 класс',
     hasFgos: true,
-    url: null,
+    url: 'https://disk.yandex.ru/d/Lz1tCP9MeSy5sg',
   },
   {
     id: 'sm26',
@@ -234,7 +258,7 @@ export const SOCIETY_MATERIALS = [  {
     description: 'Рабочий лист с заданиями на понятия, сопоставление, анализ ситуаций и работу с текстом по теме духовной культуры. Есть ответы и методический комментарий.',
     grades: '8–9 классы',
     hasFgos: true,
-    url: null,
+    url: 'https://disk.yandex.ru/i/uxGDr23S4biQrg',
   },
   {
     id: 'sm27',
@@ -246,7 +270,7 @@ export const SOCIETY_MATERIALS = [  {
     grades: '11 класс',
     hasFgos: false,
     tag: 'ЕГЭ / ФГОС',
-    url: null,
+    url: 'https://disk.yandex.ru/d/Nul1VlsLHxBgEg',
   },
   {
     id: 'sm28',
@@ -257,7 +281,7 @@ export const SOCIETY_MATERIALS = [  {
     description: 'Презентация с теорией о культуре, духовной сфере общества, ее структуре, культурных ценностях и культурных правах граждан. Есть вопросы для обсуждения и задания для конспекта.',
     grades: '9 класс',
     hasFgos: true,
-    url: null,
+    url: 'https://disk.yandex.ru/d/MONQO6fObL871g',
   },
   {
     id: 'sm29',
@@ -268,7 +292,7 @@ export const SOCIETY_MATERIALS = [  {
     description: 'Краткая схема по мировым религиям: буддизму, христианству и исламу. Инфографика помогает сравнить происхождение, основателей, священные тексты и общие признаки мировых религий.',
     grades: '8–10 классы',
     hasFgos: true,
-    url: null,
+    url: 'https://disk.yandex.ru/i/vBKNs2L_h-yrYw',
   },
   {
     id: 'sm30',
@@ -279,7 +303,7 @@ export const SOCIETY_MATERIALS = [  {
     description: 'Презентация с базовой теорией по экономике: понятие экономики, стадии экономического процесса, основные вопросы и главная проблема экономики. Подходит для введения в раздел.',
     grades: '9 класс',
     hasFgos: true,
-    url: null,
+    url: 'https://disk.yandex.ru/d/skoCQeYR5-UG8Q',
   },
   {
     id: 'sm31',
@@ -290,7 +314,7 @@ export const SOCIETY_MATERIALS = [  {
     description: 'Конспект по блоку «Человек и общество»: общество, природа, сферы жизни общества, человек как биосоциальное существо, личность, деятельность, социальные группы и конфликты.',
     grades: '9 класс',
     hasFgos: true,
-    url: null,
+    url: 'https://disk.yandex.ru/i/jRnmAy0LVWwd-g',
   },
   {
     id: 'sm32',
@@ -301,18 +325,26 @@ export const SOCIETY_MATERIALS = [  {
     description: 'Конспект по экономической сфере общества: роль экономики, товары и услуги, ресурсы, экономические системы, собственность, производство, рынок, предпринимательство, деньги, налоги и инфляция.',
     grades: '9 класс',
     hasFgos: true,
-    url: null,
+    url: 'https://disk.yandex.ru/d/PPJ8xAXl2qqpxw',
   },
 ]
 
 export const MATERIAL_SIDEBAR_ITEMS = [
-  { id: 'all', label: 'Все материалы', variant: null },
+  {
+    id: 'all',
+    title: 'Все материалы',
+    note: 'полный каталог',
+    icon: '✨',
+    count: SOCIETY_MATERIALS.length,
+  },
   ...TYPE_SIDEBAR_CONFIG
-    .filter((item) => SOCIETY_MATERIALS.some((material) => material.typeLabel === item.typeLabel))
+    .filter((item) => SOCIETY_MATERIALS.some((material) => materialMatchesSidebarItem(material, item)))
     .map((item) => ({
-      id: item.typeLabel,
-      label: item.typeLabel,
-      variant: item.variant,
+      id: item.id,
+      title: item.title,
+      note: item.note,
+      icon: item.icon,
+      count: SOCIETY_MATERIALS.filter((material) => materialMatchesSidebarItem(material, item)).length,
     })),
 ]
 
