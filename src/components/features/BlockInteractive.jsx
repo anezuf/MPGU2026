@@ -2,12 +2,12 @@ import { useMemo, useState } from 'react'
 import { INTERACTIVE_TOOLS } from '../../data/resources'
 
 const CATEGORIES = [
-  { label: 'Все инструменты', value: '', count: 13 },
-  { label: 'Тесты и опросы', value: 'Тесты и опросы', count: 3 },
-  { label: 'Квизы и игры', value: 'Квизы и игры', count: 3 },
-  { label: 'Упражнения и тренажеры', value: 'Упражнения и тренажеры', count: 3 },
-  { label: 'Доски и вебинары', value: 'Доски и вебинары', count: 2 },
-  { label: 'Курсы и LMS', value: 'Курсы и LMS', count: 3 },
+  { label: 'Все инструменты', value: '', count: 13, icon: '✨', note: 'полный каталог' },
+  { label: 'Тесты и опросы', value: 'Тесты и опросы', count: 3, icon: '📝', note: 'проверка и фидбек' },
+  { label: 'Квизы и игры', value: 'Квизы и игры', count: 3, icon: '🎮', note: 'соревнования' },
+  { label: 'Упражнения и тренажеры', value: 'Упражнения и тренажеры', count: 3, icon: '🧩', note: 'закрепление' },
+  { label: 'Доски и вебинары', value: 'Доски и вебинары', count: 2, icon: '🖊️', note: 'онлайн-занятия' },
+  { label: 'Курсы и LMS', value: 'Курсы и LMS', count: 3, icon: '🎓', note: 'модули и уроки' },
 ]
 
 const RECOMMENDATIONS = [
@@ -105,7 +105,7 @@ function BlockInteractive() {
           <ul className="category-list">
             {CATEGORIES.map((category) => (
               <li key={category.label}>
-                <label>
+                <label className="category-chip">
                   <input
                     type="checkbox"
                     checked={selectedCategory === category.value}
@@ -115,7 +115,11 @@ function BlockInteractive() {
                       ))
                     }}
                   />
-                  {category.label}
+                  <span className="category-icon" aria-hidden="true">{category.icon}</span>
+                  <span className="category-copy">
+                    <span className="category-name">{category.label}</span>
+                    <span className="category-note">{category.note}</span>
+                  </span>
                   <span className="count">{category.count}</span>
                 </label>
               </li>
