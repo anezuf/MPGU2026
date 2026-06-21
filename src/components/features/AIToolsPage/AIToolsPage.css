@@ -76,46 +76,7 @@
   line-height: 1.5;
 }
 
-/* ── FILTER BAR ── */
-.aitp-filter-bar {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-bottom: 1.5rem;
-}
 
-.aitp-filter-bar input,
-.aitp-filter-bar select {
-  height: 40px;
-  border-radius: 8px;
-  border: 1px solid #e5e7eb;
-  font-size: 14px;
-  color: #374151;
-  background: white;
-  font-family: 'Nunito', sans-serif;
-  outline: none;
-  transition: border-color 150ms ease;
-}
-
-.aitp-filter-bar input {
-  flex: 1;
-  min-width: 200px;
-  padding: 0 12px;
-}
-
-.aitp-filter-bar input:focus {
-  border-color: #1D9E75;
-}
-
-.aitp-filter-bar select {
-  padding: 0 12px;
-  min-width: 160px;
-  cursor: pointer;
-}
-
-.aitp-filter-bar select:focus {
-  border-color: #1D9E75;
-}
 
 /* ── HOW BANNER ── */
 .aitp-how-banner {
@@ -191,13 +152,6 @@
   gap: 1rem;
 }
 
-.aitp-empty {
-  grid-column: 1 / -1;
-  text-align: center;
-  padding: 3rem 0;
-  color: #9ca3af;
-  font-size: 14px;
-}
 
 /* ── TOOL CARD ── */
 .aitp-card {
@@ -319,6 +273,9 @@
 }
 
 .aitp-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
   font-size: 13px;
   color: #6b7280;
   text-decoration: none;
@@ -326,28 +283,139 @@
   font-family: 'Nunito', sans-serif;
   transition: color 150ms ease;
   flex-shrink: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
 }
 
 .aitp-btn-secondary:hover {
   color: #1D9E75;
-  text-decoration: underline;
 }
 
-.aitp-btn-bookmark {
-  margin-left: auto;
-  background: none;
-  border: none;
-  font-size: 16px;
-  cursor: pointer;
-  opacity: 0.4;
-  transition: opacity 150ms ease;
-  padding: 4px;
+/* ── PROMPTS MODAL ── */
+.aitp-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 24, 39, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+}
+
+.aitp-modal {
+  background: white;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 560px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+}
+
+.aitp-modal__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 20px 20px 16px;
+  border-bottom: 1px solid #e5e7eb;
   flex-shrink: 0;
 }
 
-.aitp-btn-bookmark:hover,
-.aitp-btn-bookmark--active {
-  opacity: 1;
+.aitp-modal__title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.aitp-modal__title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 2px;
+  font-family: 'Nunito', sans-serif;
+}
+
+.aitp-modal__subtitle {
+  font-size: 12px;
+  color: #9ca3af;
+  margin: 0;
+}
+
+.aitp-modal__close {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: #9ca3af;
+  cursor: pointer;
+  padding: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 150ms ease;
+  flex-shrink: 0;
+}
+
+.aitp-modal__close:hover {
+  color: #374151;
+}
+
+.aitp-modal__body {
+  overflow-y: auto;
+  padding: 16px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.aitp-prompt-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: #f8fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+.aitp-prompt-text {
+  flex: 1;
+  font-size: 13px;
+  color: #374151;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.aitp-prompt-copy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: white;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 12px;
+  font-family: 'Nunito', sans-serif;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 4px 10px;
+  white-space: nowrap;
+  transition: border-color 150ms ease, color 150ms ease;
+}
+
+.aitp-prompt-copy:hover {
+  border-color: #1D9E75;
+  color: #1D9E75;
+}
+
+.aitp-prompt-copy--done {
+  border-color: #1D9E75;
+  color: #1D9E75;
+  font-weight: 600;
 }
 
 /* ── RECOMMENDATIONS ── */
@@ -425,15 +493,6 @@
     width: 100%;
   }
 
-  .aitp-how-steps {
-    flex-direction: column;
-  }
-
-  .aitp-how-arrow {
-    transform: rotate(90deg);
-    margin: 0;
-    align-self: center;
-  }
 
   .aitp-tools-grid {
     grid-template-columns: 1fr;
@@ -445,14 +504,14 @@
 }
 
 @media (max-width: 480px) {
-  .aitp-filter-bar {
+  .aitp-how-steps {
     flex-direction: column;
   }
 
-  .aitp-filter-bar input,
-  .aitp-filter-bar select {
-    width: 100%;
-    min-width: unset;
+  .aitp-how-arrow {
+    transform: rotate(90deg);
+    margin: 0;
+    align-self: center;
   }
 
   .aitp-rec-grid {
@@ -462,8 +521,6 @@
 
 /* ── PRINT ── */
 @media print {
-  .aitp-filter-bar,
-  .aitp-btn-bookmark,
   .aitp-card__footer {
     display: none;
   }

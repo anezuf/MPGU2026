@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { AI_TOOLS } from '../../../data/aiTools'
 import './AIToolsPage.css'
 
@@ -6,7 +6,6 @@ const HOW_STEPS = [
   { icon: '🎯', title: '1. Определите цель', desc: 'Чётко сформулируйте, что нужно получить от нейросети.' },
   { icon: '💬', title: '2. Составьте промпт', desc: 'Опишите задачу подробно: тема, класс, формат, стиль.' },
   { icon: '📋', title: '3. Проверьте результат', desc: 'Всегда проверяйте факты и адаптируйте под урок.' },
-  { icon: '🔖', title: '4. Сохраните лучшее', desc: 'Сохраняйте удачные промпты и результаты в копилку.' },
 ]
 
 const REC_CARDS = [
@@ -15,19 +14,6 @@ const REC_CARDS = [
   { icon: '🔄', title: 'Уточняйте и переспрашивайте', desc: 'Если ответ не подходит — уточните промпт, добавьте контекст или задайте вопрос иначе.' },
   { icon: '📁', title: 'Собирайте копилку промптов', desc: 'Сохраняйте удачные запросы в отдельный документ — они сэкономят время в будущем.' },
 ]
-
-const TYPE_OPTIONS = [
-  'Текстовый ИИ',
-  'Генерация изображений',
-  'Чат-ассистент',
-  'Распознавание речи',
-  'Инфографика',
-  'Видео и аудио',
-]
-
-const SUBJECT_OPTIONS = ['Любые предметы', 'Обществознание', 'История', 'Русский язык']
-
-const GRADE_OPTIONS = ['5–7 классы', '8–9 классы', '10–11 классы']
 
 function AIPageHeader() {
   return (
@@ -51,37 +37,6 @@ function AIPageHeader() {
           </p>
         </div>
       </div>
-    </div>
-  )
-}
-
-function AIFilterBar({ search, onSearch, type, onType, subject, onSubject, grade, onGrade }) {
-  return (
-    <div className="aitp-filter-bar">
-      <input
-        type="text"
-        placeholder="Поиск нейросетей..."
-        value={search}
-        onChange={(e) => onSearch(e.target.value)}
-      />
-      <select value={type} onChange={(e) => onType(e.target.value)}>
-        <option value="">Все типы</option>
-        {TYPE_OPTIONS.map((o) => (
-          <option key={o}>{o}</option>
-        ))}
-      </select>
-      <select value={subject} onChange={(e) => onSubject(e.target.value)}>
-        <option value="">Все предметы</option>
-        {SUBJECT_OPTIONS.map((o) => (
-          <option key={o}>{o}</option>
-        ))}
-      </select>
-      <select value={grade} onChange={(e) => onGrade(e.target.value)}>
-        <option value="">Все классы</option>
-        {GRADE_OPTIONS.map((o) => (
-          <option key={o}>{o}</option>
-        ))}
-      </select>
     </div>
   )
 }
@@ -110,26 +65,84 @@ function AIHowBanner() {
   )
 }
 
-function AIToolCard({ tool, bookmarked, onBookmark }) {
-  const handleBookmark = useCallback(() => onBookmark(tool.id), [tool.id, onBookmark])
+function PromptItem({ text }) {
+  const [copied, setCopied] = useState(false)
+
+  const handleCopy = useCallback(() => {
+    navigator.clipboard.writeText(text)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 1500)
+  }, [text])
+
+  return (
+    <div className="aitp-prompt-item">
+      <p className="aitp-prompt-text">{text}</p>
+      <button
+        type="button"
+        className={`aitp-prompt-copy${copied ? ' aitp-prompt-copy--done' : ''}`}
+        onClick={handleCopy}
+        aria-label="Скопировать промпт"
+      >
+        {copied ? '✓' : 'Копировать'}
+      </button>
+    </div>
+  )
+}
+
+function PromptsModal({ tool, onClose }) {
+  useEffect(() => {
+    const onKey = (e) => { if (e.key === 'Escape') onClose() }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [onClose])
+
+  return (
+    <div className="aitp-modal-overlay" onClick={onClose}>
+      <div className="aitp-modal" onClick={(e) => e.stopPropagation()}>
+        <div className="aitp-modal__head">
+          <div className="aitp-modal__title-row">
+            <div className="aitp-card__icon" style={{ background: tool.iconBg, width: 36, height: 36, flexShrink: 0 }}>
+              <span style={{ fontSize: '18px', fontWeight: 700, color: tool.iconColor }}>
+                {tool.letter}
+              </span>
+            </div>
+            <div>
+              <h2 className="aitp-modal__title">{tool.name}</h2>
+              <p className="aitp-modal__subtitle">Готовые промпты для урока</p>
+            </div>
+          </div>
+          <button type="button" className="aitp-modal__close" onClick={onClose} aria-label="Закрыть">
+            ✕
+          </button>
+        </div>
+        <div className="aitp-modal__body">
+          {tool.prompts.map((prompt, idx) => (
+            <PromptItem key={idx} text={prompt} />
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function AIToolCard({ tool, onOpenPrompts }) {
+  const hasPrompts = tool.prompts && tool.prompts.length > 0
+
+  const handlePrompts = useCallback(() => {
+    onOpenPrompts(tool)
+  }, [tool, onOpenPrompts])
 
   return (
     <div className="aitp-card">
       <div className="aitp-card__header">
-        <div
-          className="aitp-card__icon"
-          style={{ background: tool.iconBg }}
-        >
+        <div className="aitp-card__icon" style={{ background: tool.iconBg }}>
           <span style={{ fontSize: '22px', fontWeight: 700, color: tool.iconColor }}>
             {tool.letter}
           </span>
         </div>
         <div className="aitp-card__meta">
           <h3 className="aitp-card__name">{tool.name}</h3>
-          <span
-            className="aitp-card__tag"
-            style={{ background: tool.tagBg, color: tool.tagColor }}
-          >
+          <span className="aitp-card__tag" style={{ background: tool.tagBg, color: tool.tagColor }}>
             {tool.category}
           </span>
         </div>
@@ -146,17 +159,15 @@ function AIToolCard({ tool, bookmarked, onBookmark }) {
         <a href={tool.url} target="_blank" rel="noreferrer" className="aitp-btn-open">
           Открыть
         </a>
-        <a href="#prompts" className="aitp-btn-secondary">
-          {tool.secondaryLabel}
-        </a>
-        <button
-          type="button"
-          className={`aitp-btn-bookmark${bookmarked ? ' aitp-btn-bookmark--active' : ''}`}
-          aria-label="Сохранить"
-          onClick={handleBookmark}
-        >
-          🔖
-        </button>
+        {hasPrompts ? (
+          <button type="button" className="aitp-btn-secondary" onClick={handlePrompts}>
+            {tool.secondaryLabel}
+          </button>
+        ) : (
+          <a href={tool.url} target="_blank" rel="noreferrer" className="aitp-btn-secondary">
+            {tool.secondaryLabel}
+          </a>
+        )}
       </div>
     </div>
   )
@@ -179,72 +190,25 @@ function AIRecommendations() {
   )
 }
 
-function filterTools(tools, search, type, subject, grade) {
-  const q = search.toLowerCase()
-  return tools.filter((t) => {
-    if (q && !t.name.toLowerCase().includes(q) && !t.description.toLowerCase().includes(q)) {
-      return false
-    }
-    if (type && t.category !== type) return false
-    if (subject && subject !== 'Любые предметы' && !t.subjectKeys.includes(subject)) return false
-    if (grade && !t.gradeKeys.includes(grade)) return false
-    return true
-  })
-}
-
 function AIToolsPage() {
-  const [search, setSearch] = useState('')
-  const [type, setType] = useState('')
-  const [subject, setSubject] = useState('')
-  const [grade, setGrade] = useState('')
-  const [bookmarks, setBookmarks] = useState(new Set())
+  const [activeTool, setActiveTool] = useState(null)
 
-  const filtered = useMemo(
-    () => filterTools(AI_TOOLS, search, type, subject, grade),
-    [search, type, subject, grade],
-  )
-
-  const handleBookmark = useCallback((id) => {
-    setBookmarks((prev) => {
-      const next = new Set(prev)
-      if (next.has(id)) {
-        next.delete(id)
-      } else {
-        next.add(id)
-      }
-      return next
-    })
-  }, [])
+  const handleOpenPrompts = useCallback((tool) => setActiveTool(tool), [])
+  const handleClosePrompts = useCallback(() => setActiveTool(null), [])
 
   return (
     <div className="ai-tools-page">
       <AIPageHeader />
-      <AIFilterBar
-        search={search}
-        onSearch={setSearch}
-        type={type}
-        onType={setType}
-        subject={subject}
-        onSubject={setSubject}
-        grade={grade}
-        onGrade={setGrade}
-      />
       <AIHowBanner />
       <div className="aitp-tools-grid">
-        {filtered.length === 0 ? (
-          <p className="aitp-empty">Нет инструментов, соответствующих выбранным фильтрам.</p>
-        ) : (
-          filtered.map((tool) => (
-            <AIToolCard
-              key={tool.id}
-              tool={tool}
-              bookmarked={bookmarks.has(tool.id)}
-              onBookmark={handleBookmark}
-            />
-          ))
-        )}
+        {AI_TOOLS.map((tool) => (
+          <AIToolCard key={tool.id} tool={tool} onOpenPrompts={handleOpenPrompts} />
+        ))}
       </div>
       <AIRecommendations />
+      {activeTool && (
+        <PromptsModal tool={activeTool} onClose={handleClosePrompts} />
+      )}
     </div>
   )
 }

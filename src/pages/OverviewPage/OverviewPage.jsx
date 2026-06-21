@@ -53,16 +53,6 @@ function BookOpenIcon() {
   )
 }
 
-function CapIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M3 8.5 12 4l9 4.5-9 4.5L3 8.5Z" />
-      <path d="M7 11v4.2c0 1.4 2.2 2.8 5 2.8s5-1.4 5-2.8V11" />
-      <path d="M21 9v5" />
-    </svg>
-  )
-}
-
 function HelpIcon() {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -135,23 +125,13 @@ function OverviewPage({ onNavigate }) {
             подбирать надежные ресурсы по обществознанию, использовать нейросети,
             создавать учебные материалы, проектировать интерактивные задания и применять методические рекомендации.
           </p>
-          <div className="overview-hero__actions">
-            <button type="button" className="overview-button overview-button--primary" onClick={() => onNavigate('tools')}>
-              Начать работу
-            </button>
-            <button type="button" className="overview-button overview-button--secondary" onClick={() => onNavigate('about')}>
-              О проекте
-            </button>
-          </div>
         </div>
 
-        <aside className="overview-hero-card" aria-label="Методическая поддержка">
-          <div className="overview-icon-bubble overview-icon-bubble--large">
-            <CapIcon />
-          </div>
+        <aside className="tip-card overview-hero-card" aria-label="Методическая поддержка">
+          <div className="tip-icon" aria-hidden="true">💡</div>
           <div>
-            <h2 className="overview-hero-card__title">Методическая поддержка цифровой компетентности</h2>
-            <p className="overview-hero-card__text">
+            <strong>Методическая поддержка цифровой компетентности</strong>
+            <p>
               Сайт создан как средство методической поддержки развития цифровых компетенций будущих учителей обществознания.
             </p>
           </div>

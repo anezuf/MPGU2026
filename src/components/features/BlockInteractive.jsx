@@ -163,7 +163,6 @@ function BlockInteractive() {
                     </div>
                   </div>
                   <p className="tool-desc">{tool.description}</p>
-                  <p className="tool-subject">Предметы: <span>все</span></p>
                   <div className="tool-footer">
                     <a
                       href={tool.url}
@@ -173,7 +172,6 @@ function BlockInteractive() {
                     >
                       Открыть
                     </a>
-                    <span className="pricing">{tool.price}</span>
                   </div>
                 </article>
               ))}
