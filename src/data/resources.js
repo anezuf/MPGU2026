@@ -298,6 +298,17 @@ export const INTERACTIVE_TOOLS = [
     logoUrl: '/logos/moodle.png',
     categories: ['Курсы и LMS'],
   },
+  {
+    id: 'i14',
+    title: 'Skysmart Класс',
+    emoji: '📱',
+    iconBg: '#E0F2FF',
+    tags: ['Задания', 'Самостоятельная работа'],
+    description: 'Сервис для выдачи интерактивных заданий, которые ученики могут выполнять с компьютера, планшета или телефона. Удобен для домашней работы, тренировки навыков и быстрой проверки результатов.',
+    price: 'Бесплатно / платно',
+    url: 'https://edu.skysmart.ru/promo/unschool-homework',
+    categories: ['Упражнения и тренажеры'],
+  },
 ]
 
 export const SUBJECTS = {

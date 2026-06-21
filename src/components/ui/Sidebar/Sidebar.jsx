@@ -67,10 +67,13 @@ function Sidebar({ activePage, onNavigate, onLogout }) {
         type="button"
         className="sidebar__logo"
         onClick={() => onNavigate('home')}
-        aria-label="На главную"
+        aria-label="На главную — Цифровой навигатор"
       >
         <span className="sidebar__logo-icon">
           <CompassIcon />
+        </span>
+        <span className="sidebar__logo-copy">
+          <span className="sidebar__logo-title">Цифровой навигатор</span>
         </span>
       </button>
 

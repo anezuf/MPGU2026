@@ -86,12 +86,12 @@ const ICONS_BY_PAGE = {
 }
 
 const SECTION_META = {
-  tools: { label: 'Инструменты', variant: 'teal' },
-  ai: { label: 'Нейросети', variant: 'teal' },
-  templates: { label: 'Шаблоны', variant: 'pink' },
-  interactive: { label: 'Интерактив', variant: 'teal' },
-  subjects: { label: 'Материалы', variant: 'pink' },
-  tips: { label: 'Лайфхаки', variant: 'teal' },
+  tools: { label: 'Инструменты' },
+  ai: { label: 'Нейросети' },
+  templates: { label: 'Шаблоны' },
+  interactive: { label: 'Интерактив' },
+  subjects: { label: 'Материалы' },
+  tips: { label: 'Лайфхаки' },
 }
 
 const CARD_COPY = {
@@ -142,15 +142,14 @@ function OverviewPage({ onNavigate }) {
         <div className="overview-card-grid" aria-label="Разделы навигатора">
           {HUB_NAV_ITEMS.map((item) => {
             const Icon = ICONS_BY_PAGE[item.page] || MonitorIcon
-            const meta = SECTION_META[item.page] || { label: 'Раздел', variant: 'teal' }
-            const isPink = meta.variant === 'pink'
+            const meta = SECTION_META[item.page] || { label: 'Раздел' }
 
             return (
               <article
                 key={item.page}
-                className={`overview-section-card pcp-card${isPink ? ' pcp-card--service' : ''}`}
+                className="overview-section-card pcp-card"
               >
-                <div className={`pcp-header overview-section-card__header${isPink ? ' pcp-header--service' : ''}`}>
+                <div className="pcp-header overview-section-card__header">
                   <div className="pcp-header__left">
                     <div className="pcp-header__icon">
                       <Icon />
@@ -163,12 +162,12 @@ function OverviewPage({ onNavigate }) {
                 </div>
                 <div className="pcp-body overview-section-card__body">
                   <h2 className="pcp-title overview-section-card__title">{item.label}</h2>
-                  <div className={`pcp-content${isPink ? ' pcp-content--service' : ''}`}>
+                  <div className="pcp-content">
                     <p className="pcp-content__text overview-section-card__text">{CARD_COPY[item.page]}</p>
                   </div>
                   <button
                     type="button"
-                    className={`pcp-btn overview-section-card__button${isPink ? ' pcp-btn--pink' : ''}`}
+                    className="pcp-btn overview-section-card__button"
                     onClick={() => onNavigate(item.page)}
                   >
                     Открыть
