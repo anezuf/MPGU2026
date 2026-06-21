@@ -4,7 +4,7 @@ import AIRecommendationsPage from './AIRecommendationsPage/AIRecommendationsPage
 import AboutPage from './AboutPage/AboutPage'
 import BlockDigitalTools from './BlockDigitalTools'
 import BlockInteractive from './BlockInteractive'
-import BlockSubjects from './BlockSubjects'
+import SubjectsPage from './SubjectsPage/SubjectsPage'
 import BlockTemplates from './BlockTemplates'
 import FeedbackForm from './FeedbackForm/FeedbackForm'
 import Sidebar from '../ui/Sidebar/Sidebar'
@@ -60,7 +60,7 @@ function Hub({ onLogout }) {
       return <BlockInteractive />
     }
     if (activePage === 'subjects') {
-      return <BlockSubjects />
+      return <SubjectsPage />
     }
     if (activePage === 'feedback') {
       return <FeedbackForm />
