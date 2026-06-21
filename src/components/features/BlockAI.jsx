@@ -15,7 +15,7 @@ function BlockAI({ onNavigate }) {
         <button
           type="button"
           className="block-ai__guide-button"
-          onClick={() => onNavigate('ai-guide')}
+          onClick={() => onNavigate('tips')}
         >
           Лайфхаки и рекомендации
         </button>

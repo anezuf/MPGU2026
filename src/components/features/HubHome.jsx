@@ -17,6 +17,25 @@ const LightbulbIcon = () => (
   </svg>
 )
 
+const MonitorIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="18"
+    height="18"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.75"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <rect x="4" y="5" width="16" height="11" rx="1.8" />
+    <path d="M8 20h8" />
+    <path d="M12 16v4" />
+  </svg>
+)
+
 const DownloadIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -71,7 +90,34 @@ const BookIcon = () => (
   </svg>
 )
 
+const HelpIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="18"
+    height="18"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.75"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <circle cx="12" cy="12" r="9" />
+    <path d="M9.8 9.4a2.4 2.4 0 1 1 3.6 2.1c-.9.5-1.4 1.1-1.4 2" />
+    <path d="M12 17h.01" />
+  </svg>
+)
+
 const HOME_BLOCKS = [
+  {
+    key: 'tools',
+    label: 'Инструменты',
+    variant: 'teal',
+    icon: MonitorIcon,
+    title: 'Цифровые инструменты для уроков',
+    description: 'Сервисы для объяснения материала, заданий, опросов, тестирования и визуализации.',
+  },
   {
     key: 'ai',
     label: 'Нейросети',
@@ -103,6 +149,14 @@ const HOME_BLOCKS = [
     icon: BookIcon,
     title: 'Предметные копилки',
     description: 'Ссылки на источники по обществознанию, ОРКСЭ, истории и русскому языку.',
+  },
+  {
+    key: 'tips',
+    label: 'Лайфхаки',
+    variant: 'teal',
+    icon: HelpIcon,
+    title: 'Лайфхаки и рекомендации',
+    description: 'Советы по выбору инструментов, проверке источников, безопасности, промптам и оцениванию.',
   },
 ]
 

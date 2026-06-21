@@ -1,106 +1,181 @@
+import { useMemo, useState } from 'react'
 import { INTERACTIVE_TOOLS } from '../../data/resources'
 
-const ExternalLinkIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="18"
-    height="18"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.75"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden="true"
-  >
-    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-    <polyline points="15 3 21 3 21 9" />
-    <line x1="10" y1="14" x2="21" y2="3" />
-  </svg>
-)
+const CATEGORIES = [
+  { label: 'Все инструменты', value: '', count: 13 },
+  { label: 'Тесты и опросы', value: 'Тесты и опросы', count: 3 },
+  { label: 'Квизы и игры', value: 'Квизы и игры', count: 3 },
+  { label: 'Упражнения и тренажеры', value: 'Упражнения и тренажеры', count: 3 },
+  { label: 'Доски и вебинары', value: 'Доски и вебинары', count: 2 },
+  { label: 'Курсы и LMS', value: 'Курсы и LMS', count: 3 },
+]
+
+const RECOMMENDATIONS = [
+  {
+    icon: '🎯',
+    title: 'Определите цель урока',
+    text: 'Выберите инструмент под конкретную задачу: проверка знаний, вовлечение, рефлексия и др.',
+  },
+  {
+    icon: '👤',
+    title: 'Учитывайте возраст',
+    text: 'Для младших школьников выбирайте простые и наглядные сервисы, старшим — более сложные.',
+  },
+  {
+    icon: '🚀',
+    title: 'Начинайте с малого',
+    text: 'Попробуйте один инструмент на небольшом этапе урока, постепенно расширяйте использование.',
+  },
+  {
+    icon: '💬',
+    title: 'Получайте обратную связь',
+    text: 'Анализируйте результаты и отзывы учеников, корректируйте подход и инструменты.',
+  },
+]
 
 function BlockInteractive() {
-  return (
-    <section id="interactive-tools" className="hub-section">
-      <div className="section-header">
-        <h2 className="section-title">Инструменты интерактива</h2>
-        <p className="section-subtitle">Сервисы для создания квизов и интерактивных заданий</p>
-      </div>
-      <div className="ai-grid">
-        {INTERACTIVE_TOOLS.map((tool) => {
-          const hasInstructions = Boolean(tool.pdfUrl || tool.videoUrl)
+  const [searchQuery, setSearchQuery] = useState('')
+  const [selectedCategory, setSelectedCategory] = useState('')
 
-          return (
-            <article key={tool.id} className="pcp-card pcp-card--service">
-              <div className="pcp-header pcp-header--service">
-                <div className="pcp-header__left">
-                  <div className="pcp-header__icon">
-                    <ExternalLinkIcon />
-                  </div>
-                  <span className="pcp-header__label">Сервис</span>
-                </div>
-                <svg className="pcp-header__curve" viewBox="0 0 1000 64" preserveAspectRatio="none" aria-hidden="true">
-                  <path d="M-2 30 C 220 4 780 4 1002 30 L1002 66 L-2 66 Z" />
-                </svg>
-              </div>
-              <div className="pcp-body">
-                <h3 className="pcp-title">{tool.title}</h3>
-                <div className="pcp-content pcp-content--service">
-                  <p className="pcp-content__text">{tool.description}</p>
-                </div>
-                <a
-                  className="pcp-btn pcp-btn--pink"
-                  href={tool.url}
-                  target="_blank"
-                  rel="noopener"
-                >
-                  Открыть сервис
-                </a>
-                {hasInstructions ? (
-                  <div className="service-card__instructions">
-                    {tool.pdfUrl ? (
-                      <a
-                        className="service-card__instruction-link"
-                        href={tool.pdfUrl}
-                        target="_blank"
-                        rel="noopener"
-                      >
-                        <svg
-                          className="service-card__instruction-icon service-card__instruction-icon--pdf"
-                          viewBox="0 0 16 16"
-                          aria-hidden="true"
-                          focusable="false"
-                        >
-                          <path d="M4 1.5h5l3 3V14a.5.5 0 0 1-.5.5h-7A.5.5 0 0 1 4 14V1.5Zm5 .7v2.3h2.3L9 2.2ZM5 7h6v1H5V7Zm0 2h6v1H5V9Zm0 2h4v1H5v-1Z" />
-                        </svg>
-                        Инструкция PDF
-                      </a>
-                    ) : null}
-                    {tool.videoUrl ? (
-                      <a
-                        className="service-card__instruction-link"
-                        href={tool.videoUrl}
-                        target="_blank"
-                        rel="noopener"
-                      >
-                        <svg
-                          className="service-card__instruction-icon service-card__instruction-icon--video"
-                          viewBox="0 0 16 16"
-                          aria-hidden="true"
-                          focusable="false"
-                        >
-                          <path d="M3.5 2.5A1.5 1.5 0 0 0 2 4v8a1.5 1.5 0 0 0 1.5 1.5h9A1.5 1.5 0 0 0 14 12V4a1.5 1.5 0 0 0-1.5-1.5h-9Zm3.2 3.1 4.1 2.4-4.1 2.4V5.6Z" />
-                        </svg>
-                        Видео-инструкция
-                      </a>
-                    ) : null}
-                  </div>
-                ) : null}
-              </div>
-            </article>
-          )
-        })}
+  const filteredTools = useMemo(() => {
+    const normalizedQuery = searchQuery.trim().toLocaleLowerCase('ru-RU')
+
+    return INTERACTIVE_TOOLS
+      .filter((tool) => {
+        if (!selectedCategory) {
+          return true
+        }
+
+        return tool.categories.includes(selectedCategory)
+      })
+      .filter((tool) => {
+        if (!normalizedQuery) {
+          return true
+        }
+
+        const searchableText = [
+          tool.title,
+          tool.description,
+          tool.price,
+          ...tool.tags,
+        ].join(' ').toLocaleLowerCase('ru-RU')
+
+        return searchableText.includes(normalizedQuery)
+      })
+  }, [searchQuery, selectedCategory])
+
+  return (
+    <section id="interactive-tools" className="page-wrapper">
+      <header className="catalog-header">
+        <div className="catalog-header__content">
+          <p className="breadcrumb">ИНСТРУМЕНТЫ ИНТЕРАКТИВА</p>
+          <h1>Цифровые инструменты для уроков</h1>
+          <p className="subtitle">
+            Подборка проверенных сервисов и платформ для создания интерактивных
+            заданий, тестов, квизов, опросов и презентаций. Инструменты помогут
+            сделать уроки более вовлекающими и продуктивными.
+          </p>
+        </div>
+
+        <div className="tip-card">
+          <div className="tip-icon">💡</div>
+          <div>
+            <strong>Как выбрать инструмент?</strong>
+            <p>
+              Ориентируйтесь на цели урока, возраст учеников и доступные
+              устройства. В карточках указаны ключевые особенности и идеи
+              применения.
+            </p>
+          </div>
+        </div>
+      </header>
+
+      <div className="filter-bar">
+        <input
+          type="text"
+          placeholder="Поиск инструментов..."
+          value={searchQuery}
+          onChange={(event) => setSearchQuery(event.target.value)}
+        />
       </div>
+
+      <div className="page-layout">
+        <aside className="sidebar">
+          <p className="sidebar-label">КАТЕГОРИИ</p>
+          <ul className="category-list">
+            {CATEGORIES.map((category) => (
+              <li key={category.label}>
+                <label>
+                  <input
+                    type="checkbox"
+                    checked={selectedCategory === category.value}
+                    onChange={() => {
+                      setSelectedCategory((currentCategory) => (
+                        currentCategory === category.value ? '' : category.value
+                      ))
+                    }}
+                  />
+                  {category.label}
+                  <span className="count">{category.count}</span>
+                </label>
+              </li>
+            ))}
+          </ul>
+
+        </aside>
+
+        <main className="catalog-content">
+          {filteredTools.length > 0 ? (
+            <div className="tools-grid">
+              {filteredTools.map((tool) => (
+                <article key={tool.id} className="tool-card">
+                  <div className="card-top">
+                    <div className="tool-icon" style={{ background: tool.iconBg }}>
+                      <span style={{ fontSize: 22 }}>{tool.emoji}</span>
+                    </div>
+                    <div>
+                      <h3 className="tool-name">{tool.title}</h3>
+                      <div className="tool-tags">
+                        {tool.tags.map((tag) => (
+                          <span key={tag} className="tag">{tag}</span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  <p className="tool-desc">{tool.description}</p>
+                  <p className="tool-subject">Предметы: <span>все</span></p>
+                  <div className="tool-footer">
+                    <a
+                      href={tool.url}
+                      target="_blank"
+                      rel="noopener"
+                      className="btn-open"
+                    >
+                      Открыть
+                    </a>
+                    <span className="pricing">{tool.price}</span>
+                  </div>
+                </article>
+              ))}
+            </div>
+          ) : (
+            <p className="catalog-empty">По выбранным фильтрам ничего не найдено.</p>
+          )}
+        </main>
+      </div>
+
+      <section className="recommendations">
+        <p className="sidebar-label">РЕКОМЕНДАЦИИ ПО ВНЕДРЕНИЮ</p>
+        <div className="rec-grid">
+          {RECOMMENDATIONS.map((recommendation) => (
+            <article key={recommendation.title} className="rec-card">
+              <div className="rec-icon">{recommendation.icon}</div>
+              <strong>{recommendation.title}</strong>
+              <p>{recommendation.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
     </section>
   )
 }

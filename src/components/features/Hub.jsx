@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import BlockAI from './BlockAI'
 import AIRecommendationsPage from './AIRecommendationsPage/AIRecommendationsPage'
 import AboutPage from './AboutPage/AboutPage'
+import BlockDigitalTools from './BlockDigitalTools'
 import BlockInteractive from './BlockInteractive'
 import BlockSubjects from './BlockSubjects'
 import BlockTemplates from './BlockTemplates'
@@ -27,7 +28,7 @@ function getInitialHubPage() {
 function Hub({ onLogout }) {
   const [activePage, setActivePage] = useState(getInitialHubPage)
   const hubMainRef = useRef(null)
-  const sidebarActivePage = activePage === 'ai-guide' ? 'ai' : activePage
+  const sidebarActivePage = activePage === 'ai-guide' ? 'tips' : activePage
 
   useEffect(() => {
     sessionStorage.setItem(HUB_PAGE_STORAGE_KEY, activePage)
@@ -35,6 +36,7 @@ function Hub({ onLogout }) {
 
   function handleNavigate(pageKey) {
     hubMainRef.current?.scrollTo({ top: 0, behavior: 'smooth' })
+    window.scrollTo({ top: 0, behavior: 'smooth' })
     setActivePage(pageKey)
   }
 
@@ -42,10 +44,13 @@ function Hub({ onLogout }) {
     if (activePage === 'home') {
       return <OverviewPage onNavigate={handleNavigate} />
     }
+    if (activePage === 'tools') {
+      return <BlockDigitalTools />
+    }
     if (activePage === 'ai') {
       return <BlockAI onNavigate={handleNavigate} />
     }
-    if (activePage === 'ai-guide') {
+    if (activePage === 'tips' || activePage === 'ai-guide') {
       return <AIRecommendationsPage onNavigate={handleNavigate} />
     }
     if (activePage === 'templates') {
