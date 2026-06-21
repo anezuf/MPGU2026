@@ -116,12 +116,14 @@ export const AI_SERVICES = [
     title: 'Алиса AI',
     description: 'Нейросеть от Яндекса для генерации текстов и ответов на вопросы',
     url: 'https://300.ya.ru',
+    logoUrl: '/logos/alice-ai.png',
   },
   {
     id: 's2',
     title: 'GigaChat',
     description: 'Языковая модель от Сбера, работает на русском языке',
     url: 'https://gigachat.devices.sberbank.ru',
+    logoUrl: '/logos/gigachat.png',
   },
 ]
 
@@ -131,6 +133,7 @@ export const DIGITAL_LESSON_TOOLS = [
     title: 'Российская электронная школа',
     description: 'Материалы для объяснения нового содержания: видеоуроки, тренировочные задания и проверочные работы.',
     url: 'https://resh.edu.ru',
+    logoUrl: '/logos/resh.png',
     tag: 'Объяснение',
   },
   {
@@ -138,6 +141,7 @@ export const DIGITAL_LESSON_TOOLS = [
     title: 'ЯКласс',
     description: 'Платформа для подбора заданий, самостоятельной работы, тренировки навыков и быстрой проверки результатов.',
     url: 'https://www.yaklass.ru',
+    logoUrl: '/logos/yaklass.png',
     tag: 'Задания',
   },
   {
@@ -145,6 +149,7 @@ export const DIGITAL_LESSON_TOOLS = [
     title: 'Учи.ру',
     description: 'Интерактивные упражнения и сценарии для закрепления материала с учетом возраста обучающихся.',
     url: 'https://uchi.ru',
+    logoUrl: '/logos/uchi.png',
     tag: 'Практика',
   },
   {
@@ -152,6 +157,7 @@ export const DIGITAL_LESSON_TOOLS = [
     title: 'Online Test Pad',
     description: 'Конструктор тестов, опросов, анкет и кроссвордов для входной, текущей и итоговой проверки понимания темы.',
     url: 'https://onlinetestpad.com',
+    logoUrl: '/logos/online-test-pad.png',
     tag: 'Тестирование',
   },
   {
@@ -159,6 +165,7 @@ export const DIGITAL_LESSON_TOOLS = [
     title: 'Яндекс Формы',
     description: 'Инструмент для сбора ответов, обратной связи, мини-опросов и рефлексии после урока.',
     url: 'https://forms.yandex.ru',
+    logoUrl: '/logos/yandex-forms.ico',
     tag: 'Опросы',
   },
   {
@@ -166,6 +173,7 @@ export const DIGITAL_LESSON_TOOLS = [
     title: 'Datawrapper',
     description: 'Сервис для создания понятных графиков, карт и таблиц при работе с социальной и статистической информацией.',
     url: 'https://www.datawrapper.de',
+    logoUrl: '/logos/datawrapper.png',
     tag: 'Визуализация',
   },
 ]
@@ -180,6 +188,7 @@ export const INTERACTIVE_TOOLS = [
     description: 'Создавайте анкеты, тесты и квизы с автоматической проверкой ответов. Подходит для входной диагностики, рефлексии и сбора обратной связи.',
     price: 'Бесплатно',
     url: 'https://forms.yandex.ru/',
+    logoUrl: '/logos/yandex-forms.ico',
     categories: ['Тесты и опросы'],
   },
   {
@@ -191,6 +200,7 @@ export const INTERACTIVE_TOOLS = [
     description: 'Бесплатный конструктор тестов, опросов, кроссвордов, комплексных заданий и диалоговых тренажеров. Удобен для самостоятельной работы и контроля знаний.',
     price: 'Бесплатно',
     url: 'https://onlinetestpad.com/',
+    logoUrl: '/logos/online-test-pad.png',
     categories: ['Тесты и опросы'],
   },
   {
@@ -202,6 +212,7 @@ export const INTERACTIVE_TOOLS = [
     description: 'Сервис для интерактивных уроков и формирующего оценивания: создавайте вопросы, проводите сессии и быстро видите результаты учеников.',
     price: 'Бесплатно / платно',
     url: 'https://www.classtime.com/ru.html',
+    logoUrl: '/logos/classtime.png',
     categories: ['Тесты и опросы'],
   },
   {
@@ -213,6 +224,7 @@ export const INTERACTIVE_TOOLS = [
     description: 'Платформа для создания учебных квестов, викторин, тестов, интерактивных видео и заданий по терминам. Хорошо подходит для игровых уроков и повторения темы.',
     price: 'Бесплатно / платно',
     url: 'https://joyteka.com/ru',
+    logoUrl: '/logos/joyteka.png',
     categories: ['Квизы и игры'],
   },
   {
@@ -224,6 +236,7 @@ export const INTERACTIVE_TOOLS = [
     description: 'Сервис для проведения онлайн-викторин и квизов в индивидуальном или командном режиме. Подходит для повторения раздела и командных учебных игр.',
     price: 'Бесплатно до 35 игроков',
     url: 'https://myquiz.ru',
+    logoUrl: '/logos/myquiz.png',
     categories: ['Квизы и игры'],
   },
   {
@@ -235,6 +248,7 @@ export const INTERACTIVE_TOOLS = [
     description: 'Конструктор учебных игр и интерактивных заданий по шаблонам: викторины, соответствия, случайные колёса, карточки, сортировки.',
     price: 'Бесплатно / платно',
     url: 'https://wordwall.net/ru',
+    logoUrl: '/logos/wordwall.png',
     categories: ['Квизы и игры', 'Упражнения и тренажеры'],
   },
   {
@@ -246,6 +260,7 @@ export const INTERACTIVE_TOOLS = [
     description: 'Сервис для создания интерактивных упражнений: сопоставление, классификация, хронология, кроссворды, викторины. Подходит для коротких заданий на уроке.',
     price: 'Бесплатно',
     url: 'https://learningapps.org/',
+    logoUrl: '/logos/learningapps.png',
     categories: ['Упражнения и тренажеры'],
   },
   {
@@ -257,6 +272,7 @@ export const INTERACTIVE_TOOLS = [
     description: 'Конструктор интерактивных игр, тестов, карточек, кроссвордов, таймлайнов и рабочих листов. Для закрепления понятий и мини-проверок.',
     price: 'Бесплатно / платно',
     url: 'https://interacty.me/ru',
+    logoUrl: '/logos/interacty.png',
     categories: ['Упражнения и тренажеры'],
   },
   {
@@ -268,6 +284,7 @@ export const INTERACTIVE_TOOLS = [
     description: 'Российская платформа для онлайн-досок, вебинаров и занятий с голосованиями, реакциями, опросами и квизами.',
     price: 'Бесплатно / платно',
     url: 'https://pruffme.com/',
+    logoUrl: '/logos/pruffme.png',
     categories: ['Доски и вебинары'],
   },
   {
@@ -279,6 +296,7 @@ export const INTERACTIVE_TOOLS = [
     description: 'Российская платформа для встреч, онлайн-досок, форм, курсов и вебинаров. Позволяет запускать тесты и опросы прямо во время занятия.',
     price: 'Бесплатно / платно',
     url: 'https://mts-link.ru/',
+    logoUrl: '/logos/mts-link.png',
     categories: ['Доски и вебинары'],
   },
   {
@@ -290,6 +308,7 @@ export const INTERACTIVE_TOOLS = [
     description: 'Платформа для создания онлайн-курсов, уроков и заданий. Подходит для модульного обучения, домашней работы и самостоятельного прохождения тем.',
     price: 'Бесплатно',
     url: 'https://stepik.org/',
+    logoUrl: '/logos/stepik.png',
     categories: ['Курсы и LMS'],
   },
   {
@@ -301,6 +320,7 @@ export const INTERACTIVE_TOOLS = [
     description: 'Конструктор онлайн-уроков и курсов с методическими шаблонами, заданиями, проверкой работ и элементами геймификации.',
     price: 'Базовый бесплатно',
     url: 'https://coreapp.ai/',
+    logoUrl: '/logos/coreapp.png',
     categories: ['Курсы и LMS'],
   },
   {
@@ -312,6 +332,7 @@ export const INTERACTIVE_TOOLS = [
     description: 'Система дистанционного обучения с тестами, банком вопросов, обратной связью и разными типами заданий. Для полноценного курса.',
     price: 'Бесплатно (ПО)',
     url: 'https://moodle.org/?lang=ru',
+    logoUrl: '/logos/moodle.png',
     categories: ['Курсы и LMS'],
   },
 ]

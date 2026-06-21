@@ -134,8 +134,24 @@ function BlockInteractive() {
               {filteredTools.map((tool) => (
                 <article key={tool.id} className="tool-card">
                   <div className="card-top">
-                    <div className="tool-icon" style={{ background: tool.iconBg }}>
-                      <span style={{ fontSize: 22 }}>{tool.emoji}</span>
+                    <div
+                      className={`tool-icon${tool.logoUrl ? ' tool-icon--logo' : ''}`}
+                      style={tool.logoUrl ? undefined : { background: tool.iconBg }}
+                    >
+                      {tool.logoUrl && (
+                        <img
+                          className="tool-logo"
+                          src={tool.logoUrl}
+                          alt=""
+                          loading="lazy"
+                          aria-hidden="true"
+                          onError={(event) => {
+                            event.currentTarget.hidden = true
+                            event.currentTarget.nextElementSibling.hidden = false
+                          }}
+                        />
+                      )}
+                      <span hidden={Boolean(tool.logoUrl)} style={{ fontSize: 22 }}>{tool.emoji}</span>
                     </div>
                     <div>
                       <h3 className="tool-name">{tool.title}</h3>

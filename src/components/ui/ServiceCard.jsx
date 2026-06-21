@@ -18,12 +18,18 @@ const ExternalLinkIcon = () => (
 )
 
 function ServiceCard({ service }) {
+  const hasLogo = Boolean(service.logoUrl)
+
   return (
     <article className="pcp-card pcp-card--service">
       <div className="pcp-header pcp-header--service">
         <div className="pcp-header__left">
-          <div className="pcp-header__icon">
-            <ExternalLinkIcon />
+          <div className={`pcp-header__icon${hasLogo ? ' pcp-header__icon--logo' : ''}`}>
+            {hasLogo ? (
+              <img className="pcp-header__logo" src={service.logoUrl} alt="" loading="lazy" aria-hidden="true" />
+            ) : (
+              <ExternalLinkIcon />
+            )}
           </div>
           <span className="pcp-header__label">Сервис</span>
         </div>

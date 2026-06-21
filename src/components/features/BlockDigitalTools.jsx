@@ -32,6 +32,7 @@ function BlockDigitalTools() {
       <div className="ai-grid">
         {DIGITAL_LESSON_TOOLS.map((tool, index) => {
           const isPink = index % 2 === 1
+          const hasLogo = Boolean(tool.logoUrl)
 
           return (
             <article
@@ -40,8 +41,12 @@ function BlockDigitalTools() {
             >
               <div className={isPink ? 'pcp-header pcp-header--service' : 'pcp-header'}>
                 <div className="pcp-header__left">
-                  <div className="pcp-header__icon">
-                    <ExternalLinkIcon />
+                  <div className={`pcp-header__icon${hasLogo ? ' pcp-header__icon--logo' : ''}`}>
+                    {hasLogo ? (
+                      <img className="pcp-header__logo" src={tool.logoUrl} alt="" loading="lazy" aria-hidden="true" />
+                    ) : (
+                      <ExternalLinkIcon />
+                    )}
                   </div>
                   <span className="pcp-header__label">{tool.tag}</span>
                 </div>
