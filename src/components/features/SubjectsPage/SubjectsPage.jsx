@@ -122,9 +122,6 @@ function SubjectsPage() {
             <p className="subp-sidebar__highlight-text">
               Скоро появятся новые материалы по темам курса обществознания для 8–11 классов.
             </p>
-            <button type="button" className="subp-sidebar__highlight-btn" disabled>
-              Подробнее →
-            </button>
           </div>
         </aside>
 

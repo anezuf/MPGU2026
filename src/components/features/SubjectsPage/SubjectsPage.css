@@ -212,29 +212,10 @@
 }
 
 .subp-sidebar__highlight-text {
-  margin: 0 0 10px;
+  margin: 0;
   font-size: 12px;
   line-height: 1.45;
   color: #6b7280;
-}
-
-.subp-sidebar__highlight-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 32px;
-  padding: 6px 12px;
-  border: 1px solid #d4ede9;
-  border-radius: 8px;
-  background: #ffffff;
-  color: #1a9485;
-  font: 600 12px/1 'Nunito', sans-serif;
-  transition: background-color 180ms ease;
-}
-
-.subp-sidebar__highlight-btn:disabled {
-  opacity: 0.55;
-  cursor: not-allowed;
 }
 
 /* ── GRID ── */

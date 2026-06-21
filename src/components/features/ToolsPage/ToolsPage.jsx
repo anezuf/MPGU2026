@@ -79,9 +79,6 @@ function ToolsPage() {
             <p className="subp-sidebar__highlight-text">
               Подборка сервисов регулярно обновляется — добавляем проверенные платформы для уроков.
             </p>
-            <button type="button" className="subp-sidebar__highlight-btn" disabled>
-              Подробнее →
-            </button>
           </div>
         </aside>
 
