@@ -1,13 +1,11 @@
-function BookmarkIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M6 4.5A2.5 2.5 0 0 1 8.5 2h7A2.5 2.5 0 0 1 18 4.5V20l-6-3.5L6 20V4.5Z" />
-    </svg>
-  )
-}
-
 function MaterialCard({ material }) {
-  const isStub = !material.url
+  const files = material.files?.length
+    ? material.files
+    : material.url
+      ? [{ label: 'Открыть', url: material.url }]
+      : []
+
+  const isStub = files.length === 0
 
   return (
     <article className={`subp-card subp-card--${material.variant}`}>
@@ -18,7 +16,9 @@ function MaterialCard({ material }) {
       <p className="subp-card__desc">{material.description}</p>
       <div className="subp-card__meta">
         <span>{material.grades}</span>
-        {material.hasFgos && <span className="subp-card__tag">ФГОС</span>}
+        {(material.tag || material.hasFgos) && (
+          <span className="subp-card__tag">{material.tag || 'ФГОС'}</span>
+        )}
       </div>
       <div className="subp-card__footer">
         {isStub ? (
@@ -26,18 +26,20 @@ function MaterialCard({ material }) {
             Скоро
           </button>
         ) : (
-          <a
-            className="subp-card__btn"
-            href={material.url}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Открыть
-          </a>
+          <div className="subp-card__actions">
+            {files.map((file) => (
+              <a
+                key={file.url}
+                className="subp-card__btn"
+                href={file.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {file.label}
+              </a>
+            ))}
+          </div>
         )}
-        <button type="button" className="subp-card__bookmark" aria-label="В избранное" disabled>
-          <BookmarkIcon />
-        </button>
       </div>
     </article>
   )

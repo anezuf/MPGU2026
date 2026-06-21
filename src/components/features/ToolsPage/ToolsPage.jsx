@@ -10,23 +10,11 @@ import '../SubjectsPage/SubjectsPage.css'
 function ToolsPageHeader() {
   return (
     <header className="subp-header">
-      <div className="subp-header__left">
-        <h1 className="hub-page-title">Цифровые инструменты для уроков</h1>
-        <p className="hub-page-subtitle">
-          Сервисы для объяснения нового материала, создания заданий, опросов,
-          тестирования и визуализации информации на уроках обществознания.
-        </p>
-      </div>
-      <aside className="subp-tip-card" aria-label="Подсказка по выбору инструмента">
-        <span className="subp-tip-card__icon" aria-hidden="true">💡</span>
-        <div>
-          <strong>Как выбрать инструмент?</strong>
-          <p>
-            Ориентируйтесь на цели урока, возраст учеников и доступные устройства.
-            В карточках указаны ключевые особенности и идеи применения.
-          </p>
-        </div>
-      </aside>
+      <h1 className="hub-page-title">Цифровые инструменты для уроков</h1>
+      <p className="hub-page-subtitle">
+        Сервисы для объяснения нового материала, создания заданий, опросов,
+        тестирования и визуализации информации на уроках обществознания.
+      </p>
     </header>
   )
 }

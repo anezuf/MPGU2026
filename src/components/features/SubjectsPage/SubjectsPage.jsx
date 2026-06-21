@@ -10,23 +10,11 @@ import './SubjectsPage.css'
 function SubjectsPageHeader() {
   return (
     <header className="subp-header">
-      <div className="subp-header__left">
-        <h1 className="hub-page-title">Предметные копилки</h1>
-        <p className="hub-page-subtitle">
-          Подборка учебных материалов по обществознанию: рабочие листы, презентации,
-          квизы, видеоуроки и методические рекомендации для уроков в школе.
-        </p>
-      </div>
-      <aside className="subp-tip-card" aria-label="Подсказка по использованию">
-        <span className="subp-tip-card__icon" aria-hidden="true">🔖</span>
-        <div>
-          <strong>Как использовать копилки?</strong>
-          <p>
-            Выберите тип материала слева, откройте карточку и адаптируйте содержание
-            под тему урока, класс и цели обучения.
-          </p>
-        </div>
-      </aside>
+      <h1 className="hub-page-title">Предметные копилки</h1>
+      <p className="hub-page-subtitle">
+        Подборка учебных материалов по обществознанию: рабочие листы, презентации,
+        квизы, видеоуроки и методические рекомендации для уроков в школе.
+      </p>
     </header>
   )
 }
