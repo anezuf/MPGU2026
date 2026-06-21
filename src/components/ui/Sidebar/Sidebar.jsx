@@ -39,8 +39,8 @@ function LogOutIcon() {
 const TOP_NAV_ITEMS = [
   { page: 'tools', label: 'Инструменты' },
   { page: 'ai', label: 'Нейросети' },
-  { page: 'subjects', label: 'Ресурсы' },
-  { page: 'templates', label: 'Материалы' },
+  { page: 'subjects', label: 'Материалы' },
+  { page: 'templates', label: 'Шаблоны' },
   { page: 'interactive', label: 'Интерактив' },
   { page: 'tips', label: 'Методическая копилка' },
 ]

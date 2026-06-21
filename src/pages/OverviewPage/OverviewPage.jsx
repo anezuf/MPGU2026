@@ -90,7 +90,7 @@ const SECTION_META = {
   ai: { label: 'Нейросети', variant: 'teal' },
   templates: { label: 'Шаблоны', variant: 'pink' },
   interactive: { label: 'Интерактив', variant: 'teal' },
-  subjects: { label: 'Предметы', variant: 'pink' },
+  subjects: { label: 'Материалы', variant: 'pink' },
   tips: { label: 'Лайфхаки', variant: 'teal' },
 }
 

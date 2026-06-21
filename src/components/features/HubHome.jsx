@@ -144,7 +144,7 @@ const HOME_BLOCKS = [
   },
   {
     key: 'subjects',
-    label: 'Предметы',
+    label: 'Материалы',
     variant: 'pink',
     icon: BookIcon,
     title: 'Предметные копилки',
