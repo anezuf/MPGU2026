@@ -12,8 +12,8 @@ function SubjectsPageHeader() {
     <header className="subp-header">
       <h1 className="hub-page-title">Предметные копилки</h1>
       <p className="hub-page-subtitle">
-        Подборка учебных материалов по обществознанию: рабочие листы, презентации,
-        квизы, видеоуроки и методические рекомендации для уроков в школе.
+        Подборка учебных материалов по обществознанию: презентации, рабочие листы,
+        квизы, инфографики и методические рекомендации для уроков в школе.
       </p>
     </header>
   )
@@ -40,7 +40,7 @@ function SubjectsPage() {
 
   const filteredMaterials = useMemo(() => {
     if (activeType === 'all') return SOCIETY_MATERIALS
-    return SOCIETY_MATERIALS.filter((item) => item.type === activeType)
+    return SOCIETY_MATERIALS.filter((item) => item.typeLabel === activeType)
   }, [activeType])
 
   const handleTypeSelect = useCallback((typeId) => {
@@ -69,8 +69,13 @@ function SubjectsPage() {
                   onClick={() => handleTypeSelect(item.id)}
                   aria-current={activeType === item.id ? 'true' : undefined}
                 >
-                  <span className="subp-sidebar__icon" aria-hidden="true">{item.icon}</span>
-                  {item.label}
+                  {item.variant ? (
+                    <span className={`subp-sidebar__badge subp-sidebar__badge--${item.variant}`}>
+                      {item.label}
+                    </span>
+                  ) : (
+                    <span className="subp-sidebar__all-label">{item.label}</span>
+                  )}
                 </button>
               </li>
             ))}
