@@ -165,7 +165,7 @@ export const DIGITAL_LESSON_TOOLS = [
     title: 'Яндекс Формы',
     description: 'Инструмент для сбора ответов, обратной связи, мини-опросов и рефлексии после урока.',
     url: 'https://forms.yandex.ru',
-    logoUrl: '/logos/yandex-forms.ico',
+    logoUrl: '/logos/yandex-forms.png',
     tag: 'Опросы',
   },
   {
@@ -188,7 +188,7 @@ export const INTERACTIVE_TOOLS = [
     description: 'Создавайте анкеты, тесты и квизы с автоматической проверкой ответов. Подходит для входной диагностики, рефлексии и сбора обратной связи.',
     price: 'Бесплатно',
     url: 'https://forms.yandex.ru/',
-    logoUrl: '/logos/yandex-forms.ico',
+    logoUrl: '/logos/yandex-forms.png',
     categories: ['Тесты и опросы'],
   },
   {
