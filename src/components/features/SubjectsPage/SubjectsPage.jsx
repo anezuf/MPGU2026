@@ -10,7 +10,7 @@ import './SubjectsPage.css'
 function SubjectsPageHeader() {
   return (
     <header className="subp-header">
-      <h1 className="hub-page-title">Предметные копилки</h1>
+      <h1 className="hub-page-title">Предметная копилка</h1>
       <p className="hub-page-subtitle">
         Подборка учебных материалов по обществознанию: презентации, рабочие листы,
         квизы, инфографики и методические рекомендации для уроков в школе.
@@ -45,7 +45,7 @@ function SubjectsPage() {
   }, [])
 
   return (
-    <section className="subjects-page" aria-label="Предметные копилки">
+    <section className="subjects-page" aria-label="Предметная копилка">
       <SubjectsPageHeader />
 
       <div className="subp-subject-tabs" role="tablist" aria-label="Предметы">
@@ -80,7 +80,7 @@ function SubjectsPage() {
           <div className="subp-sidebar__highlight">
             <p className="subp-sidebar__highlight-title">АКТУАЛЬНО</p>
             <p className="subp-sidebar__highlight-text">
-              Скоро появятся новые материалы по темам курса обществознания для 5–11 классов.
+              Скоро появятся новые материалы по темам курса обществознания для 8–11 классов.
             </p>
             <button type="button" className="subp-sidebar__highlight-btn" disabled>
               Подробнее →
@@ -88,7 +88,7 @@ function SubjectsPage() {
           </div>
         </aside>
 
-        <div className="subp-grid" aria-label="Материалы по обществознанию">
+        <div className="subp-grid tools-grid" aria-label="Материалы по обществознанию">
           {filteredMaterials.length > 0 ? (
             filteredMaterials.map((material) => (
               <MaterialCard key={material.id} material={material} />

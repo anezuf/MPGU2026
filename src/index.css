@@ -1000,6 +1000,47 @@ a.btn-pink {
   gap: 1rem;
 }
 
+.templates-grid {
+  margin-top: 1.5rem;
+  gap: 1.25rem;
+}
+
+#templates-visuals .tool-card {
+  padding: 1.5rem;
+  gap: 12px;
+}
+
+#templates-visuals .tool-icon {
+  width: 56px;
+  height: 56px;
+}
+
+.templates-card-emoji {
+  font-size: 26px;
+  line-height: 1;
+}
+
+#templates-visuals .tool-name {
+  font-size: 18px;
+}
+
+#templates-visuals .tool-desc {
+  font-size: 14px;
+}
+
+#templates-visuals .tool-footer {
+  padding-top: 10px;
+}
+
+#templates-visuals .btn-open {
+  padding: 8px 22px;
+  font-size: 14px;
+}
+
+#templates-visuals .recommendations {
+  margin-top: 2.5rem;
+}
+
 .tool-card {
   display: flex;
   flex-direction: column;

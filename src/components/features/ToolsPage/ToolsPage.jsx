@@ -65,12 +65,16 @@ function ToolsPage() {
               <li key={item.id}>
                 <button
                   type="button"
-                  className={`subp-sidebar__item${activeType === item.id ? ' subp-sidebar__item--active' : ''}`}
+                  className={`subp-sidebar__chip${activeType === item.id ? ' subp-sidebar__chip--active' : ''}`}
                   onClick={() => handleTypeSelect(item.id)}
                   aria-current={activeType === item.id ? 'true' : undefined}
                 >
-                  <span className="subp-sidebar__icon" aria-hidden="true">{item.icon}</span>
-                  {item.label}
+                  <span className="subp-sidebar__chip-icon" aria-hidden="true">{item.icon}</span>
+                  <span className="subp-sidebar__chip-copy">
+                    <span className="subp-sidebar__chip-name">{item.title}</span>
+                    <span className="subp-sidebar__chip-note">{item.note}</span>
+                  </span>
+                  <span className="subp-sidebar__chip-count">{item.count}</span>
                 </button>
               </li>
             ))}
@@ -87,7 +91,7 @@ function ToolsPage() {
           </div>
         </aside>
 
-        <div className="subp-grid" aria-label="Цифровые инструменты">
+        <div className="subp-grid tools-grid" aria-label="Цифровые инструменты">
           {filteredTools.length > 0 ? (
             filteredTools.map((tool) => (
               <ToolCard key={tool.id} tool={tool} />

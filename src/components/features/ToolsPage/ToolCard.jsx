@@ -1,17 +1,47 @@
+const TYPE_STYLE = {
+  explanation: { emoji: '📖', iconBg: '#CCFBF1' },
+  practice: { emoji: '✏️', iconBg: '#E0F2FF' },
+  testing: { emoji: '📝', iconBg: '#F3E8FF' },
+  surveys: { emoji: '📋', iconBg: '#EDE9FE' },
+}
+
+const VARIANT_STYLE = {
+  teal: { emoji: '🔗', iconBg: '#CCFBF1' },
+  pink: { emoji: '🔗', iconBg: '#FDE8E8' },
+  purple: { emoji: '🔗', iconBg: '#EDE9FE' },
+}
+
+function getToolStyle(tool) {
+  return TYPE_STYLE[tool.type] || VARIANT_STYLE[tool.variant] || { emoji: '🔗', iconBg: '#E0F2F0' }
+}
+
+function formatTypeTag(typeLabel) {
+  return typeLabel.charAt(0) + typeLabel.slice(1).toLowerCase()
+}
+
 function ToolCard({ tool }) {
+  const { emoji, iconBg } = getToolStyle(tool)
+  const tags = [formatTypeTag(tool.typeLabel), tool.usageNote]
+
   return (
-    <article className={`subp-card subp-card--${tool.variant}`}>
-      <div className="subp-card__head">
-        <span className="subp-card__type">{tool.typeLabel}</span>
+    <article className="tool-card">
+      <div className="card-top">
+        <div className="tool-icon" style={{ background: iconBg }}>
+          <span className="subp-material-emoji">{emoji}</span>
+        </div>
+        <div>
+          <h3 className="tool-name">{tool.title}</h3>
+          <div className="tool-tags">
+            {tags.map((tag) => (
+              <span key={tag} className="tag">{tag}</span>
+            ))}
+          </div>
+        </div>
       </div>
-      <h3 className="subp-card__title">{tool.title}</h3>
-      <p className="subp-card__desc">{tool.description}</p>
-      <div className="subp-card__meta">
-        <span>{tool.usageNote}</span>
-      </div>
-      <div className="subp-card__footer">
+      <p className="tool-desc">{tool.description}</p>
+      <div className="tool-footer">
         <a
-          className="subp-card__btn"
+          className="btn-open"
           href={tool.url}
           target="_blank"
           rel="noopener noreferrer"

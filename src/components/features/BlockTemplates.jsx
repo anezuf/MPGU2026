@@ -1,78 +1,99 @@
 import { TEMPLATES } from '../../data/resources'
 
-const TEMPLATE_TYPE_LABELS = {
-  presentation: 'Презентация',
-  worksheet: 'Рабочий лист',
-}
-
-const TEMPLATE_BUTTON_LABELS = {
-  presentation: 'Скачать презентацию',
-  worksheet: 'Скачать рабочий лист',
-}
-
-const DownloadIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="18"
-    height="18"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.75"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden="true"
-  >
-    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-    <polyline points="7 10 12 15 17 10" />
-    <line x1="12" y1="15" x2="12" y2="3" />
-  </svg>
-)
+const RECOMMENDATIONS = [
+  {
+    icon: '🎯',
+    title: 'Подберите тему',
+    text: 'Выберите шаблон под тему урока: культура и искусство, право или правонарушения.',
+  },
+  {
+    icon: '🎨',
+    title: 'Сохраните стиль',
+    text: 'Используйте цветовую гамму шаблона как основу для своих слайдов и иллюстраций.',
+  },
+  {
+    icon: '📋',
+    title: 'Адаптируйте содержание',
+    text: 'Замените заголовки и тексты, сохранив структуру слайдов и визуальное оформление.',
+  },
+  {
+    icon: '💾',
+    title: 'Сделайте копию',
+    text: 'Скачайте шаблон на Яндекс.Диске и работайте с собственной копией, не изменяя оригинал.',
+  },
+]
 
 function BlockTemplates() {
   return (
-    <section id="templates-visuals" className="hub-section">
-      <div className="section-header">
-        <h2 className="hub-page-title">Шаблоны и визуал</h2>
-        <p className="hub-page-subtitle">Готовые презентации и рабочие листы для скачивания</p>
+    <section id="templates-visuals" className="page-wrapper">
+      <header className="catalog-header">
+        <div className="catalog-header__content">
+          <h1 className="hub-page-title">Шаблоны и визуал</h1>
+          <p className="hub-page-subtitle">
+            Готовые шаблоны презентаций для уроков обществознания и смежных тем.
+            Каждый шаблон оформлен в тематической цветовой гамме и готов к
+            адаптации под ваш материал.
+          </p>
+        </div>
+
+        <div className="tip-card">
+          <div className="tip-icon">💡</div>
+          <div>
+            <strong>Как использовать шаблон?</strong>
+            <p>
+              Откройте ссылку, скачайте презентацию и замените тексты под свою
+              тему. Цветовая гамма и оформление уже согласованы между слайдами.
+            </p>
+          </div>
+        </div>
+      </header>
+
+      <div className="templates-grid tools-grid">
+        {TEMPLATES.map((template) => (
+          <article key={template.id} className="tool-card">
+            <div className="card-top">
+              <div
+                className="tool-icon"
+                style={{ background: template.iconBg }}
+              >
+                <span className="templates-card-emoji">{template.emoji}</span>
+              </div>
+              <div>
+                <h3 className="tool-name">{template.title}</h3>
+                <div className="tool-tags">
+                  {template.tags.map((tag) => (
+                    <span key={tag} className="tag">{tag}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <p className="tool-desc">{template.description}</p>
+            <div className="tool-footer">
+              <a
+                href={template.url}
+                target="_blank"
+                rel="noopener"
+                className="btn-open"
+              >
+                Открыть
+              </a>
+            </div>
+          </article>
+        ))}
       </div>
-      <div className="ai-grid">
-        {TEMPLATES.map((template) => {
-          const isWorksheet = template.type === 'worksheet'
-          return (
-            <article
-              key={template.id}
-              className={isWorksheet ? 'pcp-card pcp-card--service' : 'pcp-card'}
-            >
-              <div className={isWorksheet ? 'pcp-header pcp-header--service' : 'pcp-header'}>
-                <div className="pcp-header__left">
-                  <div className="pcp-header__icon">
-                    <DownloadIcon />
-                  </div>
-                  <span className="pcp-header__label">{TEMPLATE_TYPE_LABELS[template.type]}</span>
-                </div>
-                <svg className="pcp-header__curve" viewBox="0 0 1000 64" preserveAspectRatio="none" aria-hidden="true">
-                  <path d="M-2 30 C 220 4 780 4 1002 30 L1002 66 L-2 66 Z" />
-                </svg>
-              </div>
-              <div className="pcp-body">
-                <h3 className="pcp-title">{template.title}</h3>
-                <div className={isWorksheet ? 'pcp-content pcp-content--service' : 'pcp-content'}>
-                  <p className="pcp-content__text">{template.description}</p>
-                </div>
-                <a
-                  className={isWorksheet ? 'pcp-btn pcp-btn--pink' : 'pcp-btn'}
-                  href={template.url}
-                  target="_blank"
-                  rel="noopener"
-                >
-                  {TEMPLATE_BUTTON_LABELS[template.type]}
-                </a>
-              </div>
+
+      <section className="recommendations">
+        <p className="sidebar-label">РЕКОМЕНДАЦИИ ПО ИСПОЛЬЗОВАНИЮ</p>
+        <div className="rec-grid">
+          {RECOMMENDATIONS.map((recommendation) => (
+            <article key={recommendation.title} className="rec-card">
+              <div className="rec-icon">{recommendation.icon}</div>
+              <strong>{recommendation.title}</strong>
+              <p>{recommendation.text}</p>
             </article>
-          )
-        })}
-      </div>
+          ))}
+        </div>
+      </section>
     </section>
   )
 }

@@ -1,9 +1,8 @@
-export const TOOL_SIDEBAR_ITEMS = [
-  { id: 'all', label: 'Все инструменты', icon: '✨' },
-  { id: 'explanation', label: 'Объяснение материала', icon: '📖' },
-  { id: 'practice', label: 'Задания и практика', icon: '✏️' },
-  { id: 'testing', label: 'Тестирование', icon: '📝' },
-  { id: 'surveys', label: 'Опросы и обратная связь', icon: '📋' },
+const TOOL_SIDEBAR_CONFIG = [
+  { id: 'explanation', title: 'Объяснение материала', note: 'видео и теория', icon: '📖' },
+  { id: 'practice', title: 'Задания и практика', note: 'самостоятельная работа', icon: '✏️' },
+  { id: 'testing', title: 'Тестирование', note: 'проверка знаний', icon: '📝' },
+  { id: 'surveys', title: 'Опросы и обратная связь', note: 'рефлексия и фидбек', icon: '📋' },
 ]
 
 export const LESSON_TOOLS = [
@@ -57,6 +56,24 @@ export const LESSON_TOOLS = [
     usageNote: 'Обратная связь',
     url: 'https://forms.yandex.ru',
   },
+]
+
+function countToolsByType(typeId) {
+  return LESSON_TOOLS.filter((tool) => tool.type === typeId).length
+}
+
+export const TOOL_SIDEBAR_ITEMS = [
+  {
+    id: 'all',
+    title: 'Все инструменты',
+    note: 'полный каталог',
+    icon: '✨',
+    count: LESSON_TOOLS.length,
+  },
+  ...TOOL_SIDEBAR_CONFIG.map((item) => ({
+    ...item,
+    count: countToolsByType(item.id),
+  })),
 ]
 
 export const TOOLS_INFO_BLOCKS = [
