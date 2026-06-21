@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import BlockAI from './BlockAI'
+import AIToolsPage from './AIToolsPage/AIToolsPage'
 import AIRecommendationsPage from './AIRecommendationsPage/AIRecommendationsPage'
 import AboutPage from './AboutPage/AboutPage'
 import BlockDigitalTools from './BlockDigitalTools'
@@ -48,7 +48,7 @@ function Hub({ onLogout }) {
       return <BlockDigitalTools />
     }
     if (activePage === 'ai') {
-      return <BlockAI onNavigate={handleNavigate} />
+      return <AIToolsPage />
     }
     if (activePage === 'tips' || activePage === 'ai-guide') {
       return <AIRecommendationsPage onNavigate={handleNavigate} />
