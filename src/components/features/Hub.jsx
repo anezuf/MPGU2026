@@ -51,7 +51,7 @@ function Hub({ onLogout }) {
       return <AIToolsPage />
     }
     if (activePage === 'tips' || activePage === 'ai-guide') {
-      return <AIRecommendationsPage onNavigate={handleNavigate} />
+      return <AIRecommendationsPage />
     }
     if (activePage === 'templates') {
       return <BlockTemplates />

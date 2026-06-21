@@ -123,7 +123,7 @@ const RECOMMENDATION_SECTIONS = [
   },
 ]
 
-function AIRecommendationsPage({ onNavigate }) {
+function AIRecommendationsPage() {
   return (
     <section className="ai-guide-page" aria-label="Лайфхаки и рекомендации">
       <article className="ai-guide-page__card">
@@ -135,14 +135,6 @@ function AIRecommendationsPage({ onNavigate }) {
               оцениванию, адаптации под класс, визуалу, групповой работе, использованию ИИ и интерактива.
             </p>
           </div>
-
-          <button
-            type="button"
-            className="ai-guide-page__back"
-            onClick={() => onNavigate('ai')}
-          >
-            К нейросетям
-          </button>
         </div>
 
         <div className="ai-guide-page__grid">
